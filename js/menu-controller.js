@@ -18,7 +18,6 @@ export class MenuController extends Component {
         this.controllerPosition = new Float32Array(3);
         this.controllerRotation = new Float32Array(4);
         this.planeMenu = this.object.children[0].getComponent('mesh', 0);
-        // this.text = this.object.children[0].getComponent('text', 0);
         this.fowardTemp = new Float32Array(3);
         this.vec3Up = new Float32Array([0, 1, 0]);
 
@@ -35,11 +34,11 @@ export class MenuController extends Component {
         this.object.setTransformWorld(this.controllerPosition);
 
         this.controllerRotation = this.leftController.getRotationWorld();
-        // this.text.text = this.controllerRotation[1].toFixed(2);
 
         this.leftController.getForwardWorld(this.fowardTemp)
         var degreesFromUp = vec3.angle(this.fowardTemp, this.vec3Up);
 
+        // the value of 1.0 is arbitrary, but it works well for now
         if ( degreesFromUp > 1.0 ) {
             this.planeMenu.active = true;
         } else {

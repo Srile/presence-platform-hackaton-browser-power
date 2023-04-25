@@ -2,8 +2,6 @@ import * as __wonderlandengine_components from '@wonderlandengine/components';
 _registerEditor(__wonderlandengine_components);
 import * as __Users_vincenttrastour_Documents_meta_hack_js_button_js from '/Users/vincenttrastour/Documents/meta/hack/js/button.js';
 _registerEditor(__Users_vincenttrastour_Documents_meta_hack_js_button_js);
-import * as __Users_vincenttrastour_Documents_meta_hack_js_display_controller_menu_js from '/Users/vincenttrastour/Documents/meta/hack/js/display-controller-menu.js';
-_registerEditor(__Users_vincenttrastour_Documents_meta_hack_js_display_controller_menu_js);
 import * as __Users_vincenttrastour_Documents_meta_hack_js_menu_controller_js from '/Users/vincenttrastour/Documents/meta/hack/js/menu-controller.js';
 _registerEditor(__Users_vincenttrastour_Documents_meta_hack_js_menu_controller_js);
 import * as __Users_vincenttrastour_Documents_meta_hack_js_place_shape_anchor_js from '/Users/vincenttrastour/Documents/meta/hack/js/place-shape-anchor.js';
