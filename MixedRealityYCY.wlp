@@ -1657,6 +1657,10 @@
                         "spawnmat": "25",
                         "interval": 1000.0
                     }
+                },
+                {
+                    "type": "botcontroller",
+                    "active": false
                 }
             ],
             "rotation": [
