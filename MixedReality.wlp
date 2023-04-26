@@ -1611,7 +1611,7 @@
             ]
         },
         "238": {
-            "name": "menu",
+            "name": "selectors",
             "parent": "237",
             "components": [
                 {
@@ -1620,9 +1620,6 @@
                         "mesh": "7",
                         "material": "26"
                     }
-                },
-                {
-                    "type": "text"
                 }
             ],
             "scaling": [
@@ -1642,7 +1639,7 @@
                 0.0414692
             ]
         },
-        "239": {
+        "2000": {
             "name": "GameManager",
             "components": [
                 {
@@ -1654,6 +1651,134 @@
                         "spatial": false
                     }
                 }
+            ]
+        },
+        "239": {
+            "name": "controller_collider",
+            "parent": "104",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "22"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.05
+                        },
+                        "groups": 128
+                    }
+                }
+            ],
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                0.0,
+                4.214339099917197e-8,
+                0.1024935
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                -0.0,
+                1.0
+            ]
+        },
+        "240": {
+            "name": "Mesh",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "25"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "groups": 128,
+                        "sphere": {
+                            "radius": 0.05
+                        }
+                    }
+                },
+                {
+                    "type": "check-collision"
+                }
+            ],
+            "scaling": [
+                0.5000006,
+                0.5000004,
+                0.5000005
+            ],
+            "translation": [
+                -0.1949727,
+                -0.3204783,
+                -0.5939487
+            ],
+            "rotation": [
+                0.034752,
+                0.7653181,
+                0.6413741,
+                -0.0414693
+            ]
+        },
+        "241": {
+            "name": "Mesh",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "26"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "groups": 128,
+                        "sphere": {
+                            "radius": 0.05
+                        }
+                    }
+                },
+                {
+                    "type": "check-collision",
+                    "check-collision": {
+                        "selectionColor": [
+                            1.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    }
+                }
+            ],
+            "scaling": [
+                0.5000007,
+                0.5000004,
+                0.5000005
+            ],
+            "translation": [
+                -2.6998686,
+                -0.3204886,
+                -0.3216775
+            ],
+            "rotation": [
+                0.034752,
+                0.7653181,
+                0.6413741,
+                -0.0414693
             ]
         }
     },

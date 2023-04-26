@@ -20,12 +20,29 @@ export class MenuController extends Component {
         this.planeMenu = this.object.children[0].getComponent('mesh', 0);
         this.fowardTemp = new Float32Array(3);
         this.vec3Up = new Float32Array([0, 1, 0]);
-
-        this.planeMenu.active = false;
+        this.isMenuVisible = false;
+        this.toggleMenu(false);
     }
 
     start() {
         console.log('start() with param', this.param);
+    }
+
+    toggleMenu(activate) {
+        if (activate == this.isMenuVisible) return;
+        this.planeMenu.active = activate;
+        this.planeMenu.object.children.forEach(child => {
+            child.active = activate;
+        });
+        this.isMenuVisible = activate;
+    }
+
+    isControllerPointingUp() {
+        this.leftController.getForwardWorld(this.fowardTemp)
+        var degreesFromUp = vec3.angle(this.fowardTemp, this.vec3Up);
+
+        // the value of 1.0 is arbitrary, but it works well for now
+        return (degreesFromUp > 1.0)
     }
 
     update(dt) {
@@ -35,14 +52,7 @@ export class MenuController extends Component {
 
         this.controllerRotation = this.leftController.getRotationWorld();
 
-        this.leftController.getForwardWorld(this.fowardTemp)
-        var degreesFromUp = vec3.angle(this.fowardTemp, this.vec3Up);
-
-        // the value of 1.0 is arbitrary, but it works well for now
-        if ( degreesFromUp > 1.0 ) {
-            this.planeMenu.active = true;
-        } else {
-            this.planeMenu.active = false;
-        }
+        // Toggle menu if controller is pointing up show the menu
+        this.toggleMenu(this.isControllerPointingUp());
     }
 }
