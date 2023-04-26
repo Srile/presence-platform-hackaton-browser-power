@@ -1,4 +1,4 @@
-import {Component, Property} from '@wonderlandengine/api';
+import {Component, Property, Emitter } from '@wonderlandengine/api';
 import { glMatrix, quat, vec3 } from 'gl-matrix';
 
 window.seletables = {
@@ -13,6 +13,8 @@ window.seletables = {
 }
 
 window.botsCount = 0;
+
+window.emitter = new Emitter();
 
 // call everytime the selection is changed to a new selection
 window.spawnObject = function() {
@@ -29,6 +31,7 @@ window.unselectObject = function(previousSelectionId) {
 // call when exit collision with exploe button
 window.startExplore = () => {
     console.log("startExplore")
+    window.emitter.notify({ startTimer: true });
 }
 
 /**
