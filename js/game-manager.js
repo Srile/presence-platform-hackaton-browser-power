@@ -1,4 +1,8 @@
 import {Component, Property} from '@wonderlandengine/api';
+import { fader } from './fade';
+import { portalPlacement } from './place-portal';
+import { objectPlacers } from './object-placer';
+import { portalPlacementMarkers } from './portal-placement-marker';
 
 /**
  * game-manager
@@ -7,10 +11,11 @@ export class GameManager extends Component {
     static TypeName = 'game-manager';
     /* Properties that are configurable in the editor */
     static Properties = {
-        param: Property.float(1.0)
+        debug: Property.bool(false)
     };
     /* Add other component types here that your component may
      * create. They will be registered with this component */
+
     static Dependencies = [];
 
     init() {
@@ -27,7 +32,8 @@ export class GameManager extends Component {
             3   Explore mode
         */
 
-        setTimeout(() => {
+        this.engine.onXRSessionStart.add((s) => {
+            fader.fadeOut(1000);
             this.narrationAudio0 = this.object.addComponent("howler-audio-source", {
                 src: "narration/narration-0-intro.mp3",
                 spatial: false,
@@ -42,6 +48,20 @@ export class GameManager extends Component {
                 loop: false,
                 autoplay: false
             });
+            this.narrationAudio2 = this.object.addComponent("howler-audio-source", {
+                src: "narration/narration-4+5-an-entry-pint-glance-at-wrist.mp3",
+                spatial: false,
+                volume: 1,
+                loop: false,
+                autoplay: false
+            });
+
+            if(this.debug) {
+                this.narrationAudio0.audio.rate(4.0);
+                this.narrationAudio1.audio.rate(4.0);
+                this.narrationAudio2.audio.rate(4.0);
+            }
+
 
             this.narrationAudio0.audio.on('end', function(){
                 console.log('Finished!');
@@ -51,8 +71,21 @@ export class GameManager extends Component {
                 this.narrationAudio1.audio.play();
                 // After initial narration, the next clip instructs the user to
                 // place the portal so activate the portal placement mode here
+                portalPlacement.activate();
+                portalPlacement.addOnSpawnCompleteFunction(() => {
+                    // this code should run once the portal is placed,
+                    // and we should enable build mode there
+                    console.log("Portal placed!!!")
+                    this.narrationAudio2.audio.play();
+                    
+                    if(objectPlacers.right) objectPlacers.right.setActive(true);
+                    // if(objectPlacers.left) objectPlacers.left.active = true;
+                    
+                    // Building mode needs to be enabled here
+                    // Next narration fires on block placement
+                });
             }.bind(this));
-        }, 3000);
+        });
     }
 
     start() {

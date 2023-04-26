@@ -20,14 +20,13 @@ import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlaneDetection} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
-import {WasdControlsComponent} from '@wonderlandengine/components';
-import {Botcontroller} from './botcontroller.js';
-import {CollisionScaler} from './collisionScaler.js';
+import {CheckCollision} from './check-collision.js';
+import {Fade} from './fade.js';
+import {GameManager} from './game-manager.js';
 import {MenuController} from './menu-controller.js';
-import {PlaceShapeAnchor} from './place-shape-anchor.js';
-import {RandomPlaneColors} from './random-plane-colors.js';
-import {SpawnBot} from './spawnBot.js';
-import {Uprighter} from './uprighter.js';
+import {ObjectPlacer} from './object-placer.js';
+import {PlacePortal} from './place-portal.js';
+import {PortalPlacementMarker} from './portal-placement-marker.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
@@ -98,14 +97,13 @@ engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlaneDetection);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
-engine.registerComponent(WasdControlsComponent);
-engine.registerComponent(Botcontroller);
-engine.registerComponent(CollisionScaler);
+engine.registerComponent(CheckCollision);
+engine.registerComponent(Fade);
+engine.registerComponent(GameManager);
 engine.registerComponent(MenuController);
-engine.registerComponent(PlaceShapeAnchor);
-engine.registerComponent(RandomPlaneColors);
-engine.registerComponent(SpawnBot);
-engine.registerComponent(Uprighter);
+engine.registerComponent(ObjectPlacer);
+engine.registerComponent(PlacePortal);
+engine.registerComponent(PortalPlacementMarker);
 /* wle:auto-register:end */
 
 engine.scene.load(`${Constants.ProjectName}.bin`);
