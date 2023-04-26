@@ -1625,7 +1625,7 @@
                     "type": "mesh",
                     "mesh": {
                         "mesh": "7",
-                        "material": "206"
+                        "material": "2001"
                     },
                     "active": false
                 }
@@ -2065,6 +2065,589 @@
                     "active": false
                 }
             ]
+        },
+        "240": {
+            "name": "button0",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "247"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "groups": 128,
+                        "sphere": {
+                            "radius": 0.025
+                        }
+                    },
+                    "active": true
+                },
+                {
+                    "type": "check-collision",
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.15,
+                0.15,
+                0.15
+            ],
+            "translation": [
+                0.6499999,
+                1.4901161193847656e-8,
+                0.3
+            ],
+            "rotation": [
+                0.7071068,
+                0.0,
+                0.0,
+                0.7071068
+            ]
+        },
+        "241": {
+            "name": "button1",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "248"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "groups": 128,
+                        "sphere": {
+                            "radius": 0.025
+                        }
+                    }
+                },
+                {
+                    "type": "check-collision",
+                    "check-collision": {
+                        "selectionColor": [
+                            1.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "id": 1
+                    },
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.15,
+                0.15,
+                0.15
+            ],
+            "translation": [
+                -0.6500001,
+                2.235174179077149e-7,
+                0.3
+            ],
+            "rotation": [
+                0.7071068,
+                0.0,
+                0.0,
+                0.7071068
+            ]
+        },
+        "244": {
+            "name": "button2",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "250"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.025
+                        },
+                        "groups": 128
+                    }
+                },
+                {
+                    "type": "check-collision",
+                    "check-collision": {
+                        "id": 2,
+                        "selectionColor": [
+                            1.0,
+                            1.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.15,
+                0.15,
+                0.15
+            ],
+            "translation": [
+                0.0110585,
+                -0.2499999,
+                0.3
+            ],
+            "rotation": [
+                0.7071068,
+                0.0000023,
+                -0.0000016,
+                0.7071068
+            ]
+        },
+        "245": {
+            "name": "button3",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "251"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.025
+                        },
+                        "groups": 128
+                    }
+                },
+                {
+                    "type": "check-collision",
+                    "check-collision": {
+                        "id": 3,
+                        "selectionColor": [
+                            0.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.15,
+                0.15,
+                0.15
+            ],
+            "translation": [
+                -0.3499999,
+                0.4999999,
+                0.3
+            ],
+            "rotation": [
+                0.7071068,
+                0.0000032,
+                -0.0000022,
+                0.7071068
+            ]
+        },
+        "246": {
+            "name": "button4",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "252"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.025
+                        },
+                        "groups": 128
+                    }
+                },
+                {
+                    "type": "check-collision",
+                    "check-collision": {
+                        "id": 4,
+                        "selectionColor": [
+                            1.0,
+                            0.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.15,
+                0.15,
+                0.15
+            ],
+            "translation": [
+                0.3499999,
+                0.5,
+                0.3
+            ],
+            "rotation": [
+                0.7071068,
+                0.0,
+                0.0,
+                0.7071068
+            ]
+        },
+        "2003": {
+            "name": "timer",
+            "parent": "237",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "material": "2005",
+                        "mesh": "7"
+                    }
+                },
+                {
+                    "type": "timer-controller"
+                }
+            ],
+            "scaling": [
+                0.05,
+                0.025,
+                1.0
+            ],
+            "translation": [
+                -0.1,
+                -0.0999999,
+                -0.1
+            ],
+            "rotation": [
+                0.42101,
+                -0.0789899,
+                0.0368336,
+                0.902859
+            ]
+        },
+        "2008": {
+            "name": "botsCount",
+            "parent": "237",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "material": "2004",
+                        "mesh": "7"
+                    }
+                },
+                {
+                    "type": "counter-controller"
+                }
+            ],
+            "scaling": [
+                0.05,
+                0.025,
+                1.0
+            ],
+            "translation": [
+                0.1,
+                -0.1,
+                -0.05
+            ],
+            "rotation": [
+                0.4210101,
+                -0.0789899,
+                0.0368336,
+                0.902859
+            ]
+        },
+        "2011": {
+            "name": "timerText",
+            "parent": "2003",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "00:10\n",
+                        "lineSpacing": 1.2
+                    }
+                }
+            ],
+            "scaling": [
+                5.0,
+                10.0,
+                5.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                1.0,
+                -4.3711388286737935e-8
+            ]
+        },
+        "2012": {
+            "name": "botsCountText",
+            "parent": "2008",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "042"
+                    }
+                }
+            ],
+            "scaling": [
+                5.0,
+                10.0,
+                5.0
+            ],
+            "translation": [
+                0.0,
+                -0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                1.0,
+                -4.3711388286737935e-8
+            ]
+        },
+        "2013": {
+            "name": "Mesh",
+            "parent": "240",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
+            ]
+        },
+        "2015": {
+            "name": "Mesh",
+            "parent": "241",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
+            ]
+        },
+        "2016": {
+            "name": "Mesh",
+            "parent": "244",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
+            ]
+        },
+        "2017": {
+            "name": "Mesh",
+            "parent": "245",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
+            ]
+        },
+        "2018": {
+            "name": "Mesh",
+            "parent": "246",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
+            ]
+        },
+        "2022": {
+            "name": "exploreButton",
+            "parent": "237",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2023"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "groups": 128,
+                        "collider": "aabb",
+                        "aabb": {
+                            "extents": [
+                                0.0399999,
+                                0.0199999,
+                                0.0099999
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "check-button-collision",
+                    "check-button-collision": {
+                        "id": 10,
+                        "selectionColor": [
+                            0.0,
+                            1.0,
+                            0.0,
+                            1.0
+                        ]
+                    }
+                }
+            ],
+            "scaling": [
+                0.0500002,
+                0.02,
+                0.1000003
+            ],
+            "translation": [
+                0.003815,
+                -0.1498003,
+                -0.0893267
+            ],
+            "rotation": [
+                -0.067941,
+                -0.4229351,
+                0.9015848,
+                -0.0604542
+            ]
+        },
+        "376BD18C-A764-4823-B889-AD49671446F7": {
+            "name": "botCountText",
+            "parent": "2008",
+            "components": [
+                {
+                    "type": "text"
+                }
+            ],
+            "scaling": [
+                5.0,
+                10.0,
+                5.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                -1.0,
+                -4.371138828673793e-8
+            ]
         }
     },
     "meshes": {
@@ -2271,6 +2854,30 @@
                 "file": "static\\textures\\ui\\hack_UI_bg.png"
             }
         },
+        "2007": {
+            "link": {
+                "name": "TIMER.png",
+                "file": "static\\textures\\ui\\TIMER.png"
+            }
+        },
+        "2010": {
+            "link": {
+                "name": "BOT COUNT.png",
+                "file": "static\\textures\\ui\\BOT COUNT.png"
+            }
+        },
+        "2021": {
+            "link": {
+                "name": "hack_UI_button_bg.png",
+                "file": "static\\textures\\ui\\hack_UI_button_bg.png"
+            }
+        },
+        "2025": {
+            "link": {
+                "name": "EXPLORE_BUTTON.png",
+                "file": "static\\textures\\ui\\EXPLORE_BUTTON.png"
+            }
+        },
         "2005": {
             "link": {
                 "name": "texture_0",
@@ -2323,6 +2930,30 @@
             "link": {
                 "name": "hack_UI_bg.png",
                 "file": "static\\textures\\ui\\hack_UI_bg.png"
+            }
+        },
+        "2006": {
+            "link": {
+                "name": "TIMER.png",
+                "file": "static\\textures\\ui\\TIMER.png"
+            }
+        },
+        "2009": {
+            "link": {
+                "name": "BOT COUNT.png",
+                "file": "static\\textures\\ui\\BOT COUNT.png"
+            }
+        },
+        "2020": {
+            "link": {
+                "name": "hack_UI_button_bg.png",
+                "file": "static\\textures\\ui\\hack_UI_button_bg.png"
+            }
+        },
+        "2024": {
+            "link": {
+                "name": "EXPLORE_BUTTON.png",
+                "file": "static\\textures\\ui\\EXPLORE_BUTTON.png"
             }
         },
         "2004": {
@@ -2690,6 +3321,189 @@
                     0.0,
                     1.0
                 ]
+            }
+        },
+        "2001": {
+            "name": "uiBgMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2EEFFF55-2D3D-4104-A086-3AD85FD7F6EE",
+            "Flat": {
+                "flatTexture": "243"
+            }
+        },
+        "2004": {
+            "name": "botCountBgMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2EEFFF55-2D3D-4104-A086-3AD85FD7F6EE",
+            "Flat": {
+                "flatTexture": "2010"
+            }
+        },
+        "2005": {
+            "name": "timerBgMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2EEFFF55-2D3D-4104-A086-3AD85FD7F6EE",
+            "Flat": {
+                "flatTexture": "2007"
+            }
+        },
+        "2019": {
+            "name": "botttomButtons",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2EEFFF55-2D3D-4104-A086-3AD85FD7F6EE",
+            "Flat": {
+                "flatTexture": "2021",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "alphaMaskThreshold": 0.0
+            }
+        },
+        "2023": {
+            "name": "exploreButtonMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2EEFFF55-2D3D-4104-A086-3AD85FD7F6EE",
+            "Flat": {
+                "flatTexture": "2025",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "alphaMaskThreshold": 0.0
+            }
+        },
+        "2026": {
+            "name": "exploreButtonHoverMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2EEFFF55-2D3D-4104-A086-3AD85FD7F6EE",
+            "Flat": {
+                "flatTexture": "2025",
+                "color": [
+                    0.2585951,
+                    0.4349775,
+                    0.2223652,
+                    1.0
+                ],
+                "alphaMaskThreshold": 0.0
             }
         },
         "2006": {
@@ -3135,6 +3949,18 @@
                 "file": "default"
             }
         },
+        "2002": {
+            "link": {
+                "name": "Flat Opaque Textured",
+                "file": "default"
+            },
+            "name": "Flat Transparent Textured",
+            "features": {
+                "ALPHA_MASKED": true
+            },
+            "doubleSided": true,
+            "sampleAlphaToCoverage": true
+        },
         "eb8b0fd3-068a-47e1-995c-61a1b94e19b1": {
             "link": {
                 "name": "Flat Opaque",
@@ -3148,6 +3974,18 @@
                 "ALPHA_MASKED": true
             },
             "sampleAlphaToCoverage": true
+        },
+        "2EEFFF55-2D3D-4104-A086-3AD85FD7F6EE": {
+            "link": {
+                "name": "Flat Opaque Textured",
+                "file": "default"
+            },
+            "name": "Flat Transparent Textured",
+            "features": {
+                "ALPHA_MASKED": true
+            },
+            "doubleSided": true,
+            "sampleAlphaToCoverage": true
         }
     },
     "files": [
@@ -3158,6 +3996,10 @@
         "models/button.glb",
         "models/teleport-indicator.glb",
         "static/textures/ui/hack_UI_bg.png",
+        "static/textures/ui/TIMER.png",
+        "static/textures/ui/BOT COUNT.png",
+        "static/textures/ui/hack_UI_button_bg.png",
+        "static/textures/ui/EXPLORE_BUTTON.png",
         "models/portal_test.glb",
         "models/invertedSphere.glb",
         "models/portalPlacer.glb"
