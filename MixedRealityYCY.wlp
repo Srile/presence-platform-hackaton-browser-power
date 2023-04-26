@@ -1693,6 +1693,42 @@
                 0.1,
                 0.1
             ]
+        },
+        "242": {
+            "name": "Mesh.000",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        }
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                0.6999999,
+                -2.0
+            ],
+            "scaling": [
+                0.2,
+                0.2,
+                0.2
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
         }
     },
     "meshes": {
