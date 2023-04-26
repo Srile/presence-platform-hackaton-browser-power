@@ -2215,6 +2215,55 @@
                 1.2,
                 1.2
             ]
+        },
+        "2022": {
+            "name": "exploreButton",
+            "parent": "237",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2023"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "groups": 128,
+                        "collider": "aabb",
+                        "aabb": {
+                            "extents": [
+                                0.0399999,
+                                0.0199999,
+                                0.0099999
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "check-button-collision",
+                    "check-button-collision": {
+                        "id": 10
+                    }
+                }
+            ],
+            "scaling": [
+                0.0500002,
+                0.02,
+                0.1000003
+            ],
+            "translation": [
+                0.003815,
+                -0.1498003,
+                -0.0893267
+            ],
+            "rotation": [
+                -0.067941,
+                -0.4229351,
+                0.9015848,
+                -0.0604542
+            ]
         }
     },
     "meshes": {
@@ -2402,6 +2451,12 @@
                 "name": "hack_UI_button_bg.png",
                 "file": "static\\textures\\ui\\hack_UI_button_bg.png"
             }
+        },
+        "2025": {
+            "link": {
+                "name": "EXPLORE_BUTTON.png",
+                "file": "static\\textures\\ui\\EXPLORE_BUTTON.png"
+            }
         }
     },
     "images": {
@@ -2467,6 +2522,12 @@
             "link": {
                 "name": "hack_UI_button_bg.png",
                 "file": "static\\textures\\ui\\hack_UI_button_bg.png"
+            }
+        },
+        "2024": {
+            "link": {
+                "name": "EXPLORE_BUTTON.png",
+                "file": "static\\textures\\ui\\EXPLORE_BUTTON.png"
             }
         }
     },
@@ -2943,6 +3004,74 @@
                 ],
                 "alphaMaskThreshold": 0.0
             }
+        },
+        "2023": {
+            "name": "exploreButtonMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2002",
+            "Flat": {
+                "flatTexture": "2025",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "alphaMaskThreshold": 0.0
+            }
+        },
+        "2026": {
+            "name": "exploreButtonHoverMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2002",
+            "Flat": {
+                "flatTexture": "2025",
+                "color": [
+                    0.2585951,
+                    0.4349775,
+                    0.2223652,
+                    1.0
+                ],
+                "alphaMaskThreshold": 0.0
+            }
         }
     },
     "shaders": {
@@ -3305,7 +3434,8 @@
         "static/textures/ui/hack_UI_bg.png",
         "static/textures/ui/TIMER.png",
         "static/textures/ui/BOT COUNT.png",
-        "static/textures/ui/hack_UI_button_bg.png"
+        "static/textures/ui/hack_UI_button_bg.png",
+        "static/textures/ui/EXPLORE_BUTTON.png"
     ],
     "fonts": {
         "230": {

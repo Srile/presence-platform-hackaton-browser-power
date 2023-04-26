@@ -21,11 +21,13 @@ import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlaneDetection} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
+import {CheckButtonCollision} from './check-button-collision.js';
 import {CheckCollision} from './check-collision.js';
-import {Fade} from './fade.js';
-import {GameManager} from './game-manager.js';
+import {CounterController} from './counter-controller.js';
 import {MenuController} from './menu-controller.js';
-import {PlacePortal} from './place-portal.js';
+import {PlaceShapeAnchor} from './place-shape-anchor.js';
+import {RandomPlaneColors} from './random-plane-colors.js';
+import {TimerController} from './timer-controller.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
@@ -97,11 +99,13 @@ engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlaneDetection);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
+engine.registerComponent(CheckButtonCollision);
 engine.registerComponent(CheckCollision);
-engine.registerComponent(Fade);
-engine.registerComponent(GameManager);
+engine.registerComponent(CounterController);
 engine.registerComponent(MenuController);
-engine.registerComponent(PlacePortal);
+engine.registerComponent(PlaceShapeAnchor);
+engine.registerComponent(RandomPlaneColors);
+engine.registerComponent(TimerController);
 /* wle:auto-register:end */
 
 engine.scene.load(`${Constants.ProjectName}.bin`);

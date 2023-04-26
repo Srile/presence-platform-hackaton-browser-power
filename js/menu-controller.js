@@ -26,6 +26,11 @@ window.unselectObject = function(previousSelectionId) {
     window.seletables.currentId = -1;
 }
 
+// call when exit collision with exploe button
+window.startExplore = () => {
+    console.log("startExplore")
+}
+
 /**
  * menu-controller
  */
@@ -75,7 +80,7 @@ export class MenuController extends Component {
         this.leftController.getForwardWorld(this.fowardTemp)
         var degreesFromUp = vec3.angle(this.fowardTemp, this.vec3Up);
 
-        console.log("degreesFromUp: " + degreesFromUp)
+        // console.log("degreesFromUp: " + degreesFromUp)
 
         // the value of 1.0 is arbitrary, but it works well for now
         return (degreesFromUp > 1.0)
