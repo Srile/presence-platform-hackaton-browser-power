@@ -46,6 +46,13 @@ export class GameManager extends Component {
                 loop: false,
                 autoplay: false
             });
+            this.narrationAudio2 = this.object.addComponent("howler-audio-source", {
+                src: "narration/narration-4+5-an-entry-pint-glance-at-wrist.mp3",
+                spatial: false,
+                volume: 1,
+                loop: false,
+                autoplay: false
+            });
 
             this.narrationAudio0.audio.on('end', function(){
                 console.log('Finished!');
@@ -57,6 +64,9 @@ export class GameManager extends Component {
                 // place the portal so activate the portal placement mode here
 
                 portalPlacement.activate();
+                portalPlacement.addOnSpawnCompleteFunction(() => {
+                    this.narrationAudio2.audio.play();
+                });
             });
         })
     }
