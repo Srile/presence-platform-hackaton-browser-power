@@ -4,6 +4,7 @@ import { Anchor } from "@wonderlandengine/components";
 import { vec3 } from "gl-matrix";
 
 import anime from 'animejs/lib/anime.es.js';
+import { portalPlacementMarkers } from "./portal-placement-marker";
 
 export let portalPlacement;
 
@@ -94,6 +95,7 @@ export class PlacePortal extends Component {
 
   activate() {
     this.activated = true;
+    portalPlacementMarkers.right.setActive(true);
   }
 
   addOnSpawnCompleteFunction(f) {
@@ -118,6 +120,8 @@ export class PlacePortal extends Component {
       lookAt(tempQuat2, this.tempVec, this.tempVec2);
       portalObject.setRotationWorld(tempQuat2);
     }
+
+    portalPlacementMarkers.right.setActive(false);
 
     this.currentAnim = anime({
         targets: this,

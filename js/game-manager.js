@@ -2,6 +2,7 @@ import {Component, Property} from '@wonderlandengine/api';
 import { fader } from './fade';
 import { portalPlacement } from './place-portal';
 import { objectPlacers } from './object-placer';
+import { portalPlacementMarkers } from './portal-placement-marker';
 
 /**
  * game-manager
@@ -70,7 +71,7 @@ export class GameManager extends Component {
                 this.narrationAudio1.audio.play();
                 // After initial narration, the next clip instructs the user to
                 // place the portal so activate the portal placement mode here
-                portalPlacement.activate(); // !TODO: erroring
+                portalPlacement.activate();
                 portalPlacement.addOnSpawnCompleteFunction(() => {
                     // this code should run once the portal is placed,
                     // and we should enable build mode there

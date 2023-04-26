@@ -646,12 +646,15 @@
                     "mesh": {
                         "mesh": "10ab5077-30b4-4f3a-8e82-d02090e4e10a",
                         "material": "588a674f-2dc6-481b-98f4-14753140e85f"
-                    }
+                    },
+                    "active": false
                 },
                 {
                     "type": "portal-placement-marker",
                     "portal-placement-marker": {
-                        "camera": "18"
+                        "camera": "18",
+                        "cursor": "126",
+                        "handedness": "left"
                     },
                     "active": false
                 }
@@ -1516,12 +1519,14 @@
                     "mesh": {
                         "mesh": "10ab5077-30b4-4f3a-8e82-d02090e4e10a",
                         "material": "588a674f-2dc6-481b-98f4-14753140e85f"
-                    }
+                    },
+                    "active": false
                 },
                 {
                     "type": "portal-placement-marker",
                     "portal-placement-marker": {
-                        "camera": "18"
+                        "camera": "18",
+                        "cursor": "212"
                     },
                     "active": true
                 }
@@ -2026,6 +2031,11 @@
                 0.2,
                 0.2,
                 0.2
+            ],
+            "components": [
+                {
+                    "active": false
+                }
             ]
         },
         "8e596547-4930-456a-8d07-2306e553745e": {
@@ -2049,6 +2059,11 @@
                 0.1999999,
                 0.1999999,
                 0.1999999
+            ],
+            "components": [
+                {
+                    "active": false
+                }
             ]
         }
     },
