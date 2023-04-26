@@ -1940,6 +1940,42 @@
                 1.0,
                 1.0
             ]
+        },
+        "824e7c6c-176d-4051-a400-63280b38c80e": {
+            "link": {
+                "name": "InvertedSphere",
+                "file": "models\\invertedSphere.glb"
+            },
+            "components": [
+                {
+                    "mesh": {
+                        "material": "7e41d0df-5a02-451d-acfc-9d1d88ad06d7"
+                    }
+                },
+                {
+                    "type": "fade",
+                    "fade": {
+                        "autoFade": true,
+                        "fadeDuration": 900
+                    }
+                }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                2.7699983,
+                2.7699983,
+                2.7699983
+            ]
         }
     },
     "meshes": {
@@ -2094,6 +2130,12 @@
             "link": {
                 "name": "PortalMesh.1",
                 "file": "models\\portal_test.glb"
+            }
+        },
+        "860a5353-bac3-4c75-abac-e50587392b69": {
+            "link": {
+                "name": "InvertedSphereMesh",
+                "file": "models\\invertedSphere.glb"
             }
         }
     },
@@ -2576,6 +2618,22 @@
                     0.0
                 ]
             }
+        },
+        "7e41d0df-5a02-451d-acfc-9d1d88ad06d7": {
+            "link": {
+                "name": "PortalOccluder",
+                "file": "models\\portal_test.glb"
+            },
+            "pipeline": "eb8b0fd3-068a-47e1-995c-61a1b94e19b1",
+            "Flat": {
+                "color": [
+                    0.233586,
+                    0.2900975,
+                    0.4304932,
+                    1.0
+                ]
+            },
+            "name": "FadeBG"
         }
     },
     "shaders": {
@@ -2947,6 +3005,20 @@
                 "name": "Occlusion Opaque Textured",
                 "file": "default"
             }
+        },
+        "eb8b0fd3-068a-47e1-995c-61a1b94e19b1": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            },
+            "name": "Flat Opaque Overlay",
+            "depthWrite": true,
+            "depthTest": false,
+            "blending": true,
+            "features": {
+                "ALPHA_MASKED": true
+            },
+            "sampleAlphaToCoverage": true
         }
     },
     "files": [
@@ -2957,7 +3029,8 @@
         "models/button.glb",
         "models/teleport-indicator.glb",
         "static/textures/ui/hack_UI_bg.png",
-        "models/portal_test.glb"
+        "models/portal_test.glb",
+        "models/invertedSphere.glb"
     ],
     "fonts": {
         "230": {
