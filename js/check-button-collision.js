@@ -35,6 +35,20 @@ export class CheckButtonCollision extends Component {
         console.log("onCollisionEnter")
         this.didCollide = true;
         this.currentMaterial.color = this.activeColor;
+        var currentScale = this.object.getScalingWorld();
+
+        var targets = { x: currentScale[0], y: currentScale[1], z: currentScale[2] };
+
+        anime({
+            targets: targets,
+            x: 0.04, y: 0.016, z: 0.1,
+            easing: 'linear',
+            duration: 500,
+            autoplay: true,
+            update: (e) => {
+                this.object.setScalingWorld([targets.x, targets.y, targets.z])
+            }
+        })
     }
 
     onCollision() {
@@ -50,6 +64,21 @@ export class CheckButtonCollision extends Component {
         this.didCollide = false;
 
         this.currentMaterial.color = this.meshColor;
+
+        var currentScale = this.object.getScalingWorld();
+
+        var targets = { x: currentScale[0], y: currentScale[1], z: currentScale[2] };
+
+        anime({
+            targets: targets,
+            x: 0.05, y: 0.02, z: 0.1,
+            easing: 'linear',
+            duration: 500,
+            autoplay: true,
+            update: (e) => {
+                this.object.setScalingWorld([targets.x, targets.y, targets.z])
+            }
+        })
     }
 
     update(dt) {
