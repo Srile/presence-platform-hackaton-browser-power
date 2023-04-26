@@ -12,6 +12,7 @@ export class GameManager extends Component {
     };
     /* Add other component types here that your component may
      * create. They will be registered with this component */
+
     static Dependencies = [];
 
     init() {
@@ -19,10 +20,6 @@ export class GameManager extends Component {
         this.level = 0;
         this.scores = [];
         this.gamePhase = 0;
-
-        this.engine.onXRSessionStart.add((s) => {
-            fader.fadeOut(1000);
-        });
 
         /*
             Phase legend:
@@ -32,7 +29,8 @@ export class GameManager extends Component {
             3   Explore mode
         */
 
-        setTimeout(() => {
+        this.engine.onXRSessionStart.add((s) => {
+            fader.fadeOut(1000);
             this.narrationAudio0 = this.object.addComponent("howler-audio-source", {
                 src: "narration/narration-0-intro.mp3",
                 spatial: false,
@@ -56,8 +54,9 @@ export class GameManager extends Component {
                 this.narrationAudio1.audio.play();
                 // After initial narration, the next clip instructs the user to
                 // place the portal so activate the portal placement mode here
-            }.bind(this));
-        }, 3000);
+
+            });
+        })
     }
 
     start() {
