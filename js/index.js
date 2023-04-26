@@ -26,6 +26,7 @@ import {MenuController} from './menu-controller.js';
 import {PlaceShapeAnchor} from './place-shape-anchor.js';
 import {RandomPlaneColors} from './random-plane-colors.js';
 import {SpawnBot} from './spawnBot.js';
+import {Uprighter} from './uprighter.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
@@ -102,6 +103,7 @@ engine.registerComponent(MenuController);
 engine.registerComponent(PlaceShapeAnchor);
 engine.registerComponent(RandomPlaneColors);
 engine.registerComponent(SpawnBot);
+engine.registerComponent(Uprighter);
 /* wle:auto-register:end */
 
 engine.scene.load(`${Constants.ProjectName}.bin`);

@@ -63,13 +63,15 @@ export class Botcontroller extends Component {
 
     update(dt) {
         /* Called every frame. */
-        this.object.translateObject([0, this.fallspeed, -this.speed * dt]);
+        this.object.translateObject([0, 0, -this.speed * dt]);
+        this.object.translateWorld([0, this.fallspeed * dt, 0]);
         this.object.getTranslationWorld(this.originVec);
         this.object.getForwardWorld(this.forwardVec);
         const mask = (1 << 3); // Only these objects will be ray-cast against
 
 
         // Mode 0 is no destination found
+        // try to find a destination
         if (this.mode == 0) {
 
             // Assuming PathTile collision group is 3
@@ -85,9 +87,9 @@ export class Botcontroller extends Component {
 
             if (hit.hitCount > 0) {
                 let hitObject = null;
-                let hitdist = 1000000;
+                let hitdist = 0.1;
                 let hiti = -1;
-
+                if (this.fly) hitdist = 0.05
                 for (let i = 0; i < hit.hitCount; i++) {
                     if (hit.objects[i] != this.lasthitobject) {
                         let testobject = hit.objects[i];
@@ -101,7 +103,7 @@ export class Botcontroller extends Component {
                     }
                 }
                 if (hitObject) {
-                    console.debug(hitObject.name, this.originVec, hit)
+                    ///console.debug(hitObject.name, this.originVec, hit)
                     this.mode = 1;
 
                     hitObject.getTranslationWorld(this.vTemp2)
@@ -113,6 +115,7 @@ export class Botcontroller extends Component {
                     quat.copy(this.qDestinationRotation, this.qTemp2);
                     this.lasthitobject = hitObject;
                     this.fallspeed = 0;
+                    this.fly = false;
                 }
 
 
@@ -137,6 +140,9 @@ export class Botcontroller extends Component {
                 //hit.locations[0], hit.objects[0], ...; // contains first hit, up to 4 hits max
 
             }
+            // if flying keeping falling
+
+
             //this.object.translateObject([0, this.fallspeed, 0]);
         } else if (this.mode == 1) {
             // destination found move towards destination
@@ -146,13 +152,13 @@ export class Botcontroller extends Component {
                 this.mode = 0;
                 this.object.setTranslationWorld(this.vDest);
                 let destName = this.lasthitobject.name;
-                console.log("DESTNAME=" + destName);
+                ///console.log("DESTNAME=" + destName);
                 let doTurn = (destName.indexOf("TURN") > -1);
                 let doBounce = (destName.indexOf("BOUNCE") > -1);
                 if ((doTurn) || (doBounce)) {
                     this.object.setRotationWorld(this.qDestinationRotation);
                     if (doBounce) {
-                        this.fallspeed = 0.01;
+                        this.fallspeed = 1.5;
                         this.fly = true;
                         this.flyfloor = this.originVec[1];
                     }
@@ -169,26 +175,30 @@ export class Botcontroller extends Component {
                 //this.directionVec[1] -= 0.2;
 
             } else {
-                if (this.fly) {
-                    this.fallspeed -= ((this.grav / 1) * dt);
-                    console.log(this.fallspeed);
-                    const hit2 = this.engine.scene.rayCast(this.originVec, this.directionVec, mask);
-                    let anyHit = true;
-                    if (hit2.hitcount == 0) {
-                        anyHit = false
-                    } else {
-                        let mindist = 100;
-                        for (let i = 0; i < hit2.hitcount; i++) {
-                            if (hit2.distances[i] < mindist) mindist = hit2.distances[i];
-                        }
-                        if (mindist > 0.005) anyHit = false;
-                    }
 
-                    if ((anyHit) || (this.originVec[1] < this.flyfloor)) {
-                        this.fallspeed = 0;
-                        this.fly = false
-                    }
+            }
+        }
+
+        if (this.fly) {
+            this.fallspeed -= ((this.grav / 1) * dt);
+            const maxFallSpeed = -8;
+            if (this.fallspeed < maxFallSpeed) this.fallspeed = maxFallSpeed
+            // console.log(this.fallspeed);
+            const hit2 = this.engine.scene.rayCast(this.originVec, this.directionVec, mask);
+            let anyHit = true;
+            if (hit2.hitcount == 0) {
+                anyHit = false
+            } else {
+                let mindist = 100;
+                for (let i = 0; i < hit2.hitcount; i++) {
+                    if (hit2.distances[i] < mindist) mindist = hit2.distances[i];
                 }
+                if (mindist > 0.005) anyHit = false;
+            }
+
+            if ((anyHit) || (this.originVec[1] < this.flyfloor)) {
+                this.fallspeed = 0;
+                this.fly = false
             }
         }
     }
