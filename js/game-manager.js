@@ -62,13 +62,19 @@ export class GameManager extends Component {
                 this.narrationAudio1.audio.play();
                 // After initial narration, the next clip instructs the user to
                 // place the portal so activate the portal placement mode here
-
-                portalPlacement.activate();
+                portalPlacement.activate(); // !TODO: erroring
                 portalPlacement.addOnSpawnCompleteFunction(() => {
+                    // this code should run once the portal is placed,
+                    // and we should enable build mode there
+                    console.log("Portal placed!!!")
                     this.narrationAudio2.audio.play();
+                    
+
+                    // Building mode needs to be enabled here
+                    // Next narration fires on block placement
                 });
-            });
-        })
+            }.bind(this));
+        });
     }
 
     start() {
