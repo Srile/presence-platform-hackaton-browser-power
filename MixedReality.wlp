@@ -1648,9 +1648,10 @@
                 {
                     "type": "howler-audio-source",
                     "howler-audio-source": {
-                        "src": "/static/music/space.mp3",
+                        "src": "music/space.mp3",
                         "autoplay": true,
-                        "loop": true
+                        "loop": true,
+                        "spatial": false
                     }
                 }
             ]
