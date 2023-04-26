@@ -1651,8 +1651,8 @@
         "240": {
             "name": "Spawner",
             "translation": [
-                0.0,
-                0.6999999,
+                -1.1920928955078125e-7,
+                0.6999998,
                 -2.0001194
             ],
             "components": [
@@ -1671,9 +1671,14 @@
             ],
             "rotation": [
                 0.0,
-                0.7071068,
+                1.0,
                 0.0,
-                0.7071068
+                2.980232949312267e-8
+            ],
+            "scaling": [
+                0.9999997,
+                1.0,
+                0.9999997
             ]
         },
         "241": {
@@ -1706,7 +1711,7 @@
             ]
         },
         "242": {
-            "name": "block001",
+            "name": "plain",
             "components": [
                 {
                     "type": "mesh",
@@ -1773,7 +1778,7 @@
             ]
         },
         "243": {
-            "name": "block002",
+            "name": "TURN",
             "components": [
                 {
                     "type": "mesh",
@@ -1834,7 +1839,7 @@
             "parent": null
         },
         "244": {
-            "name": "block003",
+            "name": "TURN",
             "components": [
                 {
                     "type": "mesh",
@@ -1895,7 +1900,7 @@
             "parent": null
         },
         "245": {
-            "name": "block004",
+            "name": "BOUNCE",
             "components": [
                 {
                     "type": "mesh",
@@ -2032,14 +2037,14 @@
             ]
         },
         "249": {
-            "name": "Mesh.000",
+            "name": "BOUNCE",
             "parent": "245",
             "components": [
                 {
                     "type": "mesh",
                     "mesh": {
                         "mesh": "8",
-                        "material": "26"
+                        "material": "25"
                     }
                 }
             ],
@@ -2104,8 +2109,8 @@
                 }
             ],
             "translation": [
-                -1.4999997,
-                0.2999998,
+                -1.4999996,
+                0.8999998,
                 -2.3999984
             ],
             "scaling": [
@@ -2117,7 +2122,7 @@
                 0.0,
                 1.0,
                 0.0,
-                -2.0861658356352564e-7
+                -2.0861675409378222e-7
             ],
             "parent": null
         },
@@ -2237,6 +2242,112 @@
                 0.0,
                 0.0,
                 0.0,
+                1.0
+            ]
+        },
+        "255": {
+            "name": "TURN",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    },
+                    "active": false
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        },
+                        "collider": "sphere",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 4
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "aabb",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 8,
+                        "aabb": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        }
+                    }
+                }
+            ],
+            "translation": [
+                0.1,
+                0.3999999,
+                -2.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "rotation": [
+                0.0,
+                0.7072793,
+                0.0,
+                0.7069342
+            ],
+            "parent": null
+        },
+        "256": {
+            "name": "TURN",
+            "parent": "255",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "26"
+                    }
+                }
+            ],
+            "scaling": [
+                0.2,
+                0.2,
+                0.2
+            ]
+        },
+        "258": {
+            "name": "Portal",
+            "parent": null,
+            "translation": [
+                -1.1920928955078125e-7,
+                0.6999998,
+                -2.0001194
+            ],
+            "rotation": [
+                0.0,
+                1.0,
+                0.0,
+                2.980232949312267e-8
+            ],
+            "scaling": [
+                1.0,
+                1.0,
                 1.0
             ]
         }

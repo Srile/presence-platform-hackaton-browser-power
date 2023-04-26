@@ -27,6 +27,9 @@ export class Botcontroller extends Component {
         this.mode = 0;
         this.qDestinationRotation = new Float32Array(4);
         this.lasthitobject = null;
+        this.fallspeed = 0;
+        this.grav = 1;
+        this.fly = false;
     }
 
     start() {
@@ -35,7 +38,7 @@ export class Botcontroller extends Component {
 
     snap(v) {
         const step = 10;
-        v = Math.round((v * step) + 1) / step;
+        //v = Math.round((v * step) + 1) / step;
         return v;
     }
 
@@ -60,15 +63,16 @@ export class Botcontroller extends Component {
 
     update(dt) {
         /* Called every frame. */
-        this.object.translateObject([0, 0, -this.speed * dt]);
+        this.object.translateObject([0, this.fallspeed, -this.speed * dt]);
         this.object.getTranslationWorld(this.originVec);
         this.object.getForwardWorld(this.forwardVec);
+        const mask = (1 << 3); // Only these objects will be ray-cast against
 
 
+        // Mode 0 is no destination found
         if (this.mode == 0) {
 
             // Assuming PathTile collision group is 3
-            const mask = (1 << 3); // Only these objects will be ray-cast against
             this.forwardVec[0] = 0;
             this.forwardVec[2] = 0;
             vec3.normalize(this.forwardVec, this.forwardVec);
@@ -108,19 +112,83 @@ export class Botcontroller extends Component {
                     hitObject.getRotationWorld(this.qTemp2);
                     quat.copy(this.qDestinationRotation, this.qTemp2);
                     this.lasthitobject = hitObject;
+                    this.fallspeed = 0;
+                }
+
+
+            }
+            else {  // no hit
+                const hit2 = this.engine.scene.rayCast(this.originVec, this.directionVec, mask);
+                let anyHit = true;
+                if (hit2.hitcount == 0) {
+                    anyHit = false
+                } else {
+                    let mindist = 100;
+                    for (let i = 0; i < hit2.hitcount; i++) {
+                        if (hit2.distances[i] < mindist) mindist = hit2.distances[i];
+                    }
+                    if (mindist > 0.05) anyHit = false;
+                }
+
+                if (!anyHit) {
+
+                    this.fallspeed -= this.grav * dt;
                 }
                 //hit.locations[0], hit.objects[0], ...; // contains first hit, up to 4 hits max
+
             }
+            //this.object.translateObject([0, this.fallspeed, 0]);
         } else if (this.mode == 1) {
+            // destination found move towards destination
             let destDistance = vec3.distance(this.originVec, this.vDest);
 
-            if (destDistance < 0.1) {
+            if (destDistance < 0.01) {
                 this.mode = 0;
-                this.object.setRotationWorld(this.qDestinationRotation);
+                this.object.setTranslationWorld(this.vDest);
+                let destName = this.lasthitobject.name;
+                console.log("DESTNAME=" + destName);
+                let doTurn = (destName.indexOf("TURN") > -1);
+                let doBounce = (destName.indexOf("BOUNCE") > -1);
+                if ((doTurn) || (doBounce)) {
+                    this.object.setRotationWorld(this.qDestinationRotation);
+                    if (doBounce) {
+                        this.fallspeed = 0.01;
+                        this.fly = true;
+                        this.flyfloor = this.originVec[1];
+                    }
+                }
+                else {
+                    //quat.copy(this.qTemp1, this.qDestinationRotation);
+                    this.object.getRotationWorld(this.qTemp1);
+                    this.qTemp1[0] = 0;
+                    this.qTemp1[2] = 0;
+                    quat.normalize(this.qTemp1, this.qTemp1)
+                    this.object.setRotationWorld(this.qTemp1);
+                }
                 this.object.getForwardWorld(this.forwardVec)
-                    ;
                 //this.directionVec[1] -= 0.2;
 
+            } else {
+                if (this.fly) {
+                    this.fallspeed -= ((this.grav / 1) * dt);
+                    console.log(this.fallspeed);
+                    const hit2 = this.engine.scene.rayCast(this.originVec, this.directionVec, mask);
+                    let anyHit = true;
+                    if (hit2.hitcount == 0) {
+                        anyHit = false
+                    } else {
+                        let mindist = 100;
+                        for (let i = 0; i < hit2.hitcount; i++) {
+                            if (hit2.distances[i] < mindist) mindist = hit2.distances[i];
+                        }
+                        if (mindist > 0.005) anyHit = false;
+                    }
+
+                    if ((anyHit) || (this.originVec[1] < this.flyfloor)) {
+                        this.fallspeed = 0;
+                        this.fly = false
+                    }
+                }
             }
         }
     }
