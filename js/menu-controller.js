@@ -12,6 +12,8 @@ window.seletables = {
     ]
 }
 
+window.botsCount = 0;
+
 // call everytime the selection is changed to a new selection
 window.spawnObject = function() {
     if (window.seletables.currentId == -1) return;
@@ -47,22 +49,33 @@ export class MenuController extends Component {
         this.toggleMenu(false);
     }
 
-    start() {
-        console.log('start() with param', this.param);
+    start() {}
+
+    traverse(node, callback) {
+        callback(node);
+        for (var i = 0; i < node.children.length; i++) {
+            this.traverse(node.children[i], callback);
+        }
     }
 
     toggleMenu(activate) {
         if (activate == this.isMenuVisible) return;
-        // this.planeMenu.active = activate;
-        this.planeMenu.object.children.forEach(child => {
-            child.active = activate;
-        });
+
+        this.traverse(this.object, (node) => {
+            // don't toggle the menu container
+            if (node.name != "menu-container") {
+                node.active = activate;
+            }
+        })
+
         this.isMenuVisible = activate;
     }
 
     isControllerPointingUp() {
         this.leftController.getForwardWorld(this.fowardTemp)
         var degreesFromUp = vec3.angle(this.fowardTemp, this.vec3Up);
+
+        console.log("degreesFromUp: " + degreesFromUp)
 
         // the value of 1.0 is arbitrary, but it works well for now
         return (degreesFromUp > 1.0)

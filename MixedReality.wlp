@@ -702,6 +702,10 @@
                     "input": {
                         "type": "hand right"
                     }
+                },
+                {
+                    "type": "vr-mode-active-switch",
+                    "active": true
                 }
             ],
             "translation": [
@@ -756,6 +760,10 @@
                     "input": {
                         "type": "hand left"
                     }
+                },
+                {
+                    "type": "vr-mode-active-switch",
+                    "active": true
                 }
             ],
             "translation": [
@@ -1400,6 +1408,18 @@
                     }
                 },
                 {
+                    "type": "place-shape-anchor",
+                    "place-shape-anchor": {
+                        "meshCone": "10",
+                        "meshCube": "8",
+                        "meshSphere": "9",
+                        "materialSphere": "26",
+                        "materialCube": "22",
+                        "materialCone": "25",
+                        "hitTestObject": "127"
+                    }
+                },
+                {
                     "type": "cursor",
                     "cursor": {
                         "cursorObject": "235",
@@ -1407,12 +1427,6 @@
                         "cursorRayObject": null,
                         "collisionGroup": 0,
                         "cursorRayScalingAxis": "none"
-                    }
-                },
-                {
-                    "type": "place-portal",
-                    "place-portal": {
-                        "portalObject": "2012"
                     }
                 }
             ],
@@ -1439,10 +1453,12 @@
                 {
                     "type": "plane-detection",
                     "plane-detection": {
-                        "planeMaterial": null,
+                        "planeMaterial": "20",
                         "collisionMask": 1
-                    },
-                    "active": true
+                    }
+                },
+                {
+                    "type": "random-plane-colors"
                 }
             ],
             "parent": null,
@@ -1481,6 +1497,18 @@
                     "type": "input",
                     "input": {
                         "type": "ray left"
+                    }
+                },
+                {
+                    "type": "place-shape-anchor",
+                    "place-shape-anchor": {
+                        "meshCone": "10",
+                        "meshCube": "8",
+                        "meshSphere": "9",
+                        "materialSphere": "26",
+                        "materialCube": "22",
+                        "materialCone": "25",
+                        "hitTestObject": "127"
                     }
                 }
             ],
@@ -1606,15 +1634,15 @@
                     "type": "mesh",
                     "mesh": {
                         "mesh": "7",
-                        "material": "206"
+                        "material": "2001"
                     },
-                    "active": false
+                    "active": true
                 }
             ],
             "scaling": [
-                0.0999998,
-                0.0999999,
-                0.0999998
+                0.15,
+                0.15,
+                0.15
             ],
             "translation": [
                 -0.0129652,
@@ -1639,9 +1667,6 @@
                         "loop": true,
                         "spatial": false
                     }
-                },
-                {
-                    "type": "game-manager"
                 }
             ]
         },
@@ -1710,20 +1735,20 @@
                 }
             ],
             "scaling": [
-                0.2499997,
-                0.2499996,
-                0.2499998
+                0.15,
+                0.15,
+                0.15
             ],
             "translation": [
-                1.0,
-                0.0,
-                0.0
+                0.6499999,
+                1.4901161193847656e-8,
+                0.3
             ],
             "rotation": [
-                0.0347521,
-                0.7653174,
-                0.6413749,
-                -0.0414695
+                0.7071068,
+                0.0,
+                0.0,
+                0.7071068
             ]
         },
         "241": {
@@ -1761,20 +1786,20 @@
                 }
             ],
             "scaling": [
-                0.2499999,
-                0.2499996,
-                0.25
+                0.15,
+                0.15,
+                0.15
             ],
             "translation": [
-                -1.0,
-                0.0,
-                0.0
+                -0.6500001,
+                2.235174179077149e-7,
+                0.3
             ],
             "rotation": [
-                0.034752,
-                0.7653181,
-                0.6413741,
-                -0.0414694
+                0.7071068,
+                0.0,
+                0.0,
+                0.7071068
             ]
         },
         "244": {
@@ -1812,20 +1837,20 @@
                 }
             ],
             "scaling": [
-                0.25,
-                0.25,
-                0.25
+                0.15,
+                0.15,
+                0.15
             ],
             "translation": [
-                0.0110586,
-                -5.096508743918093e-7,
-                0.0000176
+                0.0110585,
+                -0.2499999,
+                0.3
             ],
             "rotation": [
-                -0.0000133,
-                0.0000028,
-                5.281141284285695e-7,
-                1.0
+                0.7071068,
+                0.0000023,
+                -0.0000016,
+                0.7071068
             ]
         },
         "245": {
@@ -1863,20 +1888,20 @@
                 }
             ],
             "scaling": [
-                0.25,
-                0.25,
-                0.25
+                0.15,
+                0.15,
+                0.15
             ],
             "translation": [
-                -0.3245723,
-                0.9289993,
-                0.0000173
+                -0.3499999,
+                0.4999999,
+                0.3
             ],
             "rotation": [
-                -5.960464477539065e-8,
-                0.0000039,
-                7.273976052601938e-7,
-                1.0
+                0.7071068,
+                0.0000032,
+                -0.0000022,
+                0.7071068
             ]
         },
         "246": {
@@ -1914,67 +1939,264 @@
                 }
             ],
             "scaling": [
-                0.25,
-                0.25,
-                0.25
+                0.15,
+                0.15,
+                0.15
             ],
             "translation": [
-                0.6794331,
-                0.8941752,
-                0.0000063
+                0.3499999,
+                0.5,
+                0.3
             ],
             "rotation": [
-                -4.4703483581542975e-8,
-                0.0000018,
-                3.408734983167961e-7,
-                1.0
+                0.7071068,
+                0.0,
+                0.0,
+                0.7071068
             ]
         },
-        "2012": {
-            "link": {
-                "name": "Portal",
-                "file": "models\\portal_test.glb"
-            },
-            "scaling": [
-                1.0,
-                1.0,
-                1.0
-            ]
-        },
-        "824e7c6c-176d-4051-a400-63280b38c80e": {
-            "link": {
-                "name": "InvertedSphere",
-                "file": "models\\invertedSphere.glb"
-            },
+        "2003": {
+            "name": "timer",
+            "parent": "237",
             "components": [
                 {
+                    "type": "mesh",
                     "mesh": {
-                        "material": "7e41d0df-5a02-451d-acfc-9d1d88ad06d7"
+                        "material": "2005",
+                        "mesh": "7"
                     }
                 },
                 {
-                    "type": "fade",
-                    "fade": {
-                        "autoFade": true,
-                        "fadeDuration": 900
+                    "type": "timer-controller"
+                }
+            ],
+            "scaling": [
+                0.05,
+                0.025,
+                1.0
+            ],
+            "translation": [
+                -0.1,
+                0.0,
+                -0.05
+            ],
+            "rotation": [
+                -0.42101,
+                0.0789899,
+                0.0368336,
+                0.902859
+            ]
+        },
+        "2008": {
+            "name": "botsCount",
+            "parent": "237",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "material": "2004",
+                        "mesh": "7"
+                    }
+                },
+                {
+                    "type": "counter-controller"
+                }
+            ],
+            "scaling": [
+                0.05,
+                0.025,
+                1.0
+            ],
+            "translation": [
+                0.1,
+                0.0,
+                -0.05
+            ],
+            "rotation": [
+                -0.42101,
+                -0.0789899,
+                -0.0368336,
+                0.902859
+            ]
+        },
+        "2011": {
+            "name": "timerText",
+            "parent": "2003",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "00:10\n",
+                        "lineSpacing": 1.2
                     }
                 }
             ],
-            "translation": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "rotation": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+            "scaling": [
+                5.0,
+                10.0,
+                5.0
+            ]
+        },
+        "2012": {
+            "name": "botsCountText",
+            "parent": "2008",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "042"
+                    }
+                }
             ],
             "scaling": [
-                2.7699983,
-                2.7699983,
-                2.7699983
+                5.0,
+                10.0,
+                5.0
+            ]
+        },
+        "2013": {
+            "name": "Mesh",
+            "parent": "240",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
+            ]
+        },
+        "2015": {
+            "name": "Mesh",
+            "parent": "241",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
+            ]
+        },
+        "2016": {
+            "name": "Mesh",
+            "parent": "244",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
+            ]
+        },
+        "2017": {
+            "name": "Mesh",
+            "parent": "245",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
+            ]
+        },
+        "2018": {
+            "name": "Mesh",
+            "parent": "246",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "2019"
+                    }
+                }
+            ],
+            "rotation": [
+                0.7070842,
+                -0.0,
+                -0.0,
+                0.7071292
+            ],
+            "translation": [
+                0.0,
+                -1.0,
+                0.0
+            ],
+            "scaling": [
+                1.2,
+                1.2,
+                1.2
             ]
         }
     },
@@ -2113,30 +2335,6 @@
                 "name": "TeleportIndicator",
                 "file": "models\\teleport-indicator.glb"
             }
-        },
-        "2009": {
-            "link": {
-                "name": "PortalMesh",
-                "file": "models\\portal_test.glb"
-            }
-        },
-        "2010": {
-            "link": {
-                "name": "PortalMesh.0",
-                "file": "models\\portal_test.glb"
-            }
-        },
-        "2011": {
-            "link": {
-                "name": "PortalMesh.1",
-                "file": "models\\portal_test.glb"
-            }
-        },
-        "860a5353-bac3-4c75-abac-e50587392b69": {
-            "link": {
-                "name": "InvertedSphereMesh",
-                "file": "models\\invertedSphere.glb"
-            }
         }
     },
     "textures": {
@@ -2170,10 +2368,22 @@
                 "file": "static\\textures\\ui\\hack_UI_bg.png"
             }
         },
-        "2005": {
+        "2007": {
             "link": {
-                "name": "texture_0",
-                "file": "models\\portal_test.glb"
+                "name": "TIMER.png",
+                "file": "static\\textures\\ui\\TIMER.png"
+            }
+        },
+        "2010": {
+            "link": {
+                "name": "BOT COUNT.png",
+                "file": "static\\textures\\ui\\BOT COUNT.png"
+            }
+        },
+        "2021": {
+            "link": {
+                "name": "hack_UI_button_bg.png",
+                "file": "static\\textures\\ui\\hack_UI_button_bg.png"
             }
         }
     },
@@ -2224,12 +2434,23 @@
                 "file": "static\\textures\\ui\\hack_UI_bg.png"
             }
         },
-        "2004": {
+        "2006": {
             "link": {
-                "name": "tempbg",
-                "file": "models\\portal_test.glb"
-            },
-            "compression": "none"
+                "name": "TIMER.png",
+                "file": "static\\textures\\ui\\TIMER.png"
+            }
+        },
+        "2009": {
+            "link": {
+                "name": "BOT COUNT.png",
+                "file": "static\\textures\\ui\\BOT COUNT.png"
+            }
+        },
+        "2020": {
+            "link": {
+                "name": "hack_UI_button_bg.png",
+                "file": "static\\textures\\ui\\hack_UI_button_bg.png"
+            }
         }
     },
     "materials": {
@@ -2591,49 +2812,120 @@
                 ]
             }
         },
-        "2006": {
-            "link": {
-                "name": "PortalFrame",
-                "file": "models\\portal_test.glb"
-            }
-        },
-        "2007": {
-            "link": {
-                "name": "PortalBackground",
-                "file": "models\\portal_test.glb"
-            },
-            "pipeline": "35"
-        },
-        "2008": {
-            "link": {
-                "name": "PortalOccluder",
-                "file": "models\\portal_test.glb"
-            },
-            "pipeline": "2002",
-            "Flat": {
-                "color": [
+        "2001": {
+            "name": "uiBgMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
                     0.0,
-                    0.0,
-                    0.0,
-                    0.0
-                ]
-            }
-        },
-        "7e41d0df-5a02-451d-acfc-9d1d88ad06d7": {
-            "link": {
-                "name": "PortalOccluder",
-                "file": "models\\portal_test.glb"
-            },
-            "pipeline": "eb8b0fd3-068a-47e1-995c-61a1b94e19b1",
-            "Flat": {
-                "color": [
-                    0.233586,
-                    0.2900975,
-                    0.4304932,
                     1.0
                 ]
             },
-            "name": "FadeBG"
+            "pipeline": "2002",
+            "Flat": {
+                "flatTexture": "243"
+            }
+        },
+        "2004": {
+            "name": "botCountBgMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2002",
+            "Flat": {
+                "flatTexture": "2010"
+            }
+        },
+        "2005": {
+            "name": "timerBgMat",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2002",
+            "Flat": {
+                "flatTexture": "2007"
+            }
+        },
+        "2019": {
+            "name": "botttomButtons",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            },
+            "pipeline": "2002",
+            "Flat": {
+                "flatTexture": "2021",
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "alphaMaskThreshold": 0.0
+            }
         }
     },
     "shaders": {
@@ -2756,12 +3048,6 @@
                 "name": "TileFeedback.frag",
                 "file": "default"
             }
-        },
-        "2001": {
-            "link": {
-                "name": "Occlusion.frag",
-                "file": "default"
-            }
         }
     },
     "settings": {
@@ -2809,9 +3095,6 @@
                 0.1686274,
                 0.0
             ]
-        },
-        "editor": {
-            "ids": "uuid"
         }
     },
     "animations": {},
@@ -2904,24 +3187,6 @@
                 "file": "default"
             }
         },
-        "2013": {
-            "link": {
-                "name": "Phong Opaque Textured",
-                "file": "default"
-            },
-            "name": "Phong Opaque Textured_AR"
-        },
-        "2002": {
-            "link": {
-                "name": "Occlusion Opaque",
-                "file": "default"
-            },
-            "shader": "2",
-            "depthTest": false,
-            "blendSrcRgb": "zero",
-            "blendDestRgb": "one",
-            "blending": true
-        },
         "36": {
             "link": {
                 "name": "MeshVisualizer",
@@ -3000,24 +3265,16 @@
                 "file": "default"
             }
         },
-        "2003": {
+        "2002": {
             "link": {
-                "name": "Occlusion Opaque Textured",
-                "file": "default"
-            }
-        },
-        "eb8b0fd3-068a-47e1-995c-61a1b94e19b1": {
-            "link": {
-                "name": "Flat Opaque",
+                "name": "Flat Opaque Textured",
                 "file": "default"
             },
-            "name": "Flat Opaque Overlay",
-            "depthWrite": true,
-            "depthTest": false,
-            "blending": true,
+            "name": "Flat Transparent Textured",
             "features": {
                 "ALPHA_MASKED": true
             },
+            "doubleSided": true,
             "sampleAlphaToCoverage": true
         }
     },
@@ -3029,8 +3286,9 @@
         "models/button.glb",
         "models/teleport-indicator.glb",
         "static/textures/ui/hack_UI_bg.png",
-        "models/portal_test.glb",
-        "models/invertedSphere.glb"
+        "static/textures/ui/TIMER.png",
+        "static/textures/ui/BOT COUNT.png",
+        "static/textures/ui/hack_UI_button_bg.png"
     ],
     "fonts": {
         "230": {
