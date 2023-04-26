@@ -1,4 +1,4 @@
-import {Component, Property} from '@wonderlandengine/api';
+import {Component, Physics, Property} from '@wonderlandengine/api';
 import { glMatrix, vec3, quat } from 'gl-matrix';
 
 /**
@@ -17,11 +17,13 @@ export class Botcontroller extends Component {
     init() {
         this.qTemp1 = new Float32Array(4);
         this.vTemp1 = new Float32Array(3);
+        this.vTemp2 = new Float32Array(3);
         this.vDest = new Float32Array(3);
+        this.physics = new Physics(this._engine);
     }
 
     start() {
-        setInterval(()=>{this.resetRotation()}, 1000);
+        //setInterval(()=>{this.resetRotation()}, 1000);
     }
 
     setDestination(x,y,z)
@@ -43,6 +45,9 @@ export class Botcontroller extends Component {
     update(dt) {
         /* Called every frame. */
         this.object.translateObject([0,0,-this.speed * dt]);
+        this.object.getTransformWorld(this.vTemp1);
+        let rayHit = this.physics.rayCast(this.vTemp1, this.vTemp2, 1, 0.4);
+        if (rayHit.hitCount > 0) console.dir(rayHit);
         //this.object.rotateAxisAngleDegObject([0,1,0], dt*45);
     }
 
