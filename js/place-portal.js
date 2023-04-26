@@ -53,6 +53,8 @@ export class PlacePortal extends Component {
   start() {
     this.activated = false;
 
+    portalPlacement = this;
+
     this.onSpawnCompleteCallbacks = [];
 
     this.currentScale = 0.0;
@@ -166,7 +168,7 @@ let vector = new Float32Array(3);
 let vector2 = new Float32Array(3);
 let vector3 = new Float32Array(3);
 
-function lookAt(quaternion, sourcePoint, destPoint, up) {
+export function lookAt(quaternion, sourcePoint, destPoint, up) {
   if(!up) {
     up = [0, 1, 0];
   }

@@ -1,6 +1,7 @@
 import {Component, Property} from '@wonderlandengine/api';
 import { fader } from './fade';
 import { portalPlacement } from './place-portal';
+import { objectPlacers } from './object-placer';
 
 /**
  * game-manager
@@ -9,7 +10,7 @@ export class GameManager extends Component {
     static TypeName = 'game-manager';
     /* Properties that are configurable in the editor */
     static Properties = {
-        param: Property.float(1.0)
+        debug: Property.bool(false)
     };
     /* Add other component types here that your component may
      * create. They will be registered with this component */
@@ -54,6 +55,13 @@ export class GameManager extends Component {
                 autoplay: false
             });
 
+            if(this.debug) {
+                this.narrationAudio0.audio.rate(4.0);
+                this.narrationAudio1.audio.rate(4.0);
+                this.narrationAudio2.audio.rate(4.0);
+            }
+
+
             this.narrationAudio0.audio.on('end', function(){
                 console.log('Finished!');
                 // START FIRST LEVEL PORTAL PLACEMENT PHASE
@@ -69,7 +77,9 @@ export class GameManager extends Component {
                     console.log("Portal placed!!!")
                     this.narrationAudio2.audio.play();
                     
-
+                    if(objectPlacers.right) objectPlacers.right.setActive(true);
+                    // if(objectPlacers.left) objectPlacers.left.active = true;
+                    
                     // Building mode needs to be enabled here
                     // Next narration fires on block placement
                 });

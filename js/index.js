@@ -25,7 +25,9 @@ import {CheckCollision} from './check-collision.js';
 import {Fade} from './fade.js';
 import {GameManager} from './game-manager.js';
 import {MenuController} from './menu-controller.js';
+import {ObjectPlacer} from './object-placer.js';
 import {PlacePortal} from './place-portal.js';
+import {PortalPlacementMarker} from './portal-placement-marker.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
@@ -101,7 +103,9 @@ engine.registerComponent(CheckCollision);
 engine.registerComponent(Fade);
 engine.registerComponent(GameManager);
 engine.registerComponent(MenuController);
+engine.registerComponent(ObjectPlacer);
 engine.registerComponent(PlacePortal);
+engine.registerComponent(PortalPlacementMarker);
 /* wle:auto-register:end */
 
 engine.scene.load(`${Constants.ProjectName}.bin`);

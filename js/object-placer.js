@@ -3,6 +3,8 @@ import { vec3 } from 'gl-matrix';
 
 let currentObjects = [];
 
+export let objectPlacers = {}
+
 /**
  * object-placer
  */
@@ -23,18 +25,21 @@ export class ObjectPlacer extends Component {
     _boxExtents = [0.095, 0.095, 0.095];
 
     _onDeactivateCallbacks = [];
+    _onActivateCallbacks = [];
 
     /* Add other component types here that your component may
      * create. They will be registered with this component */
     static Dependencies = [];
 
     start() {
+        objectPlacers[this.handedness] = this;
+
         let str = this.gridIncrementSteps.toFixed(20);  // Set the number of digits to a large value
         
         // Loop through the string representation of the number
         
         this._onSessionStartCallback = this.setupVREvents.bind(this);
-        this.engine.onXRSessionStart.add(this._onSessionStartCallback);
+        // this.engine.onXRSessionStart.add(this._onSessionStartCallback);
 
         // TODO: Might need to ignore the first zero, 0.xxx
         for (let i = 0; i < str.length; i++) {
@@ -69,12 +74,18 @@ export class ObjectPlacer extends Component {
         });
     }
 
-    onDeactivate() {
-        this.engine.onXRSessionStart.remove(this._onSessionStartCallback);
-
-        /* Ensure all event listeners are removed */
-        for (const f of this._onDeactivateCallbacks) f();
-        this._onDeactivateCallbacks.length = 0;
+    setActive(b) {
+        if(b) {
+            this.engine.onXRSessionStart.add(this._onSessionStartCallback);
+        
+            /* Ensure all event listeners are removed */
+            for (const f of this._onActivateCallbacks) f();
+        } else {
+            this.engine.onXRSessionStart.remove(this._onSessionStartCallback);
+    
+            /* Ensure all event listeners are removed */
+            for (const f of this._onDeactivateCallbacks) f();
+        }
     }
 
     /** 'selectstart' event listener */

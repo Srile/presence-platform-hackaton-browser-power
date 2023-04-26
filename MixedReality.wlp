@@ -644,9 +644,16 @@
                 {
                     "type": "mesh",
                     "mesh": {
-                        "mesh": "9",
-                        "material": "128"
+                        "mesh": "10ab5077-30b4-4f3a-8e82-d02090e4e10a",
+                        "material": "588a674f-2dc6-481b-98f4-14753140e85f"
                     }
+                },
+                {
+                    "type": "portal-placement-marker",
+                    "portal-placement-marker": {
+                        "camera": "18"
+                    },
+                    "active": false
                 }
             ],
             "parent": null,
@@ -662,9 +669,9 @@
                 1.0
             ],
             "scaling": [
-                0.0099999,
-                0.0099999,
-                0.0099999
+                1.0,
+                1.0,
+                1.0
             ]
         },
         "129": {
@@ -1507,9 +1514,16 @@
                 {
                     "type": "mesh",
                     "mesh": {
-                        "mesh": "9",
-                        "material": "128"
+                        "mesh": "10ab5077-30b4-4f3a-8e82-d02090e4e10a",
+                        "material": "588a674f-2dc6-481b-98f4-14753140e85f"
                     }
+                },
+                {
+                    "type": "portal-placement-marker",
+                    "portal-placement-marker": {
+                        "camera": "18"
+                    },
+                    "active": true
                 }
             ],
             "parent": null,
@@ -1525,9 +1539,9 @@
                 1.0
             ],
             "scaling": [
-                0.0099999,
-                0.0099999,
-                0.0099999
+                1.0,
+                1.0,
+                1.0
             ]
         },
         "236": {
@@ -1641,7 +1655,10 @@
                     }
                 },
                 {
-                    "type": "game-manager"
+                    "type": "game-manager",
+                    "game-manager": {
+                        "debug": true
+                    }
                 }
             ]
         },
@@ -1664,6 +1681,16 @@
                         },
                         "groups": 128
                     }
+                },
+                {
+                    "type": "object-placer",
+                    "object-placer": {
+                        "meshCube": "8",
+                        "allowedMaterial": "26",
+                        "disallowedMaterial": "25",
+                        "handedness": "right"
+                    },
+                    "active": false
                 }
             ],
             "scaling": [
@@ -1950,7 +1977,8 @@
                 {
                     "mesh": {
                         "material": "7e41d0df-5a02-451d-acfc-9d1d88ad06d7"
-                    }
+                    },
+                    "active": false
                 },
                 {
                     "type": "fade",
@@ -1975,6 +2003,52 @@
                 2.7699983,
                 2.7699983,
                 2.7699983
+            ]
+        },
+        "4ecf6ab7-65ed-46a1-b22f-259940e53c3a": {
+            "link": {
+                "name": "PortalPlacementText<Marker",
+                "file": "models\\portalPlacer.glb"
+            },
+            "parent": "127",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.7071068,
+                0.0,
+                0.0,
+                0.7071067
+            ],
+            "scaling": [
+                0.2,
+                0.2,
+                0.2
+            ]
+        },
+        "8e596547-4930-456a-8d07-2306e553745e": {
+            "link": {
+                "name": "PortalPlacementText<Marker",
+                "file": "models\\portalPlacer.glb"
+            },
+            "parent": "235",
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.7071068,
+                0.0,
+                0.0,
+                0.7071067
+            ],
+            "scaling": [
+                0.1999999,
+                0.1999999,
+                0.1999999
             ]
         }
     },
@@ -2136,6 +2210,18 @@
             "link": {
                 "name": "InvertedSphereMesh",
                 "file": "models\\invertedSphere.glb"
+            }
+        },
+        "ffe5d0a3-5847-4588-a5b7-e8792b44aad0": {
+            "link": {
+                "name": "Text",
+                "file": "models\\portalPlacer.glb"
+            }
+        },
+        "10ab5077-30b4-4f3a-8e82-d02090e4e10a": {
+            "link": {
+                "name": "MarkerMesh",
+                "file": "models\\portalPlacer.glb"
             }
         }
     },
@@ -2634,6 +2720,34 @@
                 ]
             },
             "name": "FadeBG"
+        },
+        "0c81a0d1-e92b-469f-9bbc-e277a718d11f": {
+            "link": {
+                "name": "PortalTextMaterial",
+                "file": "models\\portalPlacer.glb"
+            },
+            "Phong": {
+                "ambientColor": [
+                    0.2735425,
+                    0.2735425,
+                    0.2735425,
+                    1.0
+                ]
+            }
+        },
+        "588a674f-2dc6-481b-98f4-14753140e85f": {
+            "link": {
+                "name": "PortalPlacerMaterial",
+                "file": "models\\portalPlacer.glb"
+            },
+            "Phong": {
+                "ambientColor": [
+                    0.8026905,
+                    0.8026905,
+                    0.8026905,
+                    1.0
+                ]
+            }
         }
     },
     "shaders": {
@@ -3030,7 +3144,8 @@
         "models/teleport-indicator.glb",
         "static/textures/ui/hack_UI_bg.png",
         "models/portal_test.glb",
-        "models/invertedSphere.glb"
+        "models/invertedSphere.glb",
+        "models/portalPlacer.glb"
     ],
     "fonts": {
         "230": {
