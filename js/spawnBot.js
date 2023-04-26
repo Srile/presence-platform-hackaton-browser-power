@@ -24,6 +24,8 @@ export class SpawnBot extends Component {
 
     start() {
         this.SpawnTicker = setInterval(() => { this.spawn() }, this.interval);
+
+
     }
 
     update(dt) {

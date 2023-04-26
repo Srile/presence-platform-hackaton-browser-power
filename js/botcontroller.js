@@ -34,6 +34,10 @@ export class Botcontroller extends Component {
 
     start() {
         //setInterval(()=>{this.resetRotation()}, 1000);
+        let scTemp = [1, 1, 1]
+        this.object.getScalingWorld(scTemp);
+        console.debug("SCALE:" + scTemp)
+        this.worlscalar = 1;//(scTemp[0] + scTemp[1] + scTemp[2] / 3);
     }
 
     snap(v) {
@@ -79,15 +83,15 @@ export class Botcontroller extends Component {
             this.forwardVec[2] = 0;
             vec3.normalize(this.forwardVec, this.forwardVec);
 
-            vec3.scale(this.forwardVec, this.forwardVec, 0.1);
+            vec3.scale(this.forwardVec, this.forwardVec, 0.1 * this.worlscalar);
             vec3.add(this.vTemp3, this.originVec, this.forwardVec);
-            vec3.add(this.vTemp3, this.vTemp3, [0, 0.05, 0]);
+            vec3.add(this.vTemp3, this.vTemp3, [0, 0.05 * this.worlscalar, 0]);
             vec3.normalize(this.directionVec, this.directionVec);
             const hit = this.engine.scene.rayCast(this.vTemp3, this.directionVec, mask);
 
             if (hit.hitCount > 0) {
                 let hitObject = null;
-                let hitdist = 0.1;
+                let hitdist = 0.1 * this.worlscalar;
                 let hiti = -1;
                 if (this.fly) hitdist = 0.05
                 for (let i = 0; i < hit.hitCount; i++) {
@@ -108,7 +112,7 @@ export class Botcontroller extends Component {
 
                     hitObject.getTranslationWorld(this.vTemp2)
 
-                    this.vTemp2[1] += 0.3;
+                    this.vTemp2[1] += 0.3 * this.worlscalar;
                     this.setDestinationVec(this.vTemp2);
                     //this.setDestinationVec(hit.locations[hiti]);
                     hitObject.getRotationWorld(this.qTemp2);
@@ -130,7 +134,7 @@ export class Botcontroller extends Component {
                     for (let i = 0; i < hit2.hitcount; i++) {
                         if (hit2.distances[i] < mindist) mindist = hit2.distances[i];
                     }
-                    if (mindist > 0.05) anyHit = false;
+                    if (mindist > (0.05 * this.worlscalar)) anyHit = false;
                 }
 
                 if (!anyHit) {
@@ -148,7 +152,7 @@ export class Botcontroller extends Component {
             // destination found move towards destination
             let destDistance = vec3.distance(this.originVec, this.vDest);
 
-            if (destDistance < 0.01) {
+            if (destDistance < (0.01 * this.worlscalar)) {
                 this.mode = 0;
                 this.object.setTranslationWorld(this.vDest);
                 let destName = this.lasthitobject.name;
@@ -158,7 +162,7 @@ export class Botcontroller extends Component {
                 if ((doTurn) || (doBounce)) {
                     this.object.setRotationWorld(this.qDestinationRotation);
                     if (doBounce) {
-                        this.fallspeed = 1.5;
+                        this.fallspeed = 1.5 * this.worlscalar;
                         this.fly = true;
                         this.flyfloor = this.originVec[1];
                     }
