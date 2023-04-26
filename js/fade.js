@@ -19,9 +19,9 @@ export class Fade extends Component {
         this.color.set(this.material.color);
         this.mesh = this.object.getComponent('mesh');
         this.mesh.active = true;
-        if(this.autoFade) {
-            this.fadeOut(1000);
-        }
+        // if(this.autoFade) {
+        //     this.fadeOut(1000);
+        // }
     }
 
     fadeIn(delay, fadeOutAfter, override) {

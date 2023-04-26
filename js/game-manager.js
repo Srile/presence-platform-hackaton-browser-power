@@ -1,4 +1,5 @@
 import {Component, Property} from '@wonderlandengine/api';
+import { fader } from './fade';
 
 /**
  * game-manager
@@ -18,6 +19,10 @@ export class GameManager extends Component {
         this.level = 0;
         this.scores = [];
         this.gamePhase = 0;
+
+        this.engine.onXRSessionStart.add((s) => {
+            fader.fadeOut(1000);
+        });
 
         /*
             Phase legend:
