@@ -1139,6 +1139,22 @@
                         "skin": "166"
                     }
                 }
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
             ]
         },
         "169": {
@@ -1611,18 +1627,16 @@
             ]
         },
         "238": {
-            "name": "menu",
+            "name": "selectors",
             "parent": "237",
             "components": [
                 {
                     "type": "mesh",
                     "mesh": {
                         "mesh": "7",
-                        "material": "26"
-                    }
-                },
-                {
-                    "type": "text"
+                        "material": "206"
+                    },
+                    "active": false
                 }
             ],
             "scaling": [
@@ -1640,6 +1654,305 @@
                 0.7653182,
                 0.6413739,
                 0.0414692
+            ]
+        },
+        "2000": {
+            "name": "GameManager",
+            "components": [
+                {
+                    "type": "howler-audio-source",
+                    "howler-audio-source": {
+                        "src": "music/space.mp3",
+                        "autoplay": true,
+                        "loop": true,
+                        "spatial": false
+                    }
+                }
+            ]
+        },
+        "239": {
+            "name": "controller_collider",
+            "parent": "104",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "22"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.05
+                        },
+                        "groups": 128
+                    }
+                }
+            ],
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                0.0,
+                4.214339099917197e-8,
+                0.1024935
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                -0.0,
+                1.0
+            ]
+        },
+        "240": {
+            "name": "button0",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "247"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "groups": 128,
+                        "sphere": {
+                            "radius": 0.025
+                        }
+                    },
+                    "active": true
+                },
+                {
+                    "type": "check-collision",
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.2499997,
+                0.2499996,
+                0.2499998
+            ],
+            "translation": [
+                1.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0347521,
+                0.7653174,
+                0.6413749,
+                -0.0414695
+            ]
+        },
+        "241": {
+            "name": "button1",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "248"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "groups": 128,
+                        "sphere": {
+                            "radius": 0.025
+                        }
+                    }
+                },
+                {
+                    "type": "check-collision",
+                    "check-collision": {
+                        "selectionColor": [
+                            1.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "id": 1
+                    },
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.2499999,
+                0.2499996,
+                0.25
+            ],
+            "translation": [
+                -1.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.034752,
+                0.7653181,
+                0.6413741,
+                -0.0414694
+            ]
+        },
+        "244": {
+            "name": "button2",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "250"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.025
+                        },
+                        "groups": 128
+                    }
+                },
+                {
+                    "type": "check-collision",
+                    "check-collision": {
+                        "id": 2,
+                        "selectionColor": [
+                            1.0,
+                            1.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.25,
+                0.25,
+                0.25
+            ],
+            "translation": [
+                0.0110586,
+                -5.096508743918093e-7,
+                0.0000176
+            ],
+            "rotation": [
+                -0.0000133,
+                0.0000028,
+                5.281141284285695e-7,
+                1.0
+            ]
+        },
+        "245": {
+            "name": "button3",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "251"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.025
+                        },
+                        "groups": 128
+                    }
+                },
+                {
+                    "type": "check-collision",
+                    "check-collision": {
+                        "id": 3,
+                        "selectionColor": [
+                            0.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.25,
+                0.25,
+                0.25
+            ],
+            "translation": [
+                -0.3245723,
+                0.9289993,
+                0.0000173
+            ],
+            "rotation": [
+                -5.960464477539063e-8,
+                0.0000039,
+                7.273976052601938e-7,
+                1.0
+            ]
+        },
+        "246": {
+            "name": "button4",
+            "parent": "238",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "252"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.025
+                        },
+                        "groups": 128
+                    }
+                },
+                {
+                    "type": "check-collision",
+                    "check-collision": {
+                        "id": 4,
+                        "selectionColor": [
+                            1.0,
+                            0.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "active": true
+                }
+            ],
+            "scaling": [
+                0.25,
+                0.25,
+                0.25
+            ],
+            "translation": [
+                0.6794331,
+                0.8941752,
+                0.0000063
+            ],
+            "rotation": [
+                -4.470348358154297e-8,
+                0.0000018,
+                3.4087349831679603e-7,
+                1.0
             ]
         }
     },
@@ -1804,6 +2117,12 @@
                 "name": "texture_1",
                 "file": "models\\oculus-touch-v2-right.glb"
             }
+        },
+        "243": {
+            "link": {
+                "name": "hack_UI_bg.png",
+                "file": "static\\textures\\ui\\hack_UI_bg.png"
+            }
         }
     },
     "images": {
@@ -1846,6 +2165,12 @@
                 256,
                 256
             ]
+        },
+        "242": {
+            "link": {
+                "name": "hack_UI_bg.png",
+                "file": "static\\textures\\ui\\hack_UI_bg.png"
+            }
         }
     },
     "materials": {
@@ -1876,10 +2201,10 @@
                 ],
                 "shininess": 1,
                 "diffuseColor": [
+                    0.0,
+                    0.233184,
                     1.0,
-                    1.0,
-                    1.0,
-                    0.4705882
+                    1.0
                 ]
             }
         },
@@ -1887,9 +2212,9 @@
             "name": "Pink",
             "Phong": {
                 "diffuseColor": [
-                    0.9098039,
-                    0.0,
-                    0.5411764,
+                    0.1139777,
+                    0.9775784,
+                    0.4547708,
                     1.0
                 ],
                 "specularColor": [
@@ -1905,15 +2230,24 @@
                     0.2165777,
                     1.0
                 ]
+            },
+            "pipeline": "34",
+            "Flat": {
+                "color": [
+                    0.0495484,
+                    0.6905829,
+                    0.3197602,
+                    1.0
+                ]
             }
         },
         "25": {
             "name": "Yellow",
             "Phong": {
                 "diffuseColor": [
-                    1.0,
-                    0.8039215,
-                    0.0,
+                    0.771972,
+                    0.2318968,
+                    0.8340806,
                     1.0
                 ],
                 "specularColor": [
@@ -2070,14 +2404,130 @@
                     0.6862676,
                     0.6862676,
                     1.0
-                ]
+                ],
+                "diffuseTexture": "243"
             },
-            "pipeline": "34",
+            "pipeline": "38",
             "Flat": {
                 "color": [
                     0.8392156,
                     0.8392072,
                     0.8392072,
+                    1.0
+                ]
+            }
+        },
+        "247": {
+            "name": "Button0",
+            "Phong": {
+                "diffuseColor": [
+                    0.0727438,
+                    0.7757847,
+                    0.0034788,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "248": {
+            "name": "Button1",
+            "Phong": {
+                "diffuseColor": [
+                    0.771972,
+                    0.2318968,
+                    0.8340806,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "250": {
+            "name": "Button2",
+            "Phong": {
+                "diffuseColor": [
+                    0.0,
+                    0.3139014,
+                    1.0,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "251": {
+            "name": "Button3",
+            "Phong": {
+                "diffuseColor": [
+                    1.0,
+                    0.0358744,
+                    0.0358744,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "252": {
+            "name": "Button4",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
                     1.0
                 ]
             }
@@ -2427,7 +2877,8 @@
         "models/hand-left.glb",
         "models/hand-right.glb",
         "models/button.glb",
-        "models/teleport-indicator.glb"
+        "models/teleport-indicator.glb",
+        "static/textures/ui/hack_UI_bg.png"
     ],
     "fonts": {
         "230": {

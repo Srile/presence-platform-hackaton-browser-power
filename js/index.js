@@ -16,16 +16,18 @@ import {Cursor} from '@wonderlandengine/components';
 import {FingerCursor} from '@wonderlandengine/components';
 import {HandTracking} from '@wonderlandengine/components';
 import {HowlerAudioListener} from '@wonderlandengine/components';
+import {HowlerAudioSource} from '@wonderlandengine/components';
 import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlaneDetection} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
+
 import {WasdControlsComponent} from '@wonderlandengine/components';
 import {Botcontroller} from './botcontroller.js';
+import {GameManager} from './game-manager.js';
 import {MenuController} from './menu-controller.js';
 import {PlaceShapeAnchor} from './place-shape-anchor.js';
 import {RandomPlaneColors} from './random-plane-colors.js';
-import {SpawnBot} from './spawnBot.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
@@ -92,16 +94,17 @@ engine.registerComponent(Cursor);
 engine.registerComponent(FingerCursor);
 engine.registerComponent(HandTracking);
 engine.registerComponent(HowlerAudioListener);
+engine.registerComponent(HowlerAudioSource);
 engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlaneDetection);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
 engine.registerComponent(WasdControlsComponent);
 engine.registerComponent(Botcontroller);
+engine.registerComponent(GameManager);
 engine.registerComponent(MenuController);
 engine.registerComponent(PlaceShapeAnchor);
 engine.registerComponent(RandomPlaneColors);
-engine.registerComponent(SpawnBot);
 /* wle:auto-register:end */
 
 engine.scene.load(`${Constants.ProjectName}.bin`);
