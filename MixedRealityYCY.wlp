@@ -25,6 +25,12 @@
                     "vr-mode-active-switch": {
                         "activateComponents": "in non-VR"
                     }
+                },
+                {
+                    "type": "wasd-controls",
+                    "wasd-controls": {
+                        "headObject": "205"
+                    }
                 }
             ],
             "translation": [
@@ -1646,29 +1652,40 @@
             "name": "Spawner",
             "translation": [
                 0.0,
-                1.0,
-                -2.0
+                0.0,
+                0.0
             ],
             "components": [
                 {
                     "type": "spawnBot",
                     "spawnBot": {
-                        "spawnmesh": "10",
+                        "spawnmesh": "11",
                         "spawnmat": "25",
-                        "interval": 1000.0
+                        "interval": 5000.0,
+                        "spawnmesh2": "8"
                     }
                 },
                 {
                     "type": "botcontroller",
                     "active": false
+                },
+                {
+                    "type": "uprighter",
+                    "active": false
                 }
             ],
             "rotation": [
                 0.0,
-                0.7071068,
                 0.0,
-                0.7071068
-            ]
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                0.9999997,
+                1.0,
+                0.9999997
+            ],
+            "parent": "261"
         },
         "241": {
             "name": "Mesh",
@@ -1692,10 +1709,343 @@
                 0.1,
                 0.1,
                 0.1
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                -0.0
             ]
         },
         "242": {
+            "name": "plain",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    },
+                    "active": false
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        },
+                        "collider": "sphere",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 4
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "aabb",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 8,
+                        "aabb": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        }
+                    }
+                }
+            ],
+            "translation": [
+                0.2999998,
+                -0.2999998,
+                -0.0001194
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "rotation": [
+                0.0,
+                -0.7069341,
+                0.0,
+                0.7072793
+            ],
+            "parent": "261"
+        },
+        "243": {
+            "name": "TURN",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    },
+                    "active": false
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        },
+                        "collider": "sphere",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 4
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 8
+                    }
+                }
+            ],
+            "translation": [
+                0.6999998,
+                -0.2999998,
+                -0.0001194
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "rotation": [
+                0.0,
+                1.0,
+                0.0,
+                -2.980232949312267e-8
+            ],
+            "parent": "261"
+        },
+        "244": {
+            "name": "TURN",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    },
+                    "active": false
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        },
+                        "collider": "sphere",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 4
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 8
+                    }
+                }
+            ],
+            "translation": [
+                0.6999993,
+                -0.1999999,
+                0.3998794
+            ],
+            "scaling": [
+                0.999988,
+                1.0,
+                0.999988
+            ],
+            "rotation": [
+                0.0,
+                -0.7071068,
+                0.0,
+                0.7071066
+            ],
+            "parent": "261"
+        },
+        "245": {
+            "name": "BOUNCE",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    },
+                    "active": false
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        },
+                        "collider": "sphere",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 4
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 8
+                    }
+                }
+            ],
+            "translation": [
+                1.0999996,
+                -0.1999998,
+                0.3998801
+            ],
+            "scaling": [
+                0.9999998,
+                1.0,
+                0.9999998
+            ],
+            "rotation": [
+                0.0,
+                -0.7071068,
+                0.0,
+                0.7071066
+            ],
+            "parent": "261"
+        },
+        "246": {
             "name": "Mesh.000",
+            "parent": "242",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "26"
+                    }
+                }
+            ],
+            "scaling": [
+                0.2,
+                0.2,
+                0.2
+            ]
+        },
+        "247": {
+            "name": "Mesh.000",
+            "parent": "243",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "26"
+                    }
+                }
+            ],
+            "scaling": [
+                0.2,
+                0.2,
+                0.2
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.7072793,
+                0.0,
+                0.7069341
+            ]
+        },
+        "248": {
+            "name": "Mesh.000",
+            "parent": "244",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "26"
+                    }
+                }
+            ],
+            "scaling": [
+                0.2,
+                0.2,
+                0.2
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.7072793,
+                0.0,
+                0.7069341
+            ]
+        },
+        "249": {
+            "name": "BOUNCE",
+            "parent": "245",
             "components": [
                 {
                     "type": "mesh",
@@ -1703,31 +2053,404 @@
                         "mesh": "8",
                         "material": "25"
                     }
-                },
-                {
-                    "type": "collision",
-                    "collision": {
-                        "sphere": {
-                            "radius": 0.2
-                        }
-                    }
                 }
-            ],
-            "translation": [
-                0.0,
-                0.6999999,
-                -2.0
             ],
             "scaling": [
                 0.2,
                 0.2,
                 0.2
             ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.7072793,
+                0.0,
+                0.7069341
+            ]
+        },
+        "250": {
+            "name": "TURN",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    },
+                    "active": false
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        },
+                        "collider": "sphere",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 4
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 8
+                    }
+                }
+            ],
+            "translation": [
+                1.8999994,
+                0.1999999,
+                0.3998789
+            ],
+            "scaling": [
+                0.9999986,
+                1.0,
+                0.9999986
+            ],
+            "rotation": [
+                0.0,
+                2.3841920437916997e-7,
+                0.0,
+                1.0
+            ],
+            "parent": "261"
+        },
+        "251": {
+            "name": "Mesh.000",
+            "parent": "250",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "26"
+                    }
+                }
+            ],
+            "scaling": [
+                0.2,
+                0.2,
+                0.2
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
             "rotation": [
                 0.0,
                 0.0,
                 0.0,
                 1.0
+            ]
+        },
+        "252": {
+            "name": "block",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    },
+                    "active": false
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        },
+                        "collider": "sphere",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 4
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 8
+                    }
+                }
+            ],
+            "translation": [
+                1.899999,
+                -0.6,
+                0.0998785
+            ],
+            "scaling": [
+                0.9999608,
+                1.0,
+                0.9999608
+            ],
+            "rotation": [
+                0.0,
+                0.707107,
+                0.0,
+                0.7071065
+            ],
+            "parent": "261"
+        },
+        "253": {
+            "name": "Mesh.000",
+            "parent": "252",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "26"
+                    }
+                }
+            ],
+            "scaling": [
+                0.1999999,
+                0.2,
+                0.1999999
+            ],
+            "translation": [
+                -5.859212137693248e-7,
+                -2.2351740014414645e-8,
+                -3.778785639951821e-8
+            ],
+            "rotation": [
+                0.0,
+                0.7071067,
+                -1.6620083087559582e-8,
+                0.7071068
+            ]
+        },
+        "255": {
+            "name": "TURN",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    },
+                    "active": false
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        },
+                        "collider": "sphere",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 4
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "aabb",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 8,
+                        "aabb": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        }
+                    }
+                }
+            ],
+            "translation": [
+                -0.1000001,
+                -0.2999998,
+                -0.0001194
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "rotation": [
+                0.0,
+                -0.7069342,
+                0.0,
+                0.7072793
+            ],
+            "parent": "261"
+        },
+        "256": {
+            "name": "TURN",
+            "parent": "255",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "26"
+                    }
+                }
+            ],
+            "scaling": [
+                0.2,
+                0.2,
+                0.2
+            ]
+        },
+        "259": {
+            "name": "BOUNCE",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    },
+                    "active": false
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.2
+                        },
+                        "collider": "sphere",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 4
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "collider": "box",
+                        "box": {
+                            "extents": [
+                                0.2,
+                                0.2,
+                                0.2
+                            ]
+                        },
+                        "groups": 8
+                    }
+                }
+            ],
+            "translation": [
+                1.5000001,
+                -0.5999999,
+                0.0998804
+            ],
+            "scaling": [
+                0.9999825,
+                1.0,
+                0.9999825
+            ],
+            "rotation": [
+                0.0,
+                0.7070169,
+                0.0,
+                0.7071966
+            ],
+            "parent": "261"
+        },
+        "260": {
+            "name": "BOUNCE",
+            "parent": "259",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "25"
+                    }
+                }
+            ],
+            "scaling": [
+                0.2,
+                0.2,
+                0.2
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.7072793,
+                0.0,
+                0.7069341
+            ]
+        },
+        "261": {
+            "name": "LevelRoot",
+            "parent": null,
+            "translation": [
+                -1.1920928955078125e-7,
+                0.6999998,
+                -2.0001194
+            ],
+            "rotation": [
+                0.0,
+                1.0,
+                0.0,
+                2.980232949312267e-8
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "collisionScaler"
+                }
             ]
         }
     },
