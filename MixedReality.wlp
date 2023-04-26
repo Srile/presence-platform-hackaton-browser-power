@@ -1639,6 +1639,9 @@
                         "loop": true,
                         "spatial": false
                     }
+                },
+                {
+                    "type": "game-manager"
                 }
             ]
         },
@@ -1931,7 +1934,12 @@
             "link": {
                 "name": "Portal",
                 "file": "models\\portal_test.glb"
-            }
+            },
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
         }
     },
     "meshes": {
@@ -2743,6 +2751,9 @@
                 0.1686274,
                 0.0
             ]
+        },
+        "editor": {
+            "ids": "uuid"
         }
     },
     "animations": {},
