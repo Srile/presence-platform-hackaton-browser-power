@@ -1641,6 +1641,19 @@
                 0.6413739,
                 0.0414692
             ]
+        },
+        "239": {
+            "name": "GameManager",
+            "components": [
+                {
+                    "type": "howler-audio-source",
+                    "howler-audio-source": {
+                        "src": "/static/music/space.mp3",
+                        "autoplay": true,
+                        "loop": true
+                    }
+                }
+            ]
         }
     },
     "meshes": {
