@@ -19,6 +19,14 @@ export class GameManager extends Component {
         this.scores = [];
         this.gamePhase = 0;
 
+        /*
+            Phase legend:
+            0   Intro/main menu
+            1   Portal placement
+            2   Build mode
+            3   Explore mode
+        */
+
         setTimeout(() => {
             this.narrationAudio0 = this.object.addComponent("howler-audio-source", {
                 src: "narration/narration-0-intro.mp3",
@@ -38,11 +46,11 @@ export class GameManager extends Component {
             this.narrationAudio0.audio.on('end', function(){
                 console.log('Finished!');
                 // START FIRST LEVEL PORTAL PLACEMENT PHASE
-                this.level++;
-                this.gamePhase++;
+                this.level++;  // 1; start level one
+                this.gamePhase++; // 1; portal placement game phase
                 this.narrationAudio1.audio.play();
-                // After initial narration, the next clip instructs the user to place the portal
-                // So activate the portal placement mode here
+                // After initial narration, the next clip instructs the user to
+                // place the portal so activate the portal placement mode here
             }.bind(this));
         }, 3000);
     }
@@ -53,5 +61,6 @@ export class GameManager extends Component {
 
     update(dt) {
         /* Called every frame. */
+
     }
 }
