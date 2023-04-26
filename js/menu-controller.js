@@ -1,6 +1,29 @@
 import {Component, Property} from '@wonderlandengine/api';
 import { glMatrix, quat, vec3 } from 'gl-matrix';
 
+window.seletables = {
+    currentId: -1,
+    blocks: [
+        { name: 'menu0' },
+        { name: 'menu1' },
+        { name: 'menu2' },
+        { name: 'menu3' },
+        { name: 'menu4' },
+    ]
+}
+
+// call everytime the selection is changed to a new selection
+window.spawnObject = function() {
+    if (window.seletables.currentId == -1) return;
+    console.log("Span object name: " + window.seletables.blocks[window.seletables.currentId].name);
+}
+
+// call everytime a selected object is unselected
+window.unselectObject = function(previousSelectionId) {
+    console.log("Unselect prevous selection: " + previousSelectionId);
+    window.seletables.currentId = -1;
+}
+
 /**
  * menu-controller
  */
@@ -30,7 +53,7 @@ export class MenuController extends Component {
 
     toggleMenu(activate) {
         if (activate == this.isMenuVisible) return;
-        this.planeMenu.active = activate;
+        // this.planeMenu.active = activate;
         this.planeMenu.object.children.forEach(child => {
             child.active = activate;
         });

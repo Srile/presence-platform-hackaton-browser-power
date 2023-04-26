@@ -8,6 +8,7 @@ export class CheckCollision extends Component {
     /* Properties that are configurable in the editor */
     static Properties = {
         selectionColor: { type: Type.Color, default: [0.0, 1.0, 0.0, 1.0] },
+        id: { type: Type.Int, default: 0 }
     };
     /* Add other component types here that your component may
      * create. They will be registered with this component */
@@ -20,6 +21,8 @@ export class CheckCollision extends Component {
         this.currentMaterial = this.currentMesh.material;
         this.meshColor = new Float32Array(this.currentMaterial.diffuseColor);
         this.activeColor = this.selectionColor;
+        this.isCurrentlySelected = false;
+        this.isUnselecting = false;
 
         this.collisionComponent = this.object.getComponent('collision', 0);
     }
@@ -33,6 +36,14 @@ export class CheckCollision extends Component {
         console.log("onCollisionEnter")
         this.didCollide = true;
         this.currentMaterial.diffuseColor = this.activeColor;
+
+        // enter in collision with already selected object
+        if (window.seletables.currentId == this.id) {
+            this.isUnselecting = true;
+        }
+
+        // set the global variable to the current id
+        window.seletables.currentId = this.id;
     }
 
     onCollision() {
@@ -47,11 +58,40 @@ export class CheckCollision extends Component {
         this.didCollide = false;
 
         this.currentMaterial.diffuseColor = this.meshColor;
+        
+        if (this.isUnselecting) {
+            this.unSelect()
+        }
+    }
+
+    unSelect() {
+        window.unselectObject(this.id);
+        this.isUnselecting = false;
+    }
+
+    isSelected() {
+        // was selected before but unselect now
+        if (this.isCurrentlySelected == true && this.id != window.seletables.currentId) {
+            this.isCurrentlySelected = false;
+            this.currentMaterial.diffuseColor = this.meshColor;
+            return;
+        }
+
+        // no currently selected object
+        if (this.id != window.seletables.currentId) return;      
+        
+        // select the current object
+        if (this.isCurrentlySelected == false) { window.spawnObject(); }
+        this.isCurrentlySelected = true;
+        this.currentMaterial.diffuseColor = [0.0, 0.0, 0.0, 1.0];
     }
 
     update(dt) {
         /* Called every frame. */
         const overlaps = this.collisionComponent.queryOverlaps();
+
+        // check if the current object is selected
+        this.isSelected();
 
         if(overlaps.length) {
             this.onCollision()
