@@ -1,4 +1,4 @@
-import {Component, MeshComponent, Property} from '@wonderlandengine/api';
+import { Component, MeshComponent, Property } from '@wonderlandengine/api';
 import { Botcontroller } from './botcontroller';
 
 /**
@@ -17,10 +17,11 @@ export class SpawnBot extends Component {
     static Dependencies = [Botcontroller];
 
     init() {
+        this.qTemp1 = new Float32Array(4);
     }
 
     start() {
-        this.SpawnTicker = setInterval(()=>{this.spawn()}, this.interval);
+        this.SpawnTicker = setInterval(() => { this.spawn() }, this.interval);
     }
 
     update(dt) {
@@ -29,13 +30,15 @@ export class SpawnBot extends Component {
 
     spawn() {
         const o = this.engine.scene.addObject(this.object);
+        this.object.getRotationWorld(this.qTemp1);
+        //o.rotateAxisAngleDegObject([0, 1, 0], 180);
         o.addComponent(MeshComponent, {
             material: this.spawnmat,
             mesh: this.spawnmesh,
-          });
-        
-          o.addComponent(Botcontroller);
-          o.scaleLocal([0.1,0.1,0.1])
+        });
+
+        o.addComponent(Botcontroller);
+        o.scaleLocal([0.1, 0.1, 0.1])
 
     }
 }
