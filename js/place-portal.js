@@ -5,6 +5,8 @@ import { vec3 } from "gl-matrix";
 
 import anime from 'animejs/lib/anime.es.js';
 
+export let portalPlacement;
+
 export function getTime(engine) {
   const frame = engine.xrFrame;
   return (frame && frame.predictedDisplayTime) || performance.now() || Date.now();
@@ -49,6 +51,8 @@ export class PlacePortal extends Component {
   static Dependencies = [Anchor];
 
   start() {
+    this.activated = false;
+
     this.onSpawnCompleteCallbacks = [];
 
     this.currentScale = 0.0;
@@ -59,9 +63,11 @@ export class PlacePortal extends Component {
     this.tempVec2 = new Float32Array(3);
     this.cursor = this.object.getComponent(Cursor);
     this.cursor.hitTestTarget.onClick.add((result, _, event) => {
+      if(!this.activated) return;
       if(!spawnedPortal) this.spawnPortal(null, event.frame ?? null, result, this.portalObject);
     });
     this.cursor.globalTarget.onClick.add((clickedObject, _, event) => {
+      if(!this.activated) return;
       if(!spawnedPortal) this.spawnPortal(null, event.frame ?? null, null, this.portalObject, clickedObject);
     });
 
@@ -82,6 +88,10 @@ export class PlacePortal extends Component {
         this.spawnPortal(uuid, null, null, portalObject);
       }
     });
+  }
+
+  activate() {
+    this.activated = true;
   }
 
   addOnSpawnCompleteFunction(f) {
@@ -106,8 +116,6 @@ export class PlacePortal extends Component {
       lookAt(tempQuat2, this.tempVec, this.tempVec2);
       portalObject.setRotationWorld(tempQuat2);
     }
-
-    console.log('animate');
 
     this.currentAnim = anime({
         targets: this,

@@ -1,5 +1,6 @@
 import {Component, Property} from '@wonderlandengine/api';
 import { fader } from './fade';
+import { portalPlacement } from './place-portal';
 
 /**
  * game-manager
@@ -55,6 +56,7 @@ export class GameManager extends Component {
                 // After initial narration, the next clip instructs the user to
                 // place the portal so activate the portal placement mode here
 
+                portalPlacement.activate();
             });
         })
     }
