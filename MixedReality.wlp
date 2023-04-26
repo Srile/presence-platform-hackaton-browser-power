@@ -702,10 +702,6 @@
                     "input": {
                         "type": "hand right"
                     }
-                },
-                {
-                    "type": "vr-mode-active-switch",
-                    "active": true
                 }
             ],
             "translation": [
@@ -760,10 +756,6 @@
                     "input": {
                         "type": "hand left"
                     }
-                },
-                {
-                    "type": "vr-mode-active-switch",
-                    "active": true
                 }
             ],
             "translation": [
@@ -1408,18 +1400,6 @@
                     }
                 },
                 {
-                    "type": "place-shape-anchor",
-                    "place-shape-anchor": {
-                        "meshCone": "10",
-                        "meshCube": "8",
-                        "meshSphere": "9",
-                        "materialSphere": "26",
-                        "materialCube": "22",
-                        "materialCone": "25",
-                        "hitTestObject": "127"
-                    }
-                },
-                {
                     "type": "cursor",
                     "cursor": {
                         "cursorObject": "235",
@@ -1427,6 +1407,12 @@
                         "cursorRayObject": null,
                         "collisionGroup": 0,
                         "cursorRayScalingAxis": "none"
+                    }
+                },
+                {
+                    "type": "place-portal",
+                    "place-portal": {
+                        "portalObject": "2012"
                     }
                 }
             ],
@@ -1453,12 +1439,10 @@
                 {
                     "type": "plane-detection",
                     "plane-detection": {
-                        "planeMaterial": "20",
+                        "planeMaterial": null,
                         "collisionMask": 1
-                    }
-                },
-                {
-                    "type": "random-plane-colors"
+                    },
+                    "active": true
                 }
             ],
             "parent": null,
@@ -1497,18 +1481,6 @@
                     "type": "input",
                     "input": {
                         "type": "ray left"
-                    }
-                },
-                {
-                    "type": "place-shape-anchor",
-                    "place-shape-anchor": {
-                        "meshCone": "10",
-                        "meshCube": "8",
-                        "meshSphere": "9",
-                        "materialSphere": "26",
-                        "materialCube": "22",
-                        "materialCone": "25",
-                        "hitTestObject": "127"
                     }
                 }
             ],
@@ -1698,7 +1670,7 @@
             ],
             "translation": [
                 0.0,
-                4.214339099917197e-8,
+                4.2143390999171983e-8,
                 0.1024935
             ],
             "rotation": [
@@ -1898,7 +1870,7 @@
                 0.0000173
             ],
             "rotation": [
-                -5.960464477539063e-8,
+                -5.960464477539065e-8,
                 0.0000039,
                 7.273976052601938e-7,
                 1.0
@@ -1949,11 +1921,17 @@
                 0.0000063
             ],
             "rotation": [
-                -4.470348358154297e-8,
+                -4.4703483581542975e-8,
                 0.0000018,
-                3.4087349831679603e-7,
+                3.408734983167961e-7,
                 1.0
             ]
+        },
+        "2012": {
+            "link": {
+                "name": "Portal",
+                "file": "models\\portal_test.glb"
+            }
         }
     },
     "meshes": {
@@ -2091,6 +2069,24 @@
                 "name": "TeleportIndicator",
                 "file": "models\\teleport-indicator.glb"
             }
+        },
+        "2009": {
+            "link": {
+                "name": "PortalMesh",
+                "file": "models\\portal_test.glb"
+            }
+        },
+        "2010": {
+            "link": {
+                "name": "PortalMesh.0",
+                "file": "models\\portal_test.glb"
+            }
+        },
+        "2011": {
+            "link": {
+                "name": "PortalMesh.1",
+                "file": "models\\portal_test.glb"
+            }
         }
     },
     "textures": {
@@ -2122,6 +2118,12 @@
             "link": {
                 "name": "hack_UI_bg.png",
                 "file": "static\\textures\\ui\\hack_UI_bg.png"
+            }
+        },
+        "2005": {
+            "link": {
+                "name": "texture_0",
+                "file": "models\\portal_test.glb"
             }
         }
     },
@@ -2171,6 +2173,13 @@
                 "name": "hack_UI_bg.png",
                 "file": "static\\textures\\ui\\hack_UI_bg.png"
             }
+        },
+        "2004": {
+            "link": {
+                "name": "tempbg",
+                "file": "models\\portal_test.glb"
+            },
+            "compression": "none"
         }
     },
     "materials": {
@@ -2531,6 +2540,34 @@
                     1.0
                 ]
             }
+        },
+        "2006": {
+            "link": {
+                "name": "PortalFrame",
+                "file": "models\\portal_test.glb"
+            }
+        },
+        "2007": {
+            "link": {
+                "name": "PortalBackground",
+                "file": "models\\portal_test.glb"
+            },
+            "pipeline": "35"
+        },
+        "2008": {
+            "link": {
+                "name": "PortalOccluder",
+                "file": "models\\portal_test.glb"
+            },
+            "pipeline": "2002",
+            "Flat": {
+                "color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
         }
     },
     "shaders": {
@@ -2651,6 +2688,12 @@
         "228": {
             "link": {
                 "name": "TileFeedback.frag",
+                "file": "default"
+            }
+        },
+        "2001": {
+            "link": {
+                "name": "Occlusion.frag",
                 "file": "default"
             }
         }
@@ -2792,6 +2835,24 @@
                 "file": "default"
             }
         },
+        "2013": {
+            "link": {
+                "name": "Phong Opaque Textured",
+                "file": "default"
+            },
+            "name": "Phong Opaque Textured_AR"
+        },
+        "2002": {
+            "link": {
+                "name": "Occlusion Opaque",
+                "file": "default"
+            },
+            "shader": "2",
+            "depthTest": false,
+            "blendSrcRgb": "zero",
+            "blendDestRgb": "one",
+            "blending": true
+        },
         "36": {
             "link": {
                 "name": "MeshVisualizer",
@@ -2869,6 +2930,12 @@
                 "name": "Phong Lightmapped",
                 "file": "default"
             }
+        },
+        "2003": {
+            "link": {
+                "name": "Occlusion Opaque Textured",
+                "file": "default"
+            }
         }
     },
     "files": [
@@ -2878,7 +2945,8 @@
         "models/hand-right.glb",
         "models/button.glb",
         "models/teleport-indicator.glb",
-        "static/textures/ui/hack_UI_bg.png"
+        "static/textures/ui/hack_UI_bg.png",
+        "models/portal_test.glb"
     ],
     "fonts": {
         "230": {

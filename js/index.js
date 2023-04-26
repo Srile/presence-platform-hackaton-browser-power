@@ -21,10 +21,10 @@ import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlaneDetection} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
+import {CheckCollision} from './check-collision.js';
 import {GameManager} from './game-manager.js';
 import {MenuController} from './menu-controller.js';
-import {PlaceShapeAnchor} from './place-shape-anchor.js';
-import {RandomPlaneColors} from './random-plane-colors.js';
+import {PlacePortal} from './place-portal.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
@@ -96,10 +96,10 @@ engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlaneDetection);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
+engine.registerComponent(CheckCollision);
 engine.registerComponent(GameManager);
 engine.registerComponent(MenuController);
-engine.registerComponent(PlaceShapeAnchor);
-engine.registerComponent(RandomPlaneColors);
+engine.registerComponent(PlacePortal);
 /* wle:auto-register:end */
 
 engine.scene.load(`${Constants.ProjectName}.bin`);
