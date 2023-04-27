@@ -2905,6 +2905,26 @@
                 0.0949999,
                 0.0949999
             ]
+        },
+        "0d4b5a15-4c47-45ee-b73e-673432d69711": {
+            "name": "Spawner",
+            "translation": [
+                0.0,
+                1.0,
+                -0.5
+            ],
+            "components": [
+                {
+                    "type": "spawnBot",
+                    "spawnBot": {
+                        "placementObject": "235",
+                        "spawnmesh": "11",
+                        "spawnmesh2": "8",
+                        "spawnmat": "25",
+                        "portalObject": "2012"
+                    }
+                }
+            ]
         }
     },
     "meshes": {

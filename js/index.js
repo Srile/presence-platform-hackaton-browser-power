@@ -31,6 +31,7 @@ import {MenuController} from './menu-controller.js';
 import {ObjectPlacer} from './object-placer.js';
 import {PlacePortal} from './place-portal.js';
 import {PortalPlacementMarker} from './portal-placement-marker.js';
+import {SpawnBot} from './spawnBot.js';
 import {TimerController} from './timer-controller.js';
 import {UFOController} from './ufo-controller.js';
 /* wle:auto-imports:end */
@@ -114,6 +115,7 @@ engine.registerComponent(MenuController);
 engine.registerComponent(ObjectPlacer);
 engine.registerComponent(PlacePortal);
 engine.registerComponent(PortalPlacementMarker);
+engine.registerComponent(SpawnBot);
 engine.registerComponent(TimerController);
 engine.registerComponent(UFOController);
 /* wle:auto-register:end */
