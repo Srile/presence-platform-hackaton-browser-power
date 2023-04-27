@@ -2925,6 +2925,54 @@
                     }
                 }
             ]
+        },
+        "7550F4A5-9A64-4F22-8DC5-65847120904D": {
+            "name": "controller_collider",
+            "parent": "54",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "22"
+                    }
+                },
+                {
+                    "type": "collision",
+                    "collision": {
+                        "sphere": {
+                            "radius": 0.05
+                        },
+                        "groups": 132
+                    }
+                },
+                {
+                    "type": "object-rotate",
+                    "object-rotate": {
+                        "handedness": "left",
+                        "meshCube": "9",
+                        "allowedMaterial": "26",
+                        "disallowedMaterial": "25",
+                        "blockSpace": "ab04d76c-e107-4f3a-a84f-542a316b65ef"
+                    }
+                }
+            ],
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                0.0,
+                4.2143390999171983e-8,
+                0.1024935
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                -0.0,
+                1.0
+            ]
         }
     },
     "meshes": {
