@@ -18,14 +18,13 @@ export class TimerController extends Component {
         this.elapsedTime = 0;
 
         this.textComponent = this.object.children[0].getComponent('text', 0)
-        const emitter = new Emitter();
-        emitter.add(this.toggleTimer.bind(this));
+        window.emitter.add(this.toggleTimer.bind(this));
 
         // Start the timer
-        // emitter.notify({ startTimer: true });
+        // window.emitter.notify({ startTimer: true });
 
         // Stop the timer
-        // emitter.notify({ startTimer: false });
+        // window.emitter.notify({ startTimer: false });
     }
 
     start() {
