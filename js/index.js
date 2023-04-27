@@ -45,7 +45,7 @@ const RuntimeOptions = {
     canvas: 'canvas',
 };
 const Constants = {
-    ProjectName: 'MixedReality',
+    ProjectName: 'Nano Nav',
     RuntimeBaseName: 'WonderlandRuntime',
     WebXRRequiredFeatures: ['local',],
     WebXROptionalFeatures: ['local','local-floor','hand-tracking','hit-test','plane-detection','anchors',],

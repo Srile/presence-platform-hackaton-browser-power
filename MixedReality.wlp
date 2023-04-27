@@ -3838,12 +3838,13 @@
     },
     "settings": {
         "project": {
-            "name": "MixedReality",
+            "name": "Nano Nav",
             "version": [
                 1,
                 0,
                 0
-            ]
+            ],
+            "customIndexHtml": true
         },
         "vr": {
             "leftEyeObject": "18",
