@@ -126,7 +126,7 @@ export class ObjectPlacer extends Component {
             this.currentCube.collisionComponent = this.currentCube.addComponent(CollisionComponent, {
                 group: (1 << 3),
                 extents: this._boxExtents,
-                collider: Collider.Box
+                collider: Collider.Sphere
             });
 
             console.log('SPAWN CUBE');
