@@ -2,6 +2,7 @@ import {Component, Property} from '@wonderlandengine/api';
 import { fader } from './fade';
 import { portalPlacement } from './place-portal';
 import { objectPlacers } from './object-placer';
+import { objectRotates } from './object-rotate';
 import { portalPlacementMarkers } from './portal-placement-marker';
 import { ufo, UFOController } from './ufo-controller';
 import { levelData } from './level-data';
@@ -92,6 +93,7 @@ export class GameManager extends Component {
                     this.narrationAudio2.audio.play();
                     
                     if(objectPlacers.right) objectPlacers.right.setActive(true);
+                    if(objectRotates.left) objectRotates.left.setActive(true);
 
                     const currentLevelData = levelData[this.level];
 
