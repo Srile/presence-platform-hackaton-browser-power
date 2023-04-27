@@ -73,7 +73,7 @@ export class Botcontroller extends Component {
     }
 
     update(dt) {
-        if(this.toUFO) {
+        if (this.toUFO) {
             ufo.object.getTranslationWorld(this.vTemp1);
             this.object.getTranslationWorld(this.vTemp2);
 
@@ -82,7 +82,7 @@ export class Botcontroller extends Component {
 
             this.object.setTranslationWorld(this.vTemp2);
 
-            if(this.t >= 1) {
+            if (this.t >= 1) {
                 this.object.active = false;
 
                 // TODO: ADD ROBOT DEACTIVATE
@@ -109,15 +109,15 @@ export class Botcontroller extends Component {
 
             vec3.scale(this.forwardVec, this.forwardVec, 0.1 * this.worlscalar);
             vec3.add(this.vTemp3, this.originVec, this.forwardVec);
-            vec3.add(this.vTemp3, this.vTemp3, [0, 0.05 * this.worlscalar, 0]);
+            vec3.add(this.vTemp3, this.vTemp3, [0, 0.15 * this.worlscalar, 0]);
             vec3.normalize(this.directionVec, this.directionVec);
             const hit = this.engine.scene.rayCast(this.vTemp3, this.directionVec, mask);
 
             if (hit.hitCount > 0) {
                 let hitObject = null;
-                let hitdist = 0.1 * this.worlscalar;
+                let hitdist = 0.2 * this.worlscalar;
                 let hiti = -1;
-                if (this.fly) hitdist = 0.05
+                if (this.fly) hitdist = 0.1
                 for (let i = 0; i < hit.hitCount; i++) {
                     if (hit.objects[i] != this.lasthitobject) {
                         let testobject = hit.objects[i];
