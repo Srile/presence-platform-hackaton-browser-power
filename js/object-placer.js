@@ -15,8 +15,24 @@ export class ObjectPlacer extends Component {
         gridIncrementSteps: Property.float(0.5),
         handedness: Property.string("left"),
         meshCube: Property.mesh(),
+        meshCubeNoArrow: Property.mesh(),
+        mesh0SpringWithArrow: Property.mesh(),
+        mesh1SpringWithArrow: Property.mesh(),
+        mesh0SpringNoArrow: Property.mesh(),
+        mesh1SpringNoArrow: Property.mesh(),
         allowedMaterial: Property.material(),
+        meshCubMat: Property.material(),
+        meshCubeNoArrowMat: Property.material(),
+        mesh0SpringWithArrowMat: Property.material(),
+        mesh1SpringWithArrowMat: Property.material(),
+        mesh0SpringNoArrowMat: Property.material(),
+        mesh1SpringNoArrowMat: Property.material(),
         disallowedMaterial: Property.material(),
+        cube0Mat: Property.material(),
+        cube1Mat: Property.material(),
+        cube2Mat: Property.material(),
+        cube3Mat: Property.material(),
+        cube4Mat: Property.material(),
         blockSpace: Property.object()
     };
 
@@ -33,6 +49,28 @@ export class ObjectPlacer extends Component {
     static Dependencies = [];
 
     start() {
+        // this.meshObjects = [
+        //     [this.meshCube],
+        //     [this.meshCube],
+        //     [this.meshCubeNoArrow],
+        //     [this.mesh0SpringWithArrow, this.mesh1SpringWithArrow],
+        //     [this.mesh0SpringNoArrow, this.mesh1SpringNoArrow]
+        // ]
+
+        this.meshObjects = [
+            [this.meshCubeNoArrow],
+            [this.meshCubeNoArrow],
+            [this.meshCubeNoArrow],
+            [this.meshCubeNoArrow],
+            [this.meshCubeNoArrow],
+        ]
+        this.allowedMaterials = [
+            this.cube0Mat,
+            this.cube1Mat,
+            this.cube2Mat,
+            this.cube3Mat,
+            this.cube4Mat
+        ]
         objectPlacers[this.handedness] = this;
 
         let str = this.gridIncrementSteps.toFixed(20);  // Set the number of digits to a large value
@@ -98,10 +136,32 @@ export class ObjectPlacer extends Component {
             this.currentCube = this.engine.scene.addObject(this.blockSpace);
             this.currentCube.setScalingLocal(this._boxExtents);
 
-            this.currentCube.meshComponent = this.currentCube.addComponent(MeshComponent, {
-                material: this.disallowedMaterial,
-                mesh: this.meshCube,
-            });
+            if (window.seletables.currentId != -1) {
+                this.meshObjects[window.seletables.currentId].forEach((mesh, index) => {
+                    // console.log("INDEX: " + index)
+
+                    // console.log("-------------------------------------")
+                    // console.log("window.seletables.currentId: " + window.seletables.currentId)
+                    // console.log("index: " + index)
+                    // console.log(this.allowedMaterials)
+                    // console.log(this.allowedMaterials[window.seletables.currentId][index])
+
+                    this.currentCube.meshComponent = this.currentCube.addComponent(MeshComponent, {
+                        material: this.allowedMaterials[window.seletables.currentId],
+                        mesh: mesh,
+                    })
+
+                    // this.currentCube.meshComponent = this.currentCube.addComponent(MeshComponent, {
+                    //     material: this.allowedMaterials[window.seletables.currentId][index],
+                    //     mesh: mesh,
+                    // })
+                })
+            } else {
+                this.currentCube.meshComponent = this.currentCube.addComponent(MeshComponent, {
+                    material: this.allowedMaterials[0],
+                    mesh: this.meshCube,
+                })
+            }
 
             this.currentCube.collisionComponent = this.currentCube.addComponent(CollisionComponent, {
                 group: (1 << 2),
@@ -152,10 +212,10 @@ export class ObjectPlacer extends Component {
             const overlaps = this.currentCube.collisionComponent.queryOverlaps();
 
             if (overlaps.length && this._placementAllowed) {
-                this.currentCube.meshComponent.material = this.disallowedMaterial;
+                this.currentCube.meshComponent = this.disallowedMaterial;
                 this._placementAllowed = false;
             } else if (!overlaps.length && !this._placementAllowed) {
-                this.currentCube.meshComponent.material = this.allowedMaterial;
+                this.currentCube.meshComponent = this.allowedMaterial;
                 this._placementAllowed = true;
             }
         }

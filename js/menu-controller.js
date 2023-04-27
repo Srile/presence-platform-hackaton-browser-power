@@ -3,7 +3,7 @@ import { glMatrix, quat, vec3 } from 'gl-matrix';
 import { gameManager } from './game-manager';
 
 window.seletables = {
-    currentId: -1,
+    currentId: 0,
     blocks: [
         { name: 'BLOCK NAME0', stock: 42 },
         { name: 'BLOCK NAME1', stock: 42 },
