@@ -1697,7 +1697,14 @@
                         "allowedMaterial": "26",
                         "disallowedMaterial": "25",
                         "handedness": "right",
-                        "blockSpace": "ab04d76c-e107-4f3a-a84f-542a316b65ef"
+                        "blockSpace": "ab04d76c-e107-4f3a-a84f-542a316b65ef",
+                        "cube0Mat": "DE6FB90A-45EB-4A55-8B69-AC5D69E9EDC3",
+                        "cube1Mat": "0DE9F981-6AB6-434A-BFE4-251A2A98901D",
+                        "cube2Mat": "FD322C50-6003-462B-8FA5-DEAB58ACBD36",
+                        "cube3Mat": "93AD5DB7-3E4A-40AD-B6EB-31F35C6C7508",
+                        "cube4Mat": "58A853A4-5885-4474-9484-44121E153A0C",
+                        "meshCubeNoArrow": "089137F9-3AF3-401A-9CD3-D1F3056B8C04",
+                        "meshCubMat": "DE6FB90A-45EB-4A55-8B69-AC5D69E9EDC3"
                     },
                     "active": false
                 }
@@ -2991,6 +2998,65 @@
                 0.0399999,
                 0.0399999
             ]
+        },
+        "D03A9E4F-F017-4778-AD58-8B54287AEAE4": {
+            "link": {
+                "name": "Spring_with_Arrow",
+                "file": "models\\spring_with_Arrow_04.glb"
+            }
+        },
+        "67050724-A258-4752-8DA5-0CD77ACBAC3B": {
+            "link": {
+                "name": "polySurface4<Spring_with_Arrow",
+                "file": "models\\spring_with_Arrow_04.glb"
+            },
+            "parent": "D03A9E4F-F017-4778-AD58-8B54287AEAE4"
+        },
+        "9C5006F8-9020-4CD9-BA2A-E94BE1DA1BFA": {
+            "link": {
+                "name": "polySurface5<Spring_with_Arrow",
+                "file": "models\\spring_with_Arrow_04.glb"
+            },
+            "parent": "D03A9E4F-F017-4778-AD58-8B54287AEAE4"
+        },
+        "9BDA475D-62F7-4FFF-A165-9962D8E1DBE6": {
+            "link": {
+                "name": "Spring_no_Arrow",
+                "file": "models\\spring_NO_Arrow_03.glb"
+            }
+        },
+        "9143242F-2544-4D1D-8223-A45F0AFDA059": {
+            "link": {
+                "name": "pCylinder83<Spring_no_Arrow",
+                "file": "models\\spring_NO_Arrow_03.glb"
+            },
+            "parent": "9BDA475D-62F7-4FFF-A165-9962D8E1DBE6"
+        },
+        "61BEFEEE-C13E-434F-B805-FB04FE64844A": {
+            "link": {
+                "name": "polySurface2<Spring_no_Arrow",
+                "file": "models\\spring_NO_Arrow_03.glb"
+            },
+            "parent": "9BDA475D-62F7-4FFF-A165-9962D8E1DBE6"
+        },
+        "60DACD3B-A7EB-4494-AF52-4DA3E6B401BA": {
+            "link": {
+                "name": "polySurface6",
+                "file": "models\\cube_with_Arrow.glb"
+            }
+        },
+        "4E627FB7-9DD1-4D13-8379-FB9294A08945": {
+            "link": {
+                "name": "surfaceShatter1",
+                "file": "models\\cube_NO_Arrow.glb"
+            }
+        },
+        "8697EB1D-A47A-4980-A189-E2C0CEBCABDE": {
+            "link": {
+                "name": "shard2<surfaceShatter1",
+                "file": "models\\cube_NO_Arrow.glb"
+            },
+            "parent": "4E627FB7-9DD1-4D13-8379-FB9294A08945"
         }
     },
     "meshes": {
@@ -3187,6 +3253,66 @@
             "link": {
                 "name": "UFO_Mesh.1",
                 "file": "models\\UFO.glb"
+            }
+        },
+        "E4DBB176-AB5B-484D-9CAF-88460797F823": {
+            "link": {
+                "name": "Mesh.001",
+                "file": "models\\spring_with_Arrow_04.glb"
+            }
+        },
+        "EAC1D3D7-36D6-4300-A42F-E5D8097C9029": {
+            "link": {
+                "name": "Mesh.001.0",
+                "file": "models\\spring_with_Arrow_04.glb"
+            }
+        },
+        "93299BF4-A00E-4E3D-9921-6641D3097F1B": {
+            "link": {
+                "name": "Mesh",
+                "file": "models\\spring_with_Arrow_04.glb"
+            }
+        },
+        "F6B0B1D6-DA56-48CB-9BD7-23734676A3B8": {
+            "link": {
+                "name": "Mesh",
+                "file": "models\\spring_NO_Arrow_03.glb"
+            }
+        },
+        "ADF62FD2-FF42-4137-AACA-FF05EDB4F1D2": {
+            "link": {
+                "name": "Mesh.0",
+                "file": "models\\spring_NO_Arrow_03.glb"
+            }
+        },
+        "3C2F564C-C586-4904-B0DC-B7E39CCA13E7": {
+            "link": {
+                "name": "Mesh.001",
+                "file": "models\\spring_NO_Arrow_03.glb"
+            }
+        },
+        "C366C19F-D338-4ACF-B72D-D27E811EEAE5": {
+            "link": {
+                "name": "Mesh",
+                "file": "models\\cube_with_Arrow.glb"
+            }
+        },
+        "06A617DC-2CF1-451C-BE52-E69D8B399E1D": {
+            "link": {
+                "name": "Mesh.0",
+                "file": "models\\cube_with_Arrow.glb"
+            }
+        },
+        "089137F9-3AF3-401A-9CD3-D1F3056B8C04": {
+            "link": {
+                "name": "Mesh",
+                "file": "models\\cube_NO_Arrow.glb"
+            }
+        },
+        "95D0171F-1892-46AE-8127-771F38315E6A": {
+            "link": {
+                "name": "Mesh.0",
+                "file": "models\\cube_NO_Arrow.glb"
             }
         }
     },
@@ -4010,6 +4136,181 @@
                 "font": "83EA1BE1-A3F6-429B-9397-F8E45BA84E33"
             },
             "name": "DinProFontMat"
+        },
+        "78AEC93F-4D29-4DC6-AA90-E1249CC1D878": {
+            "link": {
+                "name": "cyan_SG",
+                "file": "models\\spring_with_Arrow_04.glb"
+            }
+        },
+        "FBC37D89-0E8B-48ED-AF9F-C831248596AE": {
+            "link": {
+                "name": "StingrayPBS3",
+                "file": "models\\spring_with_Arrow_04.glb"
+            }
+        },
+        "EB0C2774-E9FD-413B-A18D-1402B06BDE84": {
+            "link": {
+                "name": "StingrayPBS4",
+                "file": "models\\spring_with_Arrow_04.glb"
+            }
+        },
+        "3955C6AD-1209-4F40-B5E8-7456E96D93A6": {
+            "link": {
+                "name": "StingrayPBS3",
+                "file": "models\\spring_NO_Arrow_03.glb"
+            }
+        },
+        "53ECD3F1-CE48-4654-9D1A-5C8248897DF4": {
+            "link": {
+                "name": "StingrayPBS7",
+                "file": "models\\spring_NO_Arrow_03.glb"
+            }
+        },
+        "F27EFAF6-A67A-4EB6-B91B-EA47CBA3A14D": {
+            "link": {
+                "name": "StingrayPBS4",
+                "file": "models\\spring_NO_Arrow_03.glb"
+            }
+        },
+        "D2C10925-DDDA-4B75-A4AB-618BA5AD9B7F": {
+            "link": {
+                "name": "white_SG",
+                "file": "models\\cube_with_Arrow.glb"
+            }
+        },
+        "A793E548-BBD4-4E0B-892F-BF814EF1A4E3": {
+            "link": {
+                "name": "cyan_SG",
+                "file": "models\\cube_with_Arrow.glb"
+            }
+        },
+        "6ABC50FE-1497-49CC-99CC-218911C78466": {
+            "link": {
+                "name": "StingrayPBS4",
+                "file": "models\\cube_NO_Arrow.glb"
+            }
+        },
+        "E2BFA14F-D8B4-42C7-9A68-EDECD2713B85": {
+            "link": {
+                "name": "blinn4",
+                "file": "models\\cube_NO_Arrow.glb"
+            }
+        },
+        "DE6FB90A-45EB-4A55-8B69-AC5D69E9EDC3": {
+            "name": "cube0",
+            "Phong": {
+                "diffuseColor": [
+                    0.0727438,
+                    0.7757847,
+                    0.0034788,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "0DE9F981-6AB6-434A-BFE4-251A2A98901D": {
+            "name": "cube1",
+            "Phong": {
+                "diffuseColor": [
+                    0.771972,
+                    0.2318968,
+                    0.8340806,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "FD322C50-6003-462B-8FA5-DEAB58ACBD36": {
+            "name": "cube2",
+            "Phong": {
+                "diffuseColor": [
+                    0.0,
+                    0.3139014,
+                    1.0,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "93AD5DB7-3E4A-40AD-B6EB-31F35C6C7508": {
+            "name": "cube3",
+            "Phong": {
+                "diffuseColor": [
+                    1.0,
+                    0.0358744,
+                    0.0358744,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "58A853A4-5885-4474-9484-44121E153A0C": {
+            "name": "cube4",
+            "Phong": {
+                "diffuseColor": [
+                    0.9730941,
+                    0.5574123,
+                    0.0174546,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752427e-7,
+                    9.999899930335232e-7,
+                    9.999899930335232e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.3843137,
+                    0.3089579,
+                    0.0,
+                    1.0
+                ]
+            }
         }
     },
     "shaders": {
@@ -4446,7 +4747,11 @@
         "models/invertedSphere.glb",
         "models/portalPlacer.glb",
         "models/UFO.glb",
-        "fonts/DINPro Black.otf"
+        "fonts/DINPro Black.otf",
+        "models/spring_with_Arrow_04.glb",
+        "models/spring_NO_Arrow_03.glb",
+        "models/cube_with_Arrow.glb",
+        "models/cube_NO_Arrow.glb"
     ],
     "fonts": {
         "230": {
