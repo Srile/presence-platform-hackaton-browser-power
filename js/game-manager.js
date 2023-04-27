@@ -3,8 +3,9 @@ import { fader } from './fade';
 import { portalPlacement } from './place-portal';
 import { objectPlacers } from './object-placer';
 import { portalPlacementMarkers } from './portal-placement-marker';
-import { UFOController } from './ufo-controller';
+import { ufo, UFOController } from './ufo-controller';
 import { levelData } from './level-data';
+import { vec3 } from 'gl-matrix';
 
 export let gameManager;
 
@@ -30,6 +31,8 @@ export class GameManager extends Component {
         this.gamePhase = 0;
 
         this.tempVec = new Float32Array(3);
+        this.ufoHeightDistance = new Float32Array(3);
+        this.ufoHeightDistance[1] = 0.4;
 
         this.ufoBlock.active = false;
         this.ufoComponent = this.ufo.getComponent(UFOController);
@@ -94,6 +97,11 @@ export class GameManager extends Component {
 
                     this.ufoBlock.active = true;
                     this.ufoBlock.setTranslationLocal(currentLevelData.endPositionDistance);
+                    this.ufoBlock.getTranslationWorld(this.tempVec);
+
+                    vec3.add(this.tempVec, this.tempVec, this.ufoHeightDistance);
+
+                    ufo.spawn(this.tempVec);
 
                     // if(objectPlacers.left) objectPlacers.left.active = true;
                     

@@ -121,13 +121,15 @@ export class ObjectPlacer extends Component {
         if (e.inputSource.handedness == this.handedness) {
             this._isDown = false;
 
-            if (this._placementAllowed) currentObjects.push(this.currentCube);
+            if (this._placementAllowed) {
+                currentObjects.push(this.currentCube);
+                this.currentCube.collisionComponent = this.currentCube.addComponent(CollisionComponent, {
+                    group: (1 << 3),
+                    extents: this._boxExtents,
+                    collider: Collider.Sphere
+                });
+            } 
             else this.currentCube.destroy();
-            this.currentCube.collisionComponent = this.currentCube.addComponent(CollisionComponent, {
-                group: (1 << 3),
-                extents: this._boxExtents,
-                collider: Collider.Sphere
-            });
 
             console.log('SPAWN CUBE');
         }

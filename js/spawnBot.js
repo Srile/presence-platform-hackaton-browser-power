@@ -1,4 +1,4 @@
-import { Component, MeshComponent, Property } from '@wonderlandengine/api';
+import { Collider, CollisionComponent, Component, MeshComponent, Property } from '@wonderlandengine/api';
 import { Botcontroller } from './botcontroller';
 import { Uprighter } from './uprighter';
 
@@ -84,6 +84,7 @@ export class SpawnBot extends Component {
 
     spawn() {
         const o = this.engine.scene.addObject(this.object);
+        o.name = "robot";
         this.object.getRotationWorld(this.qTemp1);
         o.addComponent(MeshComponent, {
             material: this.spawnmat,
@@ -92,6 +93,12 @@ export class SpawnBot extends Component {
 
         o.addComponent(Botcontroller);
         o.scaleLocal([0.1, 0.02, 0.1])
+
+        o.addComponent(CollisionComponent, {
+            group: (1 << 4),
+            extents: [0.1, 0.1, 0.1],
+            collider: Collider.Sphere
+        });
 
         const o2 = this.engine.scene.addObject(o);
         o2.addComponent(MeshComponent, {

@@ -1,5 +1,6 @@
-import { Component, Physics, Property } from '@wonderlandengine/api';
+import { CollisionComponent, Component, Physics, Property } from '@wonderlandengine/api';
 import { glMatrix, vec3, quat } from 'gl-matrix';
+import { ufo } from './ufo-controller';
 
 /**
  * botcontroller
@@ -65,7 +66,30 @@ export class Botcontroller extends Component {
         this.setDestination((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10);
     }
 
+    attractToUFO() {
+        this.t = 0.0;
+        this.toUFO = true;
+        this.object.getComponent(CollisionComponent).active = false;
+    }
+
     update(dt) {
+        if(this.toUFO) {
+            ufo.object.getTranslationWorld(this.vTemp1);
+            this.object.getTranslationWorld(this.vTemp2);
+
+            this.t += dt;
+            vec3.lerp(this.vTemp2, this.vTemp2, this.vTemp1, this.t);
+
+            this.object.setTranslationWorld(this.vTemp2);
+
+            if(this.t >= 1) {
+                this.object.active = false;
+
+                // TODO: ADD ROBOT DEACTIVATE
+            }
+            return;
+        }
+
         /* Called every frame. */
         this.object.translateObject([0, 0, -this.speed * dt]);
         this.object.translateWorld([0, this.fallspeed * dt, 0]);

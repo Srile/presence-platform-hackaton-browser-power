@@ -1,4 +1,7 @@
 import {CollisionComponent, Component, Property} from '@wonderlandengine/api';
+import anime from 'animejs/lib/anime.es.js';
+import { getTime } from './place-portal';
+import { Botcontroller } from './botcontroller';
 
 export let ufo;
 
@@ -9,8 +12,8 @@ export class UFOController extends Component {
     static TypeName = 'ufo-controller';
     /* Properties that are configurable in the editor */
     static Properties = {
-        rotationSpeed: Property.float(1.0),
-        targetScale: Property.float(0.244)
+        rotationSpeed: Property.float(8.0),
+        targetScale: Property.float(0.444)
     };
     /* Add other component types here that your component may
      * create. They will be registered with this component */
@@ -20,13 +23,16 @@ export class UFOController extends Component {
         // TODO: Add collision to ufo
         // TODO: On collision with bots
 
+        window.ufo = this;
+
         ufo = this;
 
         this.beam = this.object.children[0];
         this.beamCollision = this.beam.getComponent(CollisionComponent);
-        
+
         this.currentBeamScale = 1.0;
         this.currentScale = 0.0;
+        this.beamActive = false;
         this.object.setScalingLocal([this.currentScale, this.currentScale, this.currentScale])
     }
 
@@ -40,7 +46,7 @@ export class UFOController extends Component {
             autoplay: false,
             duration: 1100,
             update: (anim) => {
-              this.object.setScalingLocal([this.currentScale, this.currentScale, this.currentScale])
+                this.object.setScalingLocal([this.currentScale, this.currentScale, this.currentScale])
             },
             changeComplete: (anim) => {
                 this.beamCollision.active = true;
@@ -77,16 +83,17 @@ export class UFOController extends Component {
             autoplay: false,
             duration: 1100,
             update: (anim) => {
-              this.object.setScalingLocal([this.currentBeamScale, this.currentBeamScale, this.currentBeamScale])
+              this.beam.setScalingLocal([this.currentBeamScale, this.currentBeamScale, this.currentBeamScale])
             },
             changeComplete: (anim) => {
                 this.beamScaleAnim = null;
+                this.beamActive = true;
             },
         });
     }
 
     update(dt) {
-        this.object.rotateAxisAngleDegLocal([0, 1, 0], this.rotationSpeed * dt);
+        this.object.rotateAxisAngleDegObject([0, 1, 0], this.rotationSpeed * dt);
 
         if (this.currentAnim) {
             this.currentAnim.tick(getTime(this.engine));
@@ -94,6 +101,18 @@ export class UFOController extends Component {
 
         if (this.beamScaleAnim) {
             this.beamScaleAnim.tick(getTime(this.engine));
+        }
+
+        if(this.beamActive) {
+            let query = this.beamCollision.queryOverlaps();
+            if(query.length) {
+                for (let i = 0; i < query.length; i++) {
+                    const component = query[i];
+                    if(component.object.name === "robot") {
+                        component.object.getComponent(Botcontroller).attractToUFO();
+                    }
+                }
+            }
         }
     }
 }

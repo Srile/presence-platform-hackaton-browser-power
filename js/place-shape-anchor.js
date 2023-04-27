@@ -96,8 +96,8 @@ export class PlaceShapeAnchor extends Component {
           mesh: this.meshes[shapeType],
         });
         /* Hide and show mesh if tracking is lost/restored */
-        a.onTrackingLost.add(() => ((m.active = false), console.log("lost")));
-        a.onTrackingFound.add(() => ((m.active = true), console.log("found")));
+        // a.onTrackingLost.add(() => ((m.active = false), console.log("lost")));
+        // a.onTrackingFound.add(() => ((m.active = true), console.log("found")));
 
         const uuidList = Anchor.getAllAnchors()
           .filter((a) => a.persist)
