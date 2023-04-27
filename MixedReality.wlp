@@ -3010,14 +3010,27 @@
                 "name": "polySurface4<Spring_with_Arrow",
                 "file": "models\\spring_with_Arrow_04.glb"
             },
-            "parent": "D03A9E4F-F017-4778-AD58-8B54287AEAE4"
+            "parent": "D03A9E4F-F017-4778-AD58-8B54287AEAE4",
+            "components": [
+                {
+                    "active": false
+                },
+                {
+                    "active": false
+                }
+            ]
         },
         "9C5006F8-9020-4CD9-BA2A-E94BE1DA1BFA": {
             "link": {
                 "name": "polySurface5<Spring_with_Arrow",
                 "file": "models\\spring_with_Arrow_04.glb"
             },
-            "parent": "D03A9E4F-F017-4778-AD58-8B54287AEAE4"
+            "parent": "D03A9E4F-F017-4778-AD58-8B54287AEAE4",
+            "components": [
+                {
+                    "active": false
+                }
+            ]
         },
         "9BDA475D-62F7-4FFF-A165-9962D8E1DBE6": {
             "link": {
@@ -3030,20 +3043,38 @@
                 "name": "pCylinder83<Spring_no_Arrow",
                 "file": "models\\spring_NO_Arrow_03.glb"
             },
-            "parent": "9BDA475D-62F7-4FFF-A165-9962D8E1DBE6"
+            "parent": "9BDA475D-62F7-4FFF-A165-9962D8E1DBE6",
+            "components": [
+                {
+                    "active": false
+                }
+            ]
         },
         "61BEFEEE-C13E-434F-B805-FB04FE64844A": {
             "link": {
                 "name": "polySurface2<Spring_no_Arrow",
                 "file": "models\\spring_NO_Arrow_03.glb"
             },
-            "parent": "9BDA475D-62F7-4FFF-A165-9962D8E1DBE6"
+            "parent": "9BDA475D-62F7-4FFF-A165-9962D8E1DBE6",
+            "components": [
+                {
+                    "active": false
+                }
+            ]
         },
         "60DACD3B-A7EB-4494-AF52-4DA3E6B401BA": {
             "link": {
                 "name": "polySurface6",
                 "file": "models\\cube_with_Arrow.glb"
-            }
+            },
+            "components": [
+                {
+                    "active": false
+                },
+                {
+                    "active": false
+                }
+            ]
         },
         "4E627FB7-9DD1-4D13-8379-FB9294A08945": {
             "link": {
@@ -3056,7 +3087,15 @@
                 "name": "shard2<surfaceShatter1",
                 "file": "models\\cube_NO_Arrow.glb"
             },
-            "parent": "4E627FB7-9DD1-4D13-8379-FB9294A08945"
+            "parent": "4E627FB7-9DD1-4D13-8379-FB9294A08945",
+            "components": [
+                {
+                    "active": false
+                },
+                {
+                    "active": false
+                }
+            ]
         }
     },
     "meshes": {
