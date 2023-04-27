@@ -27,7 +27,9 @@ export class SpawnBot extends Component {
             console.dir(this.Placement);
         }
         this.enabled = false;
+        this.spawnActive = false;
         this.vTemp1 = new Float32Array(3);
+        this.dqTemp1 = new Float32Array(8);
         this.qTemp1 = new Float32Array(4);
     }
 
@@ -37,13 +39,15 @@ export class SpawnBot extends Component {
 
     startSpawn() {
         this.spawn();
-        this.SpawnTicker = setInterval(() => { this.spawn() }, this.interval);
+        // this.SpawnTicker = setInterval(() => { this.spawn() }, this.interval);
         this.enabled = true;
-
+        this.spawnActive = true;
+        this.timer = 1;
     }
 
     stopSpawn() {
-        clearInteval(this.SpawnTicker)
+        this.spawnActive = false;
+        // clearInteval(this.SpawnTicker)
         this.enabled = false;
 
     }
@@ -58,17 +62,24 @@ export class SpawnBot extends Component {
                 else if (!this.enabled) {
 
                     if (this.portalObject) {
-                        this.portalObject.getTranslationWorld(this.vTemp1);
-                        this.object.setTranslationWorld(this.vTemp1);
+                        this.portalObject.getTransformWorld(this.dqTemp1);
+                        this.object.setTransformWorld(this.dqTemp1);
 
-                        this.portalObject.getRotationWorld(this.qTemp1);
-                        this.object.setRotationWorld(this.qTemp1);
                         this.object.rotateAxisAngleDegObject([0, 1, 0], 180);
                     }
                     this.startSpawn();
                 }
             }
         }
+
+        if(this.spawnActive) {
+            this.timer -=dt;
+            if(this.timer <= 0.0) {
+                this.timer = 1.0;
+                this.spawn();
+            }
+        }
+
     }
 
     spawn() {
