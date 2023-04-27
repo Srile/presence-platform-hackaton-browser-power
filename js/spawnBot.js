@@ -9,7 +9,9 @@ export class SpawnBot extends Component {
     static TypeName = 'spawnBot';
     /* Properties that are configurable in. the editor */
     static Properties = {
-        interval: Property.float(1.0),
+        placementObject: Property.object(),
+        portalObject: Property.object(),
+        interval: Property.float(1000.0),
         spawnmesh: Property.mesh(),
         spawnmesh2: Property.mesh(),
         spawnmat: Property.material(),
@@ -20,16 +22,53 @@ export class SpawnBot extends Component {
 
     init() {
         this.qTemp1 = new Float32Array(4);
+        if (this.placementObject) {
+            this.Placement = this.placementObject.getComponent("portal-placement-marker")
+            console.dir(this.Placement);
+        }
+        this.enabled = false;
+        this.vTemp1 = new Float32Array(3);
+        this.qTemp1 = new Float32Array(4);
     }
 
     start() {
-        this.SpawnTicker = setInterval(() => { this.spawn() }, this.interval);
+        if (!this.Placement) this.startSpawn();
+    }
 
+    startSpawn() {
+        this.spawn();
+        this.SpawnTicker = setInterval(() => { this.spawn() }, this.interval);
+        this.enabled = true;
+
+    }
+
+    stopSpawn() {
+        clearInteval(this.SpawnTicker)
+        this.enabled = false;
 
     }
 
     update(dt) {
         /* Called every frame. */
+        if (this.Placement) {
+            let placementActive = !this.Placement.active;
+            if (placementActive != this.enabled) {
+                console.debug("Spawn state change" + this.enabled)
+                if (this.enabled) this.stopSpawn();
+                else if (!this.enabled) {
+
+                    if (this.portalObject) {
+                        this.portalObject.getTranslationWorld(this.vTemp1);
+                        this.object.setTranslationWorld(this.vTemp1);
+
+                        this.portalObject.getRotationWorld(this.qTemp1);
+                        this.object.setRotationWorld(this.qTemp1);
+                        this.object.rotateAxisAngleDegObject([0, 1, 0], 180);
+                    }
+                    this.startSpawn();
+                }
+            }
+        }
     }
 
     spawn() {

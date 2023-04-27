@@ -162,9 +162,9 @@ export class Botcontroller extends Component {
                 if ((doTurn) || (doBounce)) {
                     this.object.setRotationWorld(this.qDestinationRotation);
                     if (doBounce) {
-                        this.fallspeed = 1.5 * this.worlscalar;
+                        this.fallspeed = 2.5 * this.worlscalar;
                         this.fly = true;
-                        this.flyfloor = this.originVec[1];
+                        this.flyfloor = 0;//this.originVec[1];
                     }
                 }
                 else {
