@@ -5,17 +5,33 @@ import { gameManager } from './game-manager';
 window.seletables = {
     currentId: -1,
     blocks: [
-        { name: 'menu0' },
-        { name: 'menu1' },
-        { name: 'menu2' },
-        { name: 'menu3' },
-        { name: 'menu4' },
-    ]
+        { name: 'BLOCK NAME0', stock: 42 },
+        { name: 'BLOCK NAME1', stock: 42 },
+        { name: 'BLOCK NAME2', stock: 42 },
+        { name: 'BLOCK NAME3', stock: 42 },
+        { name: 'BLOCK NAME4', stock: 42 },
+    ],
 }
 
 window.botsCount = 0;
 
 window.emitter = new Emitter();
+window.blockCounts = {
+    emitters: [
+        new Emitter(),
+        new Emitter(),
+        new Emitter(),
+        new Emitter(),
+        new Emitter()
+    ],
+}
+
+// how to update a block count
+// window.blockCounts.emitters[0].notify({ currentBlockCount: 1 });
+// window.blockCounts.emitters[1].notify({ currentBlockCount: 2 });
+// window.blockCounts.emitters[2].notify({ currentBlockCount: 3 });
+// window.blockCounts.emitters[3].notify({ currentBlockCount: 4 });
+// window.blockCounts.emitters[4].notify({ currentBlockCount: 5 });
 
 // call everytime the selection is changed to a new selection
 window.spawnObject = function() {
