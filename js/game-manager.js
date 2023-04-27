@@ -4,6 +4,8 @@ import { portalPlacement } from './place-portal';
 import { objectPlacers } from './object-placer';
 import { portalPlacementMarkers } from './portal-placement-marker';
 
+export let gameManager;
+
 /**
  * game-manager
  */
@@ -19,10 +21,11 @@ export class GameManager extends Component {
     static Dependencies = [];
 
     init() {
-        console.log('init() with param', this.param);
         this.level = 0;
         this.scores = [];
         this.gamePhase = 0;
+
+        gameManager = this;
 
         /*
             Phase legend:
@@ -86,6 +89,14 @@ export class GameManager extends Component {
                 });
             }.bind(this));
         });
+    }
+
+    beginExplore() {
+        if(this.gamePhase !== 2) return;
+
+        this.gamePhase = 3;
+
+        // TODO: Begin bot spawning
     }
 
     start() {

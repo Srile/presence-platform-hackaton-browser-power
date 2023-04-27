@@ -1,5 +1,6 @@
 import {Component, Property, Emitter } from '@wonderlandengine/api';
 import { glMatrix, quat, vec3 } from 'gl-matrix';
+import { gameManager } from './game-manager';
 
 window.seletables = {
     currentId: -1,
@@ -30,7 +31,7 @@ window.unselectObject = function(previousSelectionId) {
 
 // call when exit collision with exploe button
 window.startExplore = () => {
-    console.log("startExplore")
+    gameManager.beginExplore();
     window.emitter.notify({ startTimer: true });
 }
 

@@ -2646,7 +2646,62 @@
                 0.0,
                 0.0,
                 -1.0,
-                -4.371138828673793e-8
+                -4.3711388286737935e-8
+            ]
+        },
+        "9c4eb3a1-632b-40b8-8001-20b26aafb42d": {
+            "link": {
+                "name": "UFO",
+                "file": "models\\UFO.glb"
+            },
+            "components": [
+                null,
+                null,
+                null,
+                {
+                    "type": "ufo-controller"
+                }
+            ],
+            "translation": [
+                -0.1116904,
+                0.0400165,
+                0.748563
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                0.2436,
+                0.2436,
+                0.2436
+            ]
+        },
+        "2f34b1fd-5502-4369-a17f-952ddc1f7f75": {
+            "link": {
+                "name": "UFO_Ray<UFO",
+                "file": "models\\UFO.glb"
+            },
+            "parent": "9c4eb3a1-632b-40b8-8001-20b26aafb42d",
+            "components": [
+                null,
+                {
+                    "type": "collision",
+                    "collision": {
+                        "groups": 8,
+                        "collider": "aabb",
+                        "aabb": {
+                            "extents": [
+                                0.0299999,
+                                0.18,
+                                0.0299999
+                            ]
+                        }
+                    },
+                    "active": false
+                }
             ]
         }
     },
@@ -2820,6 +2875,30 @@
             "link": {
                 "name": "MarkerMesh",
                 "file": "models\\portalPlacer.glb"
+            }
+        },
+        "5ea7fb04-8848-43a7-adf5-fcc3affbdfeb": {
+            "link": {
+                "name": "UFO_Mesh.001",
+                "file": "models\\UFO.glb"
+            }
+        },
+        "ecc2255a-859a-403b-81f2-698e46867a26": {
+            "link": {
+                "name": "UFO_Mesh",
+                "file": "models\\UFO.glb"
+            }
+        },
+        "1263b019-d47e-4d98-a02a-362f7fcae34e": {
+            "link": {
+                "name": "UFO_Mesh.0",
+                "file": "models\\UFO.glb"
+            }
+        },
+        "7319cd7a-fd01-404e-b1f4-48fe94c84605": {
+            "link": {
+                "name": "UFO_Mesh.1",
+                "file": "models\\UFO.glb"
             }
         }
     },
@@ -3577,6 +3656,56 @@
                     1.0
                 ]
             }
+        },
+        "e097d207-b787-4d28-82e4-f19f1a615a9e": {
+            "link": {
+                "name": "UFO_Ray",
+                "file": "models\\UFO.glb"
+            },
+            "pipeline": "e0090691-f042-4100-a670-b2a34602d147",
+            "Flat": {
+                "color": [
+                    0.0844577,
+                    0.2550145,
+                    0.6278027,
+                    0.349
+                ]
+            }
+        },
+        "b3503d61-55f7-4769-a95e-e1f9da2e9a54": {
+            "link": {
+                "name": "UFO_Grey",
+                "file": "models\\UFO.glb"
+            },
+            "Phong": {
+                "ambientColor": [
+                    0.5560538,
+                    0.5560538,
+                    0.5560538,
+                    1.0
+                ]
+            }
+        },
+        "c2deaa8d-1cb2-40ea-8806-3d3b0823a6af": {
+            "link": {
+                "name": "UFO_Purple",
+                "file": "models\\UFO.glb"
+            },
+            "pipeline": "34",
+            "Flat": {
+                "color": [
+                    0.5348187,
+                    0.0,
+                    0.9775784,
+                    1.0
+                ]
+            }
+        },
+        "8ba25479-7018-46e8-ab6a-2f270501f060": {
+            "link": {
+                "name": "UFO_Glass",
+                "file": "models\\UFO.glb"
+            }
         }
     },
     "shaders": {
@@ -3841,6 +3970,15 @@
                 "file": "default"
             }
         },
+        "e0090691-f042-4100-a670-b2a34602d147": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            },
+            "name": "Flat Opaque_Blend",
+            "blending": true,
+            "sampleAlphaToCoverage": true
+        },
         "35": {
             "link": {
                 "name": "Flat Opaque Textured",
@@ -3951,15 +4089,14 @@
         },
         "2002": {
             "link": {
-                "name": "Flat Opaque Textured",
+                "name": "Occlusion Opaque",
                 "file": "default"
             },
-            "name": "Flat Transparent Textured",
-            "features": {
-                "ALPHA_MASKED": true
-            },
-            "doubleSided": true,
-            "sampleAlphaToCoverage": true
+            "shader": "2",
+            "depthTest": false,
+            "blendSrcRgb": "zero",
+            "blendDestRgb": "one",
+            "blending": true
         },
         "eb8b0fd3-068a-47e1-995c-61a1b94e19b1": {
             "link": {
@@ -4002,7 +4139,8 @@
         "static/textures/ui/EXPLORE_BUTTON.png",
         "models/portal_test.glb",
         "models/invertedSphere.glb",
-        "models/portalPlacer.glb"
+        "models/portalPlacer.glb",
+        "models/UFO.glb"
     ],
     "fonts": {
         "230": {

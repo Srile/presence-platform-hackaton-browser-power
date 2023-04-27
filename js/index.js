@@ -16,17 +16,22 @@ import {Cursor} from '@wonderlandengine/components';
 import {FingerCursor} from '@wonderlandengine/components';
 import {HandTracking} from '@wonderlandengine/components';
 import {HowlerAudioListener} from '@wonderlandengine/components';
+import {HowlerAudioSource} from '@wonderlandengine/components';
 import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlaneDetection} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
+import {CheckButtonCollision} from './check-button-collision.js';
 import {CheckCollision} from './check-collision.js';
+import {CounterController} from './counter-controller.js';
 import {Fade} from './fade.js';
 import {GameManager} from './game-manager.js';
 import {MenuController} from './menu-controller.js';
 import {ObjectPlacer} from './object-placer.js';
 import {PlacePortal} from './place-portal.js';
 import {PortalPlacementMarker} from './portal-placement-marker.js';
+import {TimerController} from './timer-controller.js';
+import {UFOController} from './ufo-controller.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
@@ -93,17 +98,22 @@ engine.registerComponent(Cursor);
 engine.registerComponent(FingerCursor);
 engine.registerComponent(HandTracking);
 engine.registerComponent(HowlerAudioListener);
+engine.registerComponent(HowlerAudioSource);
 engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlaneDetection);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
+engine.registerComponent(CheckButtonCollision);
 engine.registerComponent(CheckCollision);
+engine.registerComponent(CounterController);
 engine.registerComponent(Fade);
 engine.registerComponent(GameManager);
 engine.registerComponent(MenuController);
 engine.registerComponent(ObjectPlacer);
 engine.registerComponent(PlacePortal);
 engine.registerComponent(PortalPlacementMarker);
+engine.registerComponent(TimerController);
+engine.registerComponent(UFOController);
 /* wle:auto-register:end */
 
 engine.scene.load(`${Constants.ProjectName}.bin`);

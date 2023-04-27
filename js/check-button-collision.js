@@ -1,5 +1,6 @@
 import {Component, Property, Type} from '@wonderlandengine/api';
 import anime from 'animejs/lib/anime.es.js';
+import { getTime } from './place-portal';
 
 /**
  * check-collision
@@ -32,14 +33,13 @@ export class CheckButtonCollision extends Component {
 
     onCollisionEnter() {
         if (this.didCollide) return;
-        console.log("onCollisionEnter")
         this.didCollide = true;
         this.currentMaterial.color = this.activeColor;
         var currentScale = this.object.getScalingWorld();
 
         var targets = { x: currentScale[0], y: currentScale[1], z: currentScale[2] };
 
-        anime({
+        this.currentAnim = anime({
             targets: targets,
             x: 0.04, y: 0.016, z: 0.1,
             easing: 'linear',
@@ -47,7 +47,10 @@ export class CheckButtonCollision extends Component {
             autoplay: true,
             update: (e) => {
                 this.object.setScalingWorld([targets.x, targets.y, targets.z])
-            }
+            },
+            changeComplete: (anim) => {
+                this.currentAnim = null;
+            },
         })
     }
 
@@ -58,7 +61,6 @@ export class CheckButtonCollision extends Component {
 
     onCollisionLeft() {
         if (!this.isColliding) return;
-        console.log("onCollisionLeft")
         window.startExplore()
         this.isColliding = false;
         this.didCollide = false;
@@ -69,7 +71,7 @@ export class CheckButtonCollision extends Component {
 
         var targets = { x: currentScale[0], y: currentScale[1], z: currentScale[2] };
 
-        anime({
+        this.currentAnim = anime({
             targets: targets,
             x: 0.05, y: 0.02, z: 0.1,
             easing: 'linear',
@@ -77,7 +79,10 @@ export class CheckButtonCollision extends Component {
             autoplay: true,
             update: (e) => {
                 this.object.setScalingWorld([targets.x, targets.y, targets.z])
-            }
+            },
+            changeComplete: (anim) => {
+                this.currentAnim = null;
+            },
         })
     }
 
@@ -89,6 +94,10 @@ export class CheckButtonCollision extends Component {
             this.onCollision()
         } else if(!overlaps.length){
             this.onCollisionLeft()
+        }
+
+        if (this.currentAnim) {
+            this.currentAnim.tick(getTime(this.engine));
         }
     }
 }
