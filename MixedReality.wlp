@@ -1641,10 +1641,10 @@
                 0.0208586
             ],
             "rotation": [
-                0.0347519,
-                0.7653182,
-                0.6413739,
-                0.0414692
+                -0.0433015,
+                0.7629535,
+                0.6309698,
+                0.1338057
             ]
         },
         "2000": {
@@ -1739,6 +1739,9 @@
                 {
                     "type": "check-collision",
                     "active": true
+                },
+                {
+                    "type": "buttonTextController"
                 }
             ],
             "scaling": [
@@ -1747,15 +1750,15 @@
                 0.2499998
             ],
             "translation": [
-                1.0,
+                1.0000135,
                 0.0,
-                0.0
+                -0.3
             ],
             "rotation": [
-                0.0347521,
-                0.7653174,
-                0.6413749,
-                -0.0414695
+                -0.7071068,
+                0.0,
+                0.0,
+                0.7071068
             ]
         },
         "241": {
@@ -1790,6 +1793,12 @@
                         "id": 1
                     },
                     "active": true
+                },
+                {
+                    "type": "buttonTextController",
+                    "buttonTextController": {
+                        "id": 1
+                    }
                 }
             ],
             "scaling": [
@@ -1798,15 +1807,15 @@
                 0.25
             ],
             "translation": [
-                -1.0,
+                -1.0000318,
                 0.0,
-                0.0
+                -0.3
             ],
             "rotation": [
-                0.034752,
-                0.7653181,
-                0.6413741,
-                -0.0414694
+                -0.7071068,
+                0.0,
+                0.0,
+                0.7071068
             ]
         },
         "244": {
@@ -1841,6 +1850,12 @@
                         ]
                     },
                     "active": true
+                },
+                {
+                    "type": "buttonTextController",
+                    "buttonTextController": {
+                        "id": 2
+                    }
                 }
             ],
             "scaling": [
@@ -1849,15 +1864,15 @@
                 0.25
             ],
             "translation": [
-                0.0110586,
-                -5.096508743918093e-7,
-                0.0000176
+                0.0110587,
+                -5.066394805908203e-7,
+                -0.3
             ],
             "rotation": [
-                -0.0000133,
-                0.0000028,
-                5.281141284285695e-7,
-                1.0
+                -0.7071068,
+                0.0000016,
+                0.0000023,
+                0.7071068
             ]
         },
         "245": {
@@ -1892,6 +1907,12 @@
                         ]
                     },
                     "active": true
+                },
+                {
+                    "type": "buttonTextController",
+                    "buttonTextController": {
+                        "id": 3
+                    }
                 }
             ],
             "scaling": [
@@ -1900,15 +1921,15 @@
                 0.25
             ],
             "translation": [
-                -0.3245723,
-                0.9289993,
-                0.0000173
+                -0.3245767,
+                0.9290107,
+                -0.3
             ],
             "rotation": [
-                -5.960464477539065e-8,
-                0.0000039,
-                7.273976052601938e-7,
-                1.0
+                -0.7071068,
+                0.0000022,
+                0.0000032,
+                0.7071068
             ]
         },
         "246": {
@@ -1943,6 +1964,12 @@
                         ]
                     },
                     "active": true
+                },
+                {
+                    "type": "buttonTextController",
+                    "buttonTextController": {
+                        "id": 4
+                    }
                 }
             ],
             "scaling": [
@@ -1951,15 +1978,15 @@
                 0.25
             ],
             "translation": [
-                0.6794331,
-                0.8941752,
-                0.0000063
+                0.6794409,
+                0.8941866,
+                -0.3
             ],
             "rotation": [
-                -4.4703483581542975e-8,
-                0.0000018,
-                3.408734983167961e-7,
-                1.0
+                -0.7071068,
+                0.000001,
+                0.0000015,
+                0.7071068
             ]
         },
         "2012": {
@@ -2702,6 +2729,156 @@
                     },
                     "active": false
                 }
+            ]
+        },
+        "042ECDBE-F8B8-40AE-BAFA-4EF6FBA16A71": {
+            "name": "Text",
+            "parent": "240",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "BLOCK NAME 1\nCOUNT: 42",
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
+                    }
+                }
+            ],
+            "translation": [
+                -0.0304713,
+                0.0,
+                1.5927722
+            ],
+            "rotation": [
+                -0.7071068,
+                0.0,
+                0.0,
+                0.7071068
+            ],
+            "scaling": [
+                4.0,
+                4.0,
+                4.0
+            ]
+        },
+        "34C989E6-37D4-4FEF-831F-7418D6778F94": {
+            "name": "Text",
+            "parent": "241",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "BLOCK NAME 1\nCOUNT: 42",
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
+                    }
+                }
+            ],
+            "translation": [
+                -0.0304713,
+                0.0,
+                1.5927722
+            ],
+            "rotation": [
+                -0.7071068,
+                0.0,
+                0.0,
+                0.7071068
+            ],
+            "scaling": [
+                4.0,
+                4.0,
+                4.0
+            ]
+        },
+        "A107B814-441C-47C6-8B15-77F79BD8C882": {
+            "name": "Text",
+            "parent": "244",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "BLOCK NAME 1\nCOUNT: 42",
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
+                    }
+                }
+            ],
+            "translation": [
+                -0.0304713,
+                0.0,
+                1.5927722
+            ],
+            "rotation": [
+                -0.7071068,
+                0.0,
+                0.0,
+                0.7071068
+            ],
+            "scaling": [
+                4.0,
+                4.0,
+                4.0
+            ]
+        },
+        "E5771AB3-D7D4-48BA-B895-1F149DCC1086": {
+            "name": "Text",
+            "parent": "245",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "BLOCK NAME 1\nCOUNT: 42",
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
+                    }
+                }
+            ],
+            "translation": [
+                -0.0304713,
+                0.0,
+                1.5927722
+            ],
+            "rotation": [
+                -0.7071068,
+                0.0,
+                0.0,
+                0.7071068
+            ],
+            "scaling": [
+                4.0,
+                4.0,
+                4.0
+            ]
+        },
+        "0CD3BC49-6D03-43AE-8768-0CFC0D66C585": {
+            "name": "Text",
+            "parent": "246",
+            "components": [
+                {
+                    "type": "text",
+                    "text": {
+                        "text": "BLOCK NAME 1\nCOUNT: 42",
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
+                    }
+                }
+            ],
+            "translation": [
+                -0.0304713,
+                0.0,
+                1.5927722
+            ],
+            "rotation": [
+                -0.7071068,
+                0.0,
+                0.0,
+                0.7071068
+            ],
+            "scaling": [
+                4.0,
+                4.0,
+                4.0
             ]
         }
     },
@@ -3706,6 +3883,22 @@
                 "name": "UFO_Glass",
                 "file": "models\\UFO.glb"
             }
+        },
+        "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192": {
+            "link": {
+                "name": "DefaultFontMaterial",
+                "file": "default"
+            },
+            "Text": {
+                "effectColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "font": "83EA1BE1-A3F6-429B-9397-F8E45BA84E33"
+            },
+            "name": "DinProFontMat"
         }
     },
     "shaders": {
@@ -4141,14 +4334,30 @@
         "models/portal_test.glb",
         "models/invertedSphere.glb",
         "models/portalPlacer.glb",
-        "models/UFO.glb"
+        "models/UFO.glb",
+        "fonts/DINPro Black.otf"
     ],
     "fonts": {
         "230": {
             "link": {
                 "name": "DejaVuSans.ttf",
                 "file": "default"
-            }
+            },
+            "outline": false
+        },
+        "1F227A93-30A5-41AC-A790-483BBE71C117": {
+            "link": {
+                "name": "DejaVuSans.ttf",
+                "file": "default"
+            },
+            "outline": false
+        },
+        "83EA1BE1-A3F6-429B-9397-F8E45BA84E33": {
+            "link": {
+                "name": "font_0",
+                "file": "fonts\\DINPro Black.otf"
+            },
+            "outline": false
         }
     },
     "languages": {}
