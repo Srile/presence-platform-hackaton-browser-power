@@ -3,6 +3,8 @@ import { fader } from './fade';
 import { portalPlacement } from './place-portal';
 import { objectPlacers } from './object-placer';
 import { portalPlacementMarkers } from './portal-placement-marker';
+import { UFOController } from './ufo-controller';
+import { levelData } from './level-data';
 
 export let gameManager;
 
@@ -13,7 +15,9 @@ export class GameManager extends Component {
     static TypeName = 'game-manager';
     /* Properties that are configurable in the editor */
     static Properties = {
-        debug: Property.bool(false)
+        debug: Property.bool(false),
+        ufoBlock: Property.object(),
+        ufo: Property.object(false)
     };
     /* Add other component types here that your component may
      * create. They will be registered with this component */
@@ -24,6 +28,11 @@ export class GameManager extends Component {
         this.level = 0;
         this.scores = [];
         this.gamePhase = 0;
+
+        this.tempVec = new Float32Array(3);
+
+        this.ufoBlock.active = false;
+        this.ufoComponent = this.ufo.getComponent(UFOController);
 
         gameManager = this;
 
@@ -69,7 +78,6 @@ export class GameManager extends Component {
             this.narrationAudio0.audio.on('end', function(){
                 console.log('Finished!');
                 // START FIRST LEVEL PORTAL PLACEMENT PHASE
-                this.level++;  // 1; start level one
                 this.gamePhase++; // 1; portal placement game phase
                 this.narrationAudio1.audio.play();
                 // After initial narration, the next clip instructs the user to
@@ -78,10 +86,15 @@ export class GameManager extends Component {
                 portalPlacement.addOnSpawnCompleteFunction(() => {
                     // this code should run once the portal is placed,
                     // and we should enable build mode there
-                    console.log("Portal placed!!!")
                     this.narrationAudio2.audio.play();
                     
                     if(objectPlacers.right) objectPlacers.right.setActive(true);
+
+                    const currentLevelData = levelData[this.level];
+
+                    this.ufoBlock.active = true;
+                    this.ufoBlock.setTranslationLocal(currentLevelData.endPositionDistance);
+
                     // if(objectPlacers.left) objectPlacers.left.active = true;
                     
                     // Building mode needs to be enabled here
@@ -97,10 +110,6 @@ export class GameManager extends Component {
         this.gamePhase = 3;
 
         // TODO: Begin bot spawning
-    }
-
-    start() {
-        console.log('start() with param', this.param);
     }
 
     update(dt) {

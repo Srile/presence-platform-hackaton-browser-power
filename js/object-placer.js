@@ -16,7 +16,8 @@ export class ObjectPlacer extends Component {
         handedness: Property.string("left"),
         meshCube: Property.mesh(),
         allowedMaterial: Property.material(),
-        disallowedMaterial: Property.material()
+        disallowedMaterial: Property.material(),
+        blockSpace: Property.object()
     };
 
     _tempVec = new Float32Array(3);
@@ -37,6 +38,8 @@ export class ObjectPlacer extends Component {
         let str = this.gridIncrementSteps.toFixed(20);  // Set the number of digits to a large value
 
         // Loop through the string representation of the number
+        
+        this.positionDummy = this.engine.scene.addObject(this.blockSpace);
 
         this._onSessionStartCallback = this.setupVREvents.bind(this);
         // this.engine.onXRSessionStart.add(this._onSessionStartCallback);
@@ -92,7 +95,7 @@ export class ObjectPlacer extends Component {
     onSelectStart(e) {
         if (e.inputSource.handedness == this.handedness) {
             // Create Cube
-            this.currentCube = this.engine.scene.addObject();
+            this.currentCube = this.engine.scene.addObject(this.blockSpace);
             this.currentCube.setScalingLocal(this._boxExtents);
 
             this.currentCube.meshComponent = this.currentCube.addComponent(MeshComponent, {
@@ -133,12 +136,16 @@ export class ObjectPlacer extends Component {
     update(dt) {
         if (this._isDown) {
             this.object.getTranslationWorld(this._tempVec);
+            this.positionDummy.setTranslationWorld(this._tempVec);
+            this.positionDummy.getTranslationLocal(this._tempVec);
+
+            // this.blockSpace.transformPointInverseWorld(this._tempVec, this._tempVec);
 
             vec3.scale(this._tempVec, this._tempVec, this._multiplier);
             vec3.round(this._tempVec, this._tempVec);
             vec3.scale(this._tempVec, this._tempVec, 1.0 / this._multiplier);
 
-            this.currentCube.setTranslationWorld(this._tempVec);
+            this.currentCube.setTranslationLocal(this._tempVec);
 
             const overlaps = this.currentCube.collisionComponent.queryOverlaps();
 

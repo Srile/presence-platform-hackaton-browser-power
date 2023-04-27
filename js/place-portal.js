@@ -47,6 +47,7 @@ export class PlacePortal extends Component {
   static TypeName = "place-portal";
   static Properties = {
     portalObject: Property.object(),
+    blockParent: Property.object(),
     targetScale: Property.float(0.166),
   };
   static Dependencies = [Anchor];
@@ -64,6 +65,7 @@ export class PlacePortal extends Component {
 
     this.tempVec = new Float32Array(3);
     this.tempVec2 = new Float32Array(3);
+    this.tempTransform = new Float32Array(8);
     this.cursor = this.object.getComponent(Cursor);
     this.cursor.hitTestTarget.onClick.add((result, _, event) => {
       if(!this.activated) return;
@@ -120,6 +122,9 @@ export class PlacePortal extends Component {
       lookAt(tempQuat2, this.tempVec, this.tempVec2);
       portalObject.setRotationWorld(tempQuat2);
     }
+
+    portalObject.getTransformWorld(this.tempTransform);
+    this.blockParent.setTransformWorld(this.tempTransform);
 
     portalPlacementMarkers.right.setActive(false);
 

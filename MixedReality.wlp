@@ -1422,7 +1422,8 @@
                 {
                     "type": "place-portal",
                     "place-portal": {
-                        "portalObject": "2012"
+                        "portalObject": "2012",
+                        "blockParent": "ab04d76c-e107-4f3a-a84f-542a316b65ef"
                     }
                 }
             ],
@@ -1662,7 +1663,9 @@
                 {
                     "type": "game-manager",
                     "game-manager": {
-                        "debug": true
+                        "debug": true,
+                        "ufo": "9c4eb3a1-632b-40b8-8001-20b26aafb42d",
+                        "ufoBlock": "d0eecc4b-0940-4af4-8724-0d8f2d10661b"
                     }
                 }
             ]
@@ -1693,7 +1696,8 @@
                         "meshCube": "8",
                         "allowedMaterial": "26",
                         "disallowedMaterial": "25",
-                        "handedness": "right"
+                        "handedness": "right",
+                        "blockSpace": "ab04d76c-e107-4f3a-a84f-542a316b65ef"
                     },
                     "active": false
                 }
@@ -2879,6 +2883,27 @@
                 4.0,
                 4.0,
                 4.0
+            ]
+        },
+        "ab04d76c-e107-4f3a-a84f-542a316b65ef": {
+            "name": "blockParent"
+        },
+        "d0eecc4b-0940-4af4-8724-0d8f2d10661b": {
+            "name": "UFOBlock",
+            "parent": "ab04d76c-e107-4f3a-a84f-542a316b65ef",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "0c81a0d1-e92b-469f-9bbc-e277a718d11f"
+                    }
+                }
+            ],
+            "scaling": [
+                0.0949999,
+                0.0949999,
+                0.0949999
             ]
         }
     },
