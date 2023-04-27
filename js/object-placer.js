@@ -38,7 +38,7 @@ export class ObjectPlacer extends Component {
         let str = this.gridIncrementSteps.toFixed(20);  // Set the number of digits to a large value
 
         // Loop through the string representation of the number
-        
+
         this.positionDummy = this.engine.scene.addObject(this.blockSpace);
 
         this._onSessionStartCallback = this.setupVREvents.bind(this);
@@ -110,7 +110,7 @@ export class ObjectPlacer extends Component {
             });
 
 
-            this.currentCube.name = "BOUNCE"
+            this.currentCube.name = "BOUNxCE"
             this._placementAllowed = false;
             this._isDown = true;
         }
@@ -128,7 +128,7 @@ export class ObjectPlacer extends Component {
                     extents: this._boxExtents,
                     collider: Collider.Sphere
                 });
-            } 
+            }
             else this.currentCube.destroy();
 
             console.log('SPAWN CUBE');

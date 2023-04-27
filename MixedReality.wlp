@@ -2910,8 +2910,8 @@
             "name": "Spawner",
             "translation": [
                 0.0,
-                1.0,
-                -0.5
+                2.0,
+                1.5
             ],
             "components": [
                 {
@@ -2972,6 +2972,24 @@
                 0.0,
                 -0.0,
                 1.0
+            ]
+        },
+        "1d8efcad-48bc-4f41-b3dd-48d62d767973": {
+            "name": "Mesh.000",
+            "parent": "0d4b5a15-4c47-45ee-b73e-673432d69711",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "22"
+                    }
+                }
+            ],
+            "scaling": [
+                0.0399999,
+                0.0399999,
+                0.0399999
             ]
         }
     },
