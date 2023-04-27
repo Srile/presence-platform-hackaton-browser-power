@@ -159,13 +159,8 @@ export class Botcontroller extends Component {
                 ///console.log("DESTNAME=" + destName);
                 let doTurn = (destName.indexOf("TURN") > -1);
                 let doBounce = (destName.indexOf("BOUNCE") > -1);
-                if ((doTurn) || (doBounce)) {
+                if (doTurn) {
                     this.object.setRotationWorld(this.qDestinationRotation);
-                    if (doBounce) {
-                        this.fallspeed = 1.5 * this.worlscalar;
-                        this.fly = true;
-                        this.flyfloor = 0;//this.originVec[1];
-                    }
                 }
                 else {
                     //quat.copy(this.qTemp1, this.qDestinationRotation);
@@ -174,6 +169,11 @@ export class Botcontroller extends Component {
                     this.qTemp1[2] = 0;
                     quat.normalize(this.qTemp1, this.qTemp1)
                     this.object.setRotationWorld(this.qTemp1);
+                }
+                if (doBounce) {
+                    this.fallspeed = 1.5 * this.worlscalar;
+                    this.fly = true;
+                    this.flyfloor = 0;//this.originVec[1];
                 }
                 this.object.getForwardWorld(this.forwardVec)
                 //this.directionVec[1] -= 0.2;
