@@ -2739,7 +2739,8 @@
                     "type": "text",
                     "text": {
                         "text": "BLOCK NAME 1\nCOUNT: 42",
-                        "effect": "none"
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
                     }
                 }
             ],
@@ -2768,7 +2769,8 @@
                     "type": "text",
                     "text": {
                         "text": "BLOCK NAME 1\nCOUNT: 42",
-                        "effect": "none"
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
                     }
                 }
             ],
@@ -2797,7 +2799,8 @@
                     "type": "text",
                     "text": {
                         "text": "BLOCK NAME 1\nCOUNT: 42",
-                        "effect": "none"
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
                     }
                 }
             ],
@@ -2826,7 +2829,8 @@
                     "type": "text",
                     "text": {
                         "text": "BLOCK NAME 1\nCOUNT: 42",
-                        "effect": "none"
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
                     }
                 }
             ],
@@ -2855,7 +2859,8 @@
                     "type": "text",
                     "text": {
                         "text": "BLOCK NAME 1\nCOUNT: 42",
-                        "effect": "none"
+                        "effect": "none",
+                        "material": "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192"
                     }
                 }
             ],
@@ -3878,6 +3883,22 @@
                 "name": "UFO_Glass",
                 "file": "models\\UFO.glb"
             }
+        },
+        "D2B83EEC-1B3A-4C07-8ABD-140F3F5C8192": {
+            "link": {
+                "name": "DefaultFontMaterial",
+                "file": "default"
+            },
+            "Text": {
+                "effectColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "font": "83EA1BE1-A3F6-429B-9397-F8E45BA84E33"
+            },
+            "name": "DinProFontMat"
         }
     },
     "shaders": {
@@ -4335,7 +4356,8 @@
             "link": {
                 "name": "font_0",
                 "file": "fonts\\DINPro Black.otf"
-            }
+            },
+            "outline": false
         }
     },
     "languages": {}
