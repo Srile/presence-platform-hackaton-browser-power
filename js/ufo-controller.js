@@ -2,6 +2,8 @@ import {CollisionComponent, Component, Property} from '@wonderlandengine/api';
 import anime from 'animejs/lib/anime.es.js';
 import { getTime } from './place-portal';
 import { Botcontroller } from './botcontroller';
+import { botSpawner } from './spawnBot';
+import { fader } from './fade';
 
 export let ufo;
 
@@ -13,6 +15,7 @@ export class UFOController extends Component {
     /* Properties that are configurable in the editor */
     static Properties = {
         rotationSpeed: Property.float(8.0),
+        gameWinObject: Property.object(),
         targetScale: Property.float(0.444)
     };
     /* Add other component types here that your component may
@@ -34,6 +37,8 @@ export class UFOController extends Component {
         this.currentScale = 0.0;
         this.beamActive = false;
         this.object.setScalingLocal([this.currentScale, this.currentScale, this.currentScale])
+
+        this.collectedRobots = 0;
     }
 
     spawn(position) {
@@ -110,6 +115,13 @@ export class UFOController extends Component {
                     const component = query[i];
                     if(component.object.name === "robot") {
                         component.object.getComponent(Botcontroller).attractToUFO();
+                        this.collectedRobots++;
+
+                        if(this.collectedRobots >= 10) {
+                            this.gameWinObject.active = true;
+                            botSpawner.stopSpawn();
+                            fader.fadeIn(5000);
+                        }
                     }
                 }
             }

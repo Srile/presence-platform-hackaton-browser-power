@@ -1663,7 +1663,7 @@
                 {
                     "type": "game-manager",
                     "game-manager": {
-                        "debug": true,
+                        "debug": false,
                         "ufo": "9c4eb3a1-632b-40b8-8001-20b26aafb42d",
                         "ufoBlock": "d0eecc4b-0940-4af4-8724-0d8f2d10661b"
                     }
@@ -1693,7 +1693,7 @@
                 {
                     "type": "object-placer",
                     "object-placer": {
-                        "meshCube": "8",
+                        "meshCube": "ae8a6dd4-421f-44c5-b505-d598cfd03cd7",
                         "allowedMaterial": "26",
                         "disallowedMaterial": "25",
                         "handedness": "right",
@@ -2690,7 +2690,10 @@
                 null,
                 null,
                 {
-                    "type": "ufo-controller"
+                    "type": "ufo-controller",
+                    "ufo-controller": {
+                        "gameWinObject": "03faa276-0dee-4882-ba54-c2ef467a2eb6"
+                    }
                 }
             ],
             "translation": [
@@ -2721,7 +2724,7 @@
                 {
                     "type": "collision",
                     "collision": {
-                        "groups": 8,
+                        "groups": 16,
                         "collider": "aabb",
                         "aabb": {
                             "extents": [
@@ -2895,7 +2898,7 @@
                 {
                     "type": "mesh",
                     "mesh": {
-                        "mesh": "8",
+                        "mesh": "ae8a6dd4-421f-44c5-b505-d598cfd03cd7",
                         "material": "0c81a0d1-e92b-469f-9bbc-e277a718d11f"
                     }
                 }
@@ -2910,8 +2913,8 @@
             "name": "Spawner",
             "translation": [
                 0.0,
-                2.0,
-                1.5
+                1.0,
+                -0.5
             ],
             "components": [
                 {
@@ -2974,23 +2977,36 @@
                 1.0
             ]
         },
-        "1d8efcad-48bc-4f41-b3dd-48d62d767973": {
-            "name": "Mesh.000",
-            "parent": "0d4b5a15-4c47-45ee-b73e-673432d69711",
-            "components": [
-                {
-                    "type": "mesh",
-                    "mesh": {
-                        "mesh": "9",
-                        "material": "22"
-                    }
-                }
+        "03faa276-0dee-4882-ba54-c2ef467a2eb6": {
+            "link": {
+                "name": "typeMesh1",
+                "file": "models\\Text_when_win_V01.glb"
+            },
+            "translation": [
+                0.0,
+                0.9323198,
+                0.0
+            ],
+            "rotation": [
+                0.7071068,
+                0.0,
+                0.0,
+                0.7071067
             ],
             "scaling": [
-                0.0399999,
-                0.0399999,
-                0.0399999
-            ]
+                0.0314,
+                0.0313997,
+                0.0313997
+            ],
+            "components": [
+                {
+                    "mesh": {
+                        "material": "251"
+                    },
+                    "active": false
+                }
+            ],
+            "parent": "2012"
         }
     },
     "meshes": {
@@ -3187,6 +3203,30 @@
             "link": {
                 "name": "UFO_Mesh.1",
                 "file": "models\\UFO.glb"
+            }
+        },
+        "5393cda9-e45a-4a91-9758-48866ec8af90": {
+            "link": {
+                "name": "Mesh",
+                "file": "models\\Text_when_win_V01.glb"
+            }
+        },
+        "9a775976-22ec-4123-834a-d658a02742ca": {
+            "link": {
+                "name": "shard7 surfaceShatter1",
+                "file": "models\\cube_No_Arrow_V2.obj"
+            }
+        },
+        "2027": {
+            "link": {
+                "name": "cube_No_Arrow_V2",
+                "file": "models\\cube_No_Arrow_V2.obj"
+            }
+        },
+        "ae8a6dd4-421f-44c5-b505-d598cfd03cd7": {
+            "link": {
+                "name": "Cube",
+                "file": "models\\cube.glb"
             }
         }
     },
@@ -4010,6 +4050,30 @@
                 "font": "83EA1BE1-A3F6-429B-9397-F8E45BA84E33"
             },
             "name": "DinProFontMat"
+        },
+        "7875f757-5fc9-4db7-ac33-dc353e66994a": {
+            "link": {
+                "name": "text_SG",
+                "file": "models\\Text_when_win_V01.glb"
+            }
+        },
+        "7a8c5c84-8710-4a86-8e91-06d53fe30f31": {
+            "link": {
+                "name": "DefaultMaterial",
+                "file": "models\\cube_No_Arrow_V2.obj"
+            }
+        },
+        "51c45a2f-6ea0-4cf3-a6d6-6404f853dbe0": {
+            "link": {
+                "name": "StingrayPBS2SG",
+                "file": "models\\cube_No_Arrow_V2.obj"
+            }
+        },
+        "7a9897a9-a06e-43d8-9c77-b435fb8827ac": {
+            "link": {
+                "name": "StingrayPBS2SG",
+                "file": "models\\cube.glb"
+            }
         }
     },
     "shaders": {
@@ -4446,7 +4510,10 @@
         "models/invertedSphere.glb",
         "models/portalPlacer.glb",
         "models/UFO.glb",
-        "fonts/DINPro Black.otf"
+        "fonts/DINPro Black.otf",
+        "models/Text_when_win_V01.glb",
+        "models/cube_No_Arrow_V2.obj",
+        "models/cube.glb"
     ],
     "fonts": {
         "230": {

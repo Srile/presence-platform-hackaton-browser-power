@@ -2,6 +2,8 @@ import { Collider, CollisionComponent, Component, MeshComponent, Property } from
 import { Botcontroller } from './botcontroller';
 import { Uprighter } from './uprighter';
 
+export let botSpawner;
+
 /**
  * spawnBot
  */
@@ -21,6 +23,8 @@ export class SpawnBot extends Component {
     static Dependencies = [Botcontroller, Uprighter];
 
     init() {
+        botSpawner = this;
+
         this.qTemp1 = new Float32Array(4);
         if (this.placementObject) {
             this.Placement = this.placementObject.getComponent("portal-placement-marker")
@@ -49,6 +53,7 @@ export class SpawnBot extends Component {
         this.spawnActive = false;
         // clearInteval(this.SpawnTicker)
         this.enabled = false;
+        this.active = false;
 
     }
 

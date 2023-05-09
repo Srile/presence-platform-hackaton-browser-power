@@ -128,8 +128,8 @@ export class ObjectPlacer extends Component {
                     extents: this._boxExtents,
                     collider: Collider.Sphere
                 });
-            }
-            else this.currentCube.destroy();
+            } 
+            else this.currentCube.active = false;
 
             console.log('SPAWN CUBE');
         }
