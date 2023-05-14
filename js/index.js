@@ -21,6 +21,8 @@ import {MouseLookComponent} from '@wonderlandengine/components';
 import {PlaneDetection} from '@wonderlandengine/components';
 import {PlayerHeight} from '@wonderlandengine/components';
 import {VrModeActiveSwitch} from '@wonderlandengine/components';
+import {BlockDataContainer} from './block-data-container.js';
+import {BotController} from './bot-controller.js';
 import {ButtonTextController} from './buttonTextController.js';
 import {CheckButtonCollision} from './check-button-collision.js';
 import {CheckCollision} from './check-collision.js';
@@ -32,13 +34,15 @@ import {ObjectPlacer} from './object-placer.js';
 import {ObjectRotate} from './object-rotate.js';
 import {PlacePortal} from './place-portal.js';
 import {PortalPlacementMarker} from './portal-placement-marker.js';
-import {SpawnBot} from './spawnBot.js';
+import {RobotPool} from './robot-pool.js';
+import {SpawnBot} from './spawn-bot.js';
 import {TimerController} from './timer-controller.js';
 import {UFOController} from './ufo-controller.js';
 /* wle:auto-imports:end */
 
 import {loadRuntime} from '@wonderlandengine/api';
 import * as API from '@wonderlandengine/api'; // Deprecated: Backward compatibility.
+import { Globals, ComponentUtils } from 'wle-pp';
 
 /* wle:auto-constants:start */
 const RuntimeOptions = {
@@ -50,8 +54,8 @@ const RuntimeOptions = {
 const Constants = {
     ProjectName: 'Nano Nav',
     RuntimeBaseName: 'WonderlandRuntime',
-    WebXRRequiredFeatures: ['local',],
-    WebXROptionalFeatures: ['local','local-floor','hand-tracking','hit-test','plane-detection','anchors',],
+    WebXRRequiredFeatures: ['local','plane-detection',],
+    WebXROptionalFeatures: ['local','local-floor','hand-tracking','hit-test','anchors',],
 };
 /* wle:auto-constants:end */
 
@@ -106,6 +110,8 @@ engine.registerComponent(MouseLookComponent);
 engine.registerComponent(PlaneDetection);
 engine.registerComponent(PlayerHeight);
 engine.registerComponent(VrModeActiveSwitch);
+engine.registerComponent(BlockDataContainer);
+engine.registerComponent(BotController);
 engine.registerComponent(ButtonTextController);
 engine.registerComponent(CheckButtonCollision);
 engine.registerComponent(CheckCollision);
@@ -117,10 +123,15 @@ engine.registerComponent(ObjectPlacer);
 engine.registerComponent(ObjectRotate);
 engine.registerComponent(PlacePortal);
 engine.registerComponent(PortalPlacementMarker);
+engine.registerComponent(RobotPool);
 engine.registerComponent(SpawnBot);
 engine.registerComponent(TimerController);
 engine.registerComponent(UFOController);
 /* wle:auto-register:end */
+
+Globals.initEngine(engine);
+
+ComponentUtils.setDefaultWLComponentCloneCallbacks(engine);
 
 engine.scene.load(`${Constants.ProjectName}.bin`);
 

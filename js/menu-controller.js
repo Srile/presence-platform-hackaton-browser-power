@@ -1,15 +1,17 @@
 import {Component, Property, Emitter } from '@wonderlandengine/api';
 import { glMatrix, quat, vec3 } from 'gl-matrix';
 import { gameManager } from './game-manager';
+import { BLOCK_TYPES } from './block-data-container';
 
-window.seletables = {
+
+export let selectables = {
     currentId: -1,
     blocks: [
-        { name: 'BLOCK NAME0', stock: 42 },
-        { name: 'BLOCK NAME1', stock: 42 },
-        { name: 'BLOCK NAME2', stock: 42 },
-        { name: 'BLOCK NAME3', stock: 42 },
-        { name: 'BLOCK NAME4', stock: 42 },
+        { name: 'Walk', type: BLOCK_TYPES.normal, stock: 42 },
+        { name: 'Turn', type: BLOCK_TYPES.turnRight, stock: 42 },
+        { name: 'Cannon', type: BLOCK_TYPES.normal, stock: 42 },
+        { name: 'Trampoline', type: BLOCK_TYPES.normal, stock: 42 },
+        { name: 'BLOCK NAME4', type: BLOCK_TYPES.normal, stock: 42 },
     ],
 }
 
@@ -35,14 +37,14 @@ window.blockCounts = {
 
 // call everytime the selection is changed to a new selection
 window.spawnObject = function() {
-    if (window.seletables.currentId == -1) return;
-    console.log("Span object name: " + window.seletables.blocks[window.seletables.currentId].name);
+    if (selectables.currentId == -1) return;
+    console.log("Span object name: " + selectables.blocks[selectables.currentId].name);
 }
 
 // call everytime a selected object is unselected
 window.unselectObject = function(previousSelectionId) {
     console.log("Unselect prevous selection: " + previousSelectionId);
-    window.seletables.currentId = -1;
+    selectables.currentId = -1;
 }
 
 // call when exit collision with exploe button

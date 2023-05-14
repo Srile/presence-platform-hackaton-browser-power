@@ -12,9 +12,10 @@
     "wonderland-engine"
   ],
   "dependencies": {
-    "@wonderlandengine/api": "^1.0.0-rc.7",
-    "@wonderlandengine/components": "^1.0.0-rc.8",
+    "@wonderlandengine/api": "^1.0.0",
+    "@wonderlandengine/components": "^1.0.3",
     "animejs": "^3.2.1",
-    "gl-matrix": "^3.4.3"
+    "gl-matrix": "^3.4.3",
+    "wle-pp": "^0.4.1"
   }
 }

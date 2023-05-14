@@ -1,4 +1,6 @@
 import {Component, Property, Type} from '@wonderlandengine/api';
+import { selectables } from './menu-controller';
+import { setSelectedBlockType } from './object-placer';
 
 /**
  * check-collision
@@ -38,12 +40,12 @@ export class CheckCollision extends Component {
         this.currentMaterial.diffuseColor = this.activeColor;
 
         // enter in collision with already selected object
-        if (window.seletables.currentId == this.id) {
+        if (selectables.currentId == this.id) {
             this.isUnselecting = true;
         }
 
         // set the global variable to the current id
-        window.seletables.currentId = this.id;
+        selectables.currentId = this.id;
     }
 
     onCollision() {
@@ -71,17 +73,18 @@ export class CheckCollision extends Component {
 
     isSelected() {
         // was selected before but unselect now
-        if (this.isCurrentlySelected == true && this.id != window.seletables.currentId) {
+        if (this.isCurrentlySelected == true && this.id != selectables.currentId) {
             this.isCurrentlySelected = false;
             this.currentMaterial.diffuseColor = this.meshColor;
             return;
         }
 
         // no currently selected object
-        if (this.id != window.seletables.currentId) return;      
+        if (this.id != selectables.currentId) return;      
         
         // select the current object
         if (this.isCurrentlySelected == false) { window.spawnObject(); }
+        setSelectedBlockType(selectables.blocks[this.id].type)
         this.isCurrentlySelected = true;
         this.currentMaterial.diffuseColor = [0.0, 0.0, 0.0, 1.0];
     }

@@ -1,4 +1,5 @@
 import {Component, Type} from '@wonderlandengine/api';
+import { selectables } from './menu-controller';
 
 /**
  * buttonTextController
@@ -15,9 +16,8 @@ export class ButtonTextController extends Component {
     static Dependencies = [];
 
     init() {
-        console.log('init() with param', this.param);
         this.textComponent = this.object.children[1].getComponent('text', 0);
-        this.textContent = `${window.seletables.blocks[this.id].name}\nCOUNT: ${window.seletables.blocks[this.id].stock}`;
+        this.textContent = `${selectables.blocks[this.id].name}\nCOUNT: ${selectables.blocks[this.id].stock}`;
         this.textComponent.text = this.textContent;
 
         window.blockCounts.emitters[this.id].add(this.updateBlockCountValue.bind(this))
@@ -25,15 +25,10 @@ export class ButtonTextController extends Component {
 
     updateBlockCountValue(data) {
         if (data && data.currentBlockCount) {
-            window.seletables.blocks[this.id].stock = data.currentBlockCount;
-            this.textContent = `${window.seletables.blocks[this.id].name}\nCOUNT: ${window.seletables.blocks[this.id].stock}`;
+            selectables.blocks[this.id].stock = data.currentBlockCount;
+            this.textContent = `${selectables.blocks[this.id].name}\nCOUNT: ${selectables.blocks[this.id].stock}`;
             this.textComponent.text = this.textContent;
         }
     }
 
-    start() {}
-
-    update(dt) {
-        /* Called every frame. */
-    }
 }

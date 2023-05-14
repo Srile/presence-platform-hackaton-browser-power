@@ -88,7 +88,6 @@ export class PlacePortal extends Component {
 
       /* Restore all known anchors */
       for (const uuid of uuidList) {
-        console.log('p', this.engine.xrSession.persistentAnchors);
         if (!(uuid in this.engine.xrSession.persistentAnchors)) continue;
         this.spawnPortal(uuid, null, null, portalObject);
       }
@@ -148,8 +147,6 @@ export class PlacePortal extends Component {
     Anchor.create(portalObject, { persist: false, uuid: uuid }, frame, hitResult).then(
       (a) => {
         /* Hide and show mesh if tracking is lost/restored */
-        a.onTrackingLost.add(() => ((m.active = false), console.log("lost")));
-        a.onTrackingFound.add(() => ((m.active = true), console.log("found")));
 
         const uuidList = Anchor.getAllAnchors()
           .filter((a) => a.persist)

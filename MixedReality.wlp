@@ -1444,36 +1444,6 @@
                 1.0
             ]
         },
-        "233": {
-            "name": "PlaneDetection",
-            "components": [
-                {
-                    "type": "plane-detection",
-                    "plane-detection": {
-                        "planeMaterial": null,
-                        "collisionMask": 1
-                    },
-                    "active": true
-                }
-            ],
-            "parent": null,
-            "translation": [
-                0.0,
-                0.0,
-                0.0
-            ],
-            "rotation": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-            ],
-            "scaling": [
-                1.0,
-                1.0,
-                1.0
-            ]
-        },
         "126": {
             "name": "CursorLeft",
             "parent": "205",
@@ -1652,20 +1622,30 @@
             "name": "GameManager",
             "components": [
                 {
-                    "type": "howler-audio-source",
-                    "howler-audio-source": {
-                        "src": "music/space.mp3",
-                        "autoplay": true,
-                        "loop": true,
-                        "spatial": false
-                    }
-                },
-                {
                     "type": "game-manager",
                     "game-manager": {
-                        "debug": false,
+                        "debug": true,
                         "ufo": "9c4eb3a1-632b-40b8-8001-20b26aafb42d",
-                        "ufoBlock": "d0eecc4b-0940-4af4-8724-0d8f2d10661b"
+                        "ufoBlock": "d0eecc4b-0940-4af4-8724-0d8f2d10661b",
+                        "gameWinObject": "03faa276-0dee-4882-ba54-c2ef467a2eb6"
+                    },
+                    "active": true
+                },
+                {
+                    "type": "plane-detection",
+                    "plane-detection": {
+                        "planeMaterial": null,
+                        "collisionMask": 1
+                    },
+                    "active": true
+                },
+                {
+                    "type": "block-data-container",
+                    "block-data-container": {
+                        "normalBlockMesh": "ae8a6dd4-421f-44c5-b505-d598cfd03cd7",
+                        "normalBlockMaterial": "26",
+                        "turnRightBlockMesh": "ed63d936-e399-49a4-9473-bf019de9a5de",
+                        "turnRightBlockMaterial": "be79f626-7ccf-4c19-aa0c-5a4171461cea"
                     }
                 }
             ]
@@ -1700,6 +1680,13 @@
                         "blockSpace": "ab04d76c-e107-4f3a-a84f-542a316b65ef"
                     },
                     "active": false
+                },
+                {
+                    "type": "howler-audio-source",
+                    "howler-audio-source": {
+                        "src": "sfx/block-place.webm",
+                        "volume": 0.6999999
+                    }
                 }
             ],
             "scaling": [
@@ -2002,6 +1989,11 @@
                 1.0,
                 1.0,
                 1.0
+            ],
+            "components": [
+                null,
+                null,
+                null
             ]
         },
         "824e7c6c-176d-4051-a400-63280b38c80e": {
@@ -2694,6 +2686,14 @@
                     "ufo-controller": {
                         "gameWinObject": "03faa276-0dee-4882-ba54-c2ef467a2eb6"
                     }
+                },
+                {
+                    "type": "howler-audio-source",
+                    "howler-audio-source": {
+                        "loop": true,
+                        "src": "sfx/ufo-loop.webm",
+                        "volume": 0.4
+                    }
                 }
             ],
             "translation": [
@@ -2735,6 +2735,12 @@
                         }
                     },
                     "active": false
+                },
+                {
+                    "type": "howler-audio-source",
+                    "howler-audio-source": {
+                        "src": "sfx/bot-beep-confirmation.mp3"
+                    }
                 }
             ]
         },
@@ -2918,12 +2924,9 @@
             ],
             "components": [
                 {
-                    "type": "spawnBot",
-                    "spawnBot": {
+                    "type": "spawn-bot",
+                    "spawn-bot": {
                         "placementObject": "235",
-                        "spawnmesh": "11",
-                        "spawnmesh2": "8",
-                        "spawnmat": "25",
                         "portalObject": "2012"
                     }
                 }
@@ -3004,9 +3007,2987 @@
                         "material": "251"
                     },
                     "active": false
+                },
+                {
+                    "type": "howler-audio-source",
+                    "howler-audio-source": {
+                        "src": "sfx/win-game.webm",
+                        "volume": 0.6
+                    }
                 }
             ],
-            "parent": "2012"
+            "parent": "2012",
+            "name": "winMesh"
+        },
+        "329534a8-8e26-46ba-a15d-18dd630a1e76": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "00b9fe0e-4bc1-4129-8b4c-a1c6879400e7"
+        },
+        "da5a3e02-99be-4818-bab4-58ecda50ec9e": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "329534a8-8e26-46ba-a15d-18dd630a1e76"
+        },
+        "256bd8a7-1624-46fd-b70e-19aca16d77fb": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "da5a3e02-99be-4818-bab4-58ecda50ec9e",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "73dcf3b8-c72a-405e-817c-e29b6c9b933e": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "329534a8-8e26-46ba-a15d-18dd630a1e76"
+        },
+        "9963ec0d-5973-4f77-ac4b-c641d618e010": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "73dcf3b8-c72a-405e-817c-e29b6c9b933e"
+        },
+        "99a8e24a-d6f7-4b08-a48b-f6ffe72da485": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "329534a8-8e26-46ba-a15d-18dd630a1e76"
+        },
+        "04b3391d-08bf-45e1-ba6a-3e232d6b1468": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "99a8e24a-d6f7-4b08-a48b-f6ffe72da485"
+        },
+        "79271e51-9444-43c7-8f17-bcc77f68d801": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "329534a8-8e26-46ba-a15d-18dd630a1e76"
+        },
+        "f628f135-3bce-466e-b8a1-a8921ef1ec48": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "79271e51-9444-43c7-8f17-bcc77f68d801"
+        },
+        "15f0a23e-afaa-43fa-a5b5-9700e1a2f74f": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "329534a8-8e26-46ba-a15d-18dd630a1e76",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "796e1e34-7efc-4bd8-97b2-28660d1bebff": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "15f0a23e-afaa-43fa-a5b5-9700e1a2f74f"
+        },
+        "56750343-5b4f-430a-9c2f-c5c41add068c": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "329534a8-8e26-46ba-a15d-18dd630a1e76"
+        },
+        "6a554ecc-5b1f-4e64-a443-16a0f56b89da": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "56750343-5b4f-430a-9c2f-c5c41add068c"
+        },
+        "00b9fe0e-4bc1-4129-8b4c-a1c6879400e7": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "2969312b-c7d6-4a83-b334-93221741c723": {
+            "name": "BotPool",
+            "components": [
+                {
+                    "type": "robot-pool"
+                }
+            ]
+        },
+        "032cfe5c-fefe-4cd7-8070-f8718d46aabd": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "68e0f651-e310-49fe-b9f9-02fc18e56f62": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "032cfe5c-fefe-4cd7-8070-f8718d46aabd"
+        },
+        "9fff844b-9cc6-4d0d-9e5d-9ca3aff9415e": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "68e0f651-e310-49fe-b9f9-02fc18e56f62"
+        },
+        "58154859-2a55-4c2d-992c-f8e11b8e81b7": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "9fff844b-9cc6-4d0d-9e5d-9ca3aff9415e",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "de0a0876-83e1-453e-a7ed-3cc9b01fc880": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "68e0f651-e310-49fe-b9f9-02fc18e56f62"
+        },
+        "fcfd87bf-cb9f-4d31-ad52-11eafc5b1edd": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "de0a0876-83e1-453e-a7ed-3cc9b01fc880"
+        },
+        "6ea38f5f-c11c-438e-bee6-22bf1dfc1df6": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "68e0f651-e310-49fe-b9f9-02fc18e56f62"
+        },
+        "f4400225-2bbd-43cd-b08c-4d0985c7a96d": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "6ea38f5f-c11c-438e-bee6-22bf1dfc1df6"
+        },
+        "4e4f1d6d-dfed-423b-9b5d-5896a44978f7": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "68e0f651-e310-49fe-b9f9-02fc18e56f62"
+        },
+        "ff5b64b6-0f2e-4eae-ba86-50a40cd785ba": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "4e4f1d6d-dfed-423b-9b5d-5896a44978f7"
+        },
+        "14287a86-a872-49d5-9cd8-1fdbcd0498da": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "68e0f651-e310-49fe-b9f9-02fc18e56f62",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "3fe953d1-5298-4d79-822f-ba5b1fb78d1d": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "14287a86-a872-49d5-9cd8-1fdbcd0498da"
+        },
+        "2669aabf-0e0c-4a19-9702-cb0f96960ea4": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "68e0f651-e310-49fe-b9f9-02fc18e56f62"
+        },
+        "5fb3ddb2-51ed-43ef-907a-0853a2582e36": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2669aabf-0e0c-4a19-9702-cb0f96960ea4"
+        },
+        "28fd5b30-94b6-4cce-bef6-26fed142c1c2": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "3705b334-1489-4e3b-9eda-eadf32488579": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "28fd5b30-94b6-4cce-bef6-26fed142c1c2"
+        },
+        "3dd6e7cf-adaa-4ebb-9936-abfd43011ff7": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3705b334-1489-4e3b-9eda-eadf32488579"
+        },
+        "ba8bccd5-9833-4f0d-906f-54ba6c1eac17": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3dd6e7cf-adaa-4ebb-9936-abfd43011ff7",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "dc594685-dcb3-43d3-87e5-47bcc6a76c1a": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3705b334-1489-4e3b-9eda-eadf32488579"
+        },
+        "f67dacf1-de3c-4dc6-a9b6-68efb3d7e134": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "dc594685-dcb3-43d3-87e5-47bcc6a76c1a"
+        },
+        "d1fa1392-d5c4-40b2-bf4f-a52cf5c302c6": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3705b334-1489-4e3b-9eda-eadf32488579"
+        },
+        "767475aa-144c-4869-a11e-0f51d7b0016f": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d1fa1392-d5c4-40b2-bf4f-a52cf5c302c6"
+        },
+        "60927da2-4174-4019-80df-f361f04ec9b5": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3705b334-1489-4e3b-9eda-eadf32488579"
+        },
+        "63adfc8a-6bbf-4fd3-bd77-919b9ed32607": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "60927da2-4174-4019-80df-f361f04ec9b5"
+        },
+        "4cc121bc-1502-4768-9f02-e00cc2a6a671": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3705b334-1489-4e3b-9eda-eadf32488579",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "8002d3bf-f4da-46b8-869c-6678270bdd02": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "4cc121bc-1502-4768-9f02-e00cc2a6a671"
+        },
+        "d0267b14-b839-40dd-a8e6-5de5429ee346": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3705b334-1489-4e3b-9eda-eadf32488579"
+        },
+        "23a75fe4-eea6-4313-a65c-70219bb822e3": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d0267b14-b839-40dd-a8e6-5de5429ee346"
+        },
+        "96c17947-58e3-4898-b993-35a5361a8028": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "c7b87aaf-c71b-4a4d-8585-3782bb9ace7c": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "96c17947-58e3-4898-b993-35a5361a8028"
+        },
+        "3681d0c7-aa05-4ffb-9c2e-0d8981376896": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "c7b87aaf-c71b-4a4d-8585-3782bb9ace7c"
+        },
+        "b5ffd388-4c82-4ecf-a8e6-0d4cd525a806": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3681d0c7-aa05-4ffb-9c2e-0d8981376896",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "35572c32-1f0c-4cb5-b6c4-7669005c1622": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "c7b87aaf-c71b-4a4d-8585-3782bb9ace7c"
+        },
+        "11f331b1-a008-4fd4-90c5-4add7ef04c4e": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "35572c32-1f0c-4cb5-b6c4-7669005c1622"
+        },
+        "6226611d-ac70-4e0c-b9ae-4a5170ca4a45": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "c7b87aaf-c71b-4a4d-8585-3782bb9ace7c"
+        },
+        "d9fb6296-1b2e-48af-aa22-90dc186666af": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "6226611d-ac70-4e0c-b9ae-4a5170ca4a45"
+        },
+        "75a533ce-cf9e-48f8-b23c-04f4401e65a3": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "c7b87aaf-c71b-4a4d-8585-3782bb9ace7c"
+        },
+        "686e1a4a-7ef4-4ee0-8314-1f63309e4015": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "75a533ce-cf9e-48f8-b23c-04f4401e65a3"
+        },
+        "56a0d205-0003-4878-876d-641da9c46049": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "c7b87aaf-c71b-4a4d-8585-3782bb9ace7c",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "01c2007c-cd32-42ac-b531-9a6f81c7e10b": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "56a0d205-0003-4878-876d-641da9c46049"
+        },
+        "d76a3f62-d8b1-41eb-97f5-107aba30943e": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "c7b87aaf-c71b-4a4d-8585-3782bb9ace7c"
+        },
+        "b196b163-f0cf-47f9-a994-61644a5a2d75": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d76a3f62-d8b1-41eb-97f5-107aba30943e"
+        },
+        "9e978376-1896-4360-aed1-d78f889a78c6": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "62fbe932-e07c-4437-8a10-8c07c0f3d89b": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "9e978376-1896-4360-aed1-d78f889a78c6"
+        },
+        "1ce04a94-2ece-44f9-b96b-7fedb4f06503": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "62fbe932-e07c-4437-8a10-8c07c0f3d89b"
+        },
+        "45479fd0-5613-46bd-839d-da5ce9496f45": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "1ce04a94-2ece-44f9-b96b-7fedb4f06503",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "1b12bf74-c436-40fd-83d3-96314ab2871c": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "62fbe932-e07c-4437-8a10-8c07c0f3d89b"
+        },
+        "e0282fa9-4e8d-45e5-a57f-a00735da4da0": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "1b12bf74-c436-40fd-83d3-96314ab2871c"
+        },
+        "3989c71c-7589-4e17-a5e7-22fa5b4875a7": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "62fbe932-e07c-4437-8a10-8c07c0f3d89b"
+        },
+        "63d60992-26cd-4b82-854b-4c7ca3946eb0": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3989c71c-7589-4e17-a5e7-22fa5b4875a7"
+        },
+        "c0312b62-2408-40e6-9352-2bfbe59f3454": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "62fbe932-e07c-4437-8a10-8c07c0f3d89b"
+        },
+        "874dad58-b648-4e8b-8cea-83aee9e733f4": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "c0312b62-2408-40e6-9352-2bfbe59f3454"
+        },
+        "eb150560-5281-4e8a-88a0-912b139a524e": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "62fbe932-e07c-4437-8a10-8c07c0f3d89b",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "f542551a-b109-412e-92ee-ae8bef0a518a": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "eb150560-5281-4e8a-88a0-912b139a524e"
+        },
+        "55f76e40-08d9-4cd5-9840-06e969773b35": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "62fbe932-e07c-4437-8a10-8c07c0f3d89b"
+        },
+        "7f9bb99b-9d4c-418d-afbf-a733de22bf25": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "55f76e40-08d9-4cd5-9840-06e969773b35"
+        },
+        "30df2e30-5e3b-4ce1-b9b0-b3e012388a8a": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "a7596c51-0820-4598-88f6-61fbe61ecd65": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "30df2e30-5e3b-4ce1-b9b0-b3e012388a8a"
+        },
+        "24715bb3-7915-40af-be67-05409a9e04f1": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a7596c51-0820-4598-88f6-61fbe61ecd65"
+        },
+        "c9afd503-8e72-4f0e-b09f-126a5d034027": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "24715bb3-7915-40af-be67-05409a9e04f1",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "2f7825f7-ae7b-402e-bbb9-8b387a706790": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a7596c51-0820-4598-88f6-61fbe61ecd65"
+        },
+        "f65f751e-0f3b-4c64-93fa-45657b00ae93": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2f7825f7-ae7b-402e-bbb9-8b387a706790"
+        },
+        "b9af0f77-1e58-4e37-9ae6-5f4d204e9dd6": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a7596c51-0820-4598-88f6-61fbe61ecd65"
+        },
+        "e174a63f-2ef4-4f2a-8f54-1e20905cbe55": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b9af0f77-1e58-4e37-9ae6-5f4d204e9dd6"
+        },
+        "072ea4fb-0a1f-4c34-b32c-2382bb661887": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a7596c51-0820-4598-88f6-61fbe61ecd65"
+        },
+        "4161f4ab-8033-4e61-bc03-b55e68e40767": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "072ea4fb-0a1f-4c34-b32c-2382bb661887"
+        },
+        "d2a7a28e-6b47-4241-a627-3d717a1d8bd2": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a7596c51-0820-4598-88f6-61fbe61ecd65",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "76bb854e-a11e-4adb-aa82-af454039863c": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d2a7a28e-6b47-4241-a627-3d717a1d8bd2"
+        },
+        "9110c14a-7dfc-4f0a-8959-51b2e8825006": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a7596c51-0820-4598-88f6-61fbe61ecd65"
+        },
+        "f1e831dd-3799-4082-b41b-72f22393ffb7": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "9110c14a-7dfc-4f0a-8959-51b2e8825006"
+        },
+        "5c6a81af-8d27-42a6-8974-5a103c774b9c": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "8f7ad7b5-c229-4082-82c6-cb697ca83bc3": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "5c6a81af-8d27-42a6-8974-5a103c774b9c"
+        },
+        "6ece2106-7ace-45b3-8838-94d11ae86d9b": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "8f7ad7b5-c229-4082-82c6-cb697ca83bc3"
+        },
+        "22bbea75-e6e8-4483-9688-26724b9f06fe": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "6ece2106-7ace-45b3-8838-94d11ae86d9b",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "baeac377-8e24-43a2-8684-e1c2df03b72d": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "8f7ad7b5-c229-4082-82c6-cb697ca83bc3"
+        },
+        "0599acc1-8043-4acd-832f-d9413ccc4852": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "baeac377-8e24-43a2-8684-e1c2df03b72d"
+        },
+        "245b6584-f966-4657-bae9-ae441586ac3a": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "8f7ad7b5-c229-4082-82c6-cb697ca83bc3"
+        },
+        "e0a6178d-2c09-4561-9c72-2f5b618993b6": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "245b6584-f966-4657-bae9-ae441586ac3a"
+        },
+        "96a49360-3b3a-4b30-a760-6b7ccfdf1a2d": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "8f7ad7b5-c229-4082-82c6-cb697ca83bc3"
+        },
+        "7937aa23-dc7a-4404-89ab-2d477ee909cb": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "96a49360-3b3a-4b30-a760-6b7ccfdf1a2d"
+        },
+        "23d5b508-9550-4d63-932d-dc686e28e898": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "8f7ad7b5-c229-4082-82c6-cb697ca83bc3",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "dc715ec9-766e-430c-9c0a-46ddee664888": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "23d5b508-9550-4d63-932d-dc686e28e898"
+        },
+        "cd36c961-79c7-4c53-a5a6-abea446741ce": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "8f7ad7b5-c229-4082-82c6-cb697ca83bc3"
+        },
+        "f54c700a-fc1c-4256-959b-c4c824af292f": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "cd36c961-79c7-4c53-a5a6-abea446741ce"
+        },
+        "d621f530-53c9-4d2d-bb68-9a44c8af6235": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "3e5a737e-d320-433e-8903-fe5f9fae274f": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "d621f530-53c9-4d2d-bb68-9a44c8af6235"
+        },
+        "462e8cc4-1489-40f9-8702-a01741cbef4d": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3e5a737e-d320-433e-8903-fe5f9fae274f"
+        },
+        "6dcea4d8-49d2-4744-9250-022961fbbf1f": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "462e8cc4-1489-40f9-8702-a01741cbef4d",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "39de25b4-6782-4bd8-98ee-cf7fc1dd4e0f": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3e5a737e-d320-433e-8903-fe5f9fae274f"
+        },
+        "910b9d6a-ab27-4c21-896e-7a70ba70dadf": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "39de25b4-6782-4bd8-98ee-cf7fc1dd4e0f"
+        },
+        "3355d8a0-4bd9-495d-84f4-f4df1a2fc709": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3e5a737e-d320-433e-8903-fe5f9fae274f"
+        },
+        "9dc70ed6-936d-43f2-8fa7-81b42de11547": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3355d8a0-4bd9-495d-84f4-f4df1a2fc709"
+        },
+        "d9dc786d-0104-4f72-994c-f199beab727b": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3e5a737e-d320-433e-8903-fe5f9fae274f"
+        },
+        "8bc61bc4-fcf0-46ba-bbd7-4561e36d44d3": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d9dc786d-0104-4f72-994c-f199beab727b"
+        },
+        "be5df49c-6c6e-4781-873c-e31c119d3b0d": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3e5a737e-d320-433e-8903-fe5f9fae274f",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "6ba1c9b0-cc09-4ad8-b952-cd22ebda0776": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "be5df49c-6c6e-4781-873c-e31c119d3b0d"
+        },
+        "cf7bb851-0375-4fbb-8429-72af0a578968": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3e5a737e-d320-433e-8903-fe5f9fae274f"
+        },
+        "ed4c1b4f-5d75-4248-8262-6ca58e2e515e": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "cf7bb851-0375-4fbb-8429-72af0a578968"
+        },
+        "2f63b494-d123-4c64-b64c-e359a3651d25": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "2a2fed41-6b5a-4dcc-8994-c647d9091777": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "2f63b494-d123-4c64-b64c-e359a3651d25"
+        },
+        "f9145364-1a73-40a4-9636-b1fedd54544a": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2a2fed41-6b5a-4dcc-8994-c647d9091777"
+        },
+        "f0424ede-697e-4aa5-acfc-e77264f095c1": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "f9145364-1a73-40a4-9636-b1fedd54544a",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "f81a1dea-8605-41c4-80a6-6b08df92d939": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2a2fed41-6b5a-4dcc-8994-c647d9091777"
+        },
+        "47d5b7e5-b8a5-412c-b24f-28ab76c166c6": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "f81a1dea-8605-41c4-80a6-6b08df92d939"
+        },
+        "bd62a858-fa75-4ea7-acf7-bee165cf49d1": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2a2fed41-6b5a-4dcc-8994-c647d9091777"
+        },
+        "194d2ea9-8edc-4eaf-b39b-3ee5373d9322": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "bd62a858-fa75-4ea7-acf7-bee165cf49d1"
+        },
+        "836a2a27-3b8a-4737-ade8-a498ec0d4cd6": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2a2fed41-6b5a-4dcc-8994-c647d9091777"
+        },
+        "67c21a6e-2b11-4a0d-9efa-9af3d66fd3ca": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "836a2a27-3b8a-4737-ade8-a498ec0d4cd6"
+        },
+        "cc37d9a6-50c0-47a9-8059-339ea8c11dfd": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2a2fed41-6b5a-4dcc-8994-c647d9091777",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "e73832ca-cfdf-415a-8e2c-50ef7196ded9": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "cc37d9a6-50c0-47a9-8059-339ea8c11dfd"
+        },
+        "205ef710-8a29-454b-9517-b977cb6e27a4": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2a2fed41-6b5a-4dcc-8994-c647d9091777"
+        },
+        "d9a70d0f-e73a-4e9f-86f8-3b08d5ed5af3": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "205ef710-8a29-454b-9517-b977cb6e27a4"
+        },
+        "3a12f44b-f034-42d7-93ee-d6836f7941bf": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "b61d4694-7c82-409f-8348-dc63dfcc3cac": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "3a12f44b-f034-42d7-93ee-d6836f7941bf"
+        },
+        "fad733c8-293c-4076-bd8c-6d4ddd8f3c7e": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b61d4694-7c82-409f-8348-dc63dfcc3cac"
+        },
+        "eeb4cfc1-dd60-4ecc-b5ad-2c37c1884c81": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "fad733c8-293c-4076-bd8c-6d4ddd8f3c7e",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "cfb2ea6a-aefe-426d-ad8e-b4610f4d3558": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b61d4694-7c82-409f-8348-dc63dfcc3cac"
+        },
+        "d64758ff-fcc7-4944-ae7b-3cb233f9ad92": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "cfb2ea6a-aefe-426d-ad8e-b4610f4d3558"
+        },
+        "d3b1a558-4576-4ef8-8c35-8ddc5031f8e7": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b61d4694-7c82-409f-8348-dc63dfcc3cac"
+        },
+        "3045e9ce-9451-42cd-af70-4ec5e4c8b9e8": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d3b1a558-4576-4ef8-8c35-8ddc5031f8e7"
+        },
+        "e9958d93-e5be-4399-82c4-7c1d529a79c4": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b61d4694-7c82-409f-8348-dc63dfcc3cac"
+        },
+        "dc38e90f-7557-4a7c-90be-0a2470da9ad0": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "e9958d93-e5be-4399-82c4-7c1d529a79c4"
+        },
+        "fe51bb77-f701-4bde-ad42-575a16574567": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b61d4694-7c82-409f-8348-dc63dfcc3cac",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "aa6ae127-03d3-414c-abf2-fcfc16715e1d": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "fe51bb77-f701-4bde-ad42-575a16574567"
+        },
+        "b76c1833-96ea-464a-a02e-a27f52570049": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b61d4694-7c82-409f-8348-dc63dfcc3cac"
+        },
+        "4170c091-f59a-4a67-b58d-a4f323f59bc4": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b76c1833-96ea-464a-a02e-a27f52570049"
+        },
+        "e713c2d6-d4ba-4e3f-85c1-4086106e9fef": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "d4bdb341-cc8f-4ae6-bf3f-233cdb58b912": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "e713c2d6-d4ba-4e3f-85c1-4086106e9fef"
+        },
+        "fea02c84-0ffd-4df8-ac1e-f4673b613c20": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d4bdb341-cc8f-4ae6-bf3f-233cdb58b912"
+        },
+        "3ebcb1da-f4e2-49cb-b950-840605da6180": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "fea02c84-0ffd-4df8-ac1e-f4673b613c20",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "a1842f6a-5738-4a25-a2f1-8fd9b1c3caf8": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d4bdb341-cc8f-4ae6-bf3f-233cdb58b912"
+        },
+        "c623b1ca-34c5-4ff7-8b1a-2e4f53f3db09": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a1842f6a-5738-4a25-a2f1-8fd9b1c3caf8"
+        },
+        "6b31f178-f015-42a7-b9f2-21f81b79dfc3": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d4bdb341-cc8f-4ae6-bf3f-233cdb58b912"
+        },
+        "0ab98440-7ad2-4a5f-9455-656b39866097": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "6b31f178-f015-42a7-b9f2-21f81b79dfc3"
+        },
+        "07a3bb2e-4f3e-4e1e-998a-02444e9d8fd0": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d4bdb341-cc8f-4ae6-bf3f-233cdb58b912"
+        },
+        "2ac414b3-1d23-4c53-afc4-825f821264bc": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "07a3bb2e-4f3e-4e1e-998a-02444e9d8fd0"
+        },
+        "cccd0954-da29-4a43-b4ed-31850d06c27e": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d4bdb341-cc8f-4ae6-bf3f-233cdb58b912",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "4cf1e29d-90f9-452f-b3a6-b73cbdcf8d0b": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "cccd0954-da29-4a43-b4ed-31850d06c27e"
+        },
+        "58227034-1c44-4060-9eb7-bcfd67ec003c": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "d4bdb341-cc8f-4ae6-bf3f-233cdb58b912"
+        },
+        "bbba4c75-6be3-4bff-91ca-73794460a5e2": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "58227034-1c44-4060-9eb7-bcfd67ec003c"
+        },
+        "ebc507ad-b1da-419e-aaae-14b344f6fa8e": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "87e9ac34-93fa-4c43-bd77-825d40fd1769": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "ebc507ad-b1da-419e-aaae-14b344f6fa8e"
+        },
+        "4fb25e55-ba9c-4178-91d6-587647a15431": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "87e9ac34-93fa-4c43-bd77-825d40fd1769"
+        },
+        "e78d4c57-1f44-42bd-988a-00f56587d883": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "4fb25e55-ba9c-4178-91d6-587647a15431",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "a1689a6e-3f50-4edb-8869-262127c05696": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "87e9ac34-93fa-4c43-bd77-825d40fd1769"
+        },
+        "a6eeb40a-2705-4af4-a756-713e35317cbf": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a1689a6e-3f50-4edb-8869-262127c05696"
+        },
+        "af3272b3-9160-4d15-9629-6fc11d68f104": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "87e9ac34-93fa-4c43-bd77-825d40fd1769"
+        },
+        "ee546807-0272-4b61-8dcf-924197883fb3": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "af3272b3-9160-4d15-9629-6fc11d68f104"
+        },
+        "e2d05d75-9e0f-4883-9943-c39eae2f0cce": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "87e9ac34-93fa-4c43-bd77-825d40fd1769"
+        },
+        "fb855192-a9cd-4c23-838e-81aab9ca2fae": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "e2d05d75-9e0f-4883-9943-c39eae2f0cce"
+        },
+        "49f6e1c9-b6c7-4f64-b6bd-c0680d86564b": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "87e9ac34-93fa-4c43-bd77-825d40fd1769",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "2bd6d0f4-fcc4-433d-8085-0e45eed9dcc3": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "49f6e1c9-b6c7-4f64-b6bd-c0680d86564b"
+        },
+        "6ebf42eb-f0a0-4989-97e9-0b949afafca1": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "87e9ac34-93fa-4c43-bd77-825d40fd1769"
+        },
+        "19fc308b-8280-4643-bc9f-e53bce80cf98": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "6ebf42eb-f0a0-4989-97e9-0b949afafca1"
+        },
+        "a9489b4d-1e01-47ba-a0cd-0fbf9dabadae": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "21cd67a3-0869-43b8-9274-ca34b992cb03": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "a9489b4d-1e01-47ba-a0cd-0fbf9dabadae"
+        },
+        "16d7bc73-692b-4ab4-8e4f-2fc4e3a0b32d": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "21cd67a3-0869-43b8-9274-ca34b992cb03"
+        },
+        "fca3d27a-896d-4720-880e-0038cf0903cc": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "16d7bc73-692b-4ab4-8e4f-2fc4e3a0b32d",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "aa2e39c9-e69d-4d95-8c36-3fb946022e2e": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "21cd67a3-0869-43b8-9274-ca34b992cb03"
+        },
+        "939e24ed-8a44-4e2c-91ab-f16880ecf8ea": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "aa2e39c9-e69d-4d95-8c36-3fb946022e2e"
+        },
+        "ec4d1363-2729-46e5-b0e6-61781e9e6515": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "21cd67a3-0869-43b8-9274-ca34b992cb03"
+        },
+        "d3e26dfd-ea29-4b6d-9ff6-8a5806630f8d": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "ec4d1363-2729-46e5-b0e6-61781e9e6515"
+        },
+        "f43fcef8-235e-46d0-90db-405b8aca2b50": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "21cd67a3-0869-43b8-9274-ca34b992cb03"
+        },
+        "f4cefd82-1286-4530-b454-d9905790085a": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "f43fcef8-235e-46d0-90db-405b8aca2b50"
+        },
+        "3799c4de-8016-409c-866c-dc368df2288e": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "21cd67a3-0869-43b8-9274-ca34b992cb03",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "6960d835-1963-474b-8dc9-b12044236e45": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3799c4de-8016-409c-866c-dc368df2288e"
+        },
+        "b3067de0-1b56-4485-b19f-77afca2c50c7": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "21cd67a3-0869-43b8-9274-ca34b992cb03"
+        },
+        "fc71be62-1524-41e8-a492-e48dcdfec982": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b3067de0-1b56-4485-b19f-77afca2c50c7"
+        },
+        "31174050-fc81-4e3c-a360-7592504bd51a": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "0f22a66a-14bd-4df6-bf66-49f8f123081e": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "31174050-fc81-4e3c-a360-7592504bd51a"
+        },
+        "a244a17c-c8a7-4d57-9a1c-094b8f5f8ba2": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "0f22a66a-14bd-4df6-bf66-49f8f123081e"
+        },
+        "ca544873-fd35-4d3b-82d1-2c94b976f405": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a244a17c-c8a7-4d57-9a1c-094b8f5f8ba2",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "8d19d898-052f-4b42-b79d-7372e2d52a00": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "0f22a66a-14bd-4df6-bf66-49f8f123081e"
+        },
+        "ae2820b2-7144-4de1-bc30-8a09220e4bf0": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "8d19d898-052f-4b42-b79d-7372e2d52a00"
+        },
+        "580b3945-62fc-4885-9c07-2d066567b627": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "0f22a66a-14bd-4df6-bf66-49f8f123081e"
+        },
+        "1a8981a3-759c-44bd-9a60-efcdfb62e23b": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "580b3945-62fc-4885-9c07-2d066567b627"
+        },
+        "b8ba8904-a082-48f1-92b4-1073b9232d90": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "0f22a66a-14bd-4df6-bf66-49f8f123081e"
+        },
+        "a034d4ee-c9fc-40e8-be1f-1c6779e6efc9": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b8ba8904-a082-48f1-92b4-1073b9232d90"
+        },
+        "dca65bab-fef4-4c0e-acd3-ae0e779c1bd4": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "0f22a66a-14bd-4df6-bf66-49f8f123081e",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "b87f6cb2-57b3-48f3-ba78-524c8e0eed85": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "dca65bab-fef4-4c0e-acd3-ae0e779c1bd4"
+        },
+        "71f70fb7-22e8-4d0e-a3bf-19755cc86980": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "0f22a66a-14bd-4df6-bf66-49f8f123081e"
+        },
+        "a0a7cf4f-d9b2-4326-b3c1-3f45a3b414a0": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "71f70fb7-22e8-4d0e-a3bf-19755cc86980"
+        },
+        "6bd1613b-2d2d-4f86-908b-76c8a9ecfeb7": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "e5d9dd56-96f9-4eb9-af4b-b02e33a86d07": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "6bd1613b-2d2d-4f86-908b-76c8a9ecfeb7"
+        },
+        "2009bb6e-1206-495a-9b53-7225691d1e94": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "e5d9dd56-96f9-4eb9-af4b-b02e33a86d07"
+        },
+        "aa728eb9-1a37-4b71-aef2-abc839dbaef2": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2009bb6e-1206-495a-9b53-7225691d1e94",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "723f1ea6-7a58-4a75-96b3-098560bbc351": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "e5d9dd56-96f9-4eb9-af4b-b02e33a86d07"
+        },
+        "be6dd77c-1dd2-48cc-916b-2b5454cd2a35": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "723f1ea6-7a58-4a75-96b3-098560bbc351"
+        },
+        "7cfb9a0c-bbe4-4249-9028-3acddc85ca71": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "e5d9dd56-96f9-4eb9-af4b-b02e33a86d07"
+        },
+        "a99c267e-649a-43b1-b3c3-4adeeecdbec2": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "7cfb9a0c-bbe4-4249-9028-3acddc85ca71"
+        },
+        "60eef269-60ea-455f-bed7-505c4e8664f7": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "e5d9dd56-96f9-4eb9-af4b-b02e33a86d07"
+        },
+        "5d2dd84e-ed0b-42c7-85f6-571614421893": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "60eef269-60ea-455f-bed7-505c4e8664f7"
+        },
+        "73b7cb5a-96d5-49bd-b869-ffd2ac957605": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "e5d9dd56-96f9-4eb9-af4b-b02e33a86d07",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "a1df3600-dde9-498f-bab5-583907a8889a": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "73b7cb5a-96d5-49bd-b869-ffd2ac957605"
+        },
+        "336c70eb-bc87-46b6-a8a4-5dfea93fe537": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "e5d9dd56-96f9-4eb9-af4b-b02e33a86d07"
+        },
+        "51fbf67f-3336-40d0-af2e-92f5860d350d": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "336c70eb-bc87-46b6-a8a4-5dfea93fe537"
+        },
+        "4c4e227c-1016-4828-8f90-463efa21dd61": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "597eacc7-2436-42de-ad69-90ebb72e5dba": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "4c4e227c-1016-4828-8f90-463efa21dd61"
+        },
+        "5d4e6746-1fb7-40bd-b4da-1968cdc49672": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "597eacc7-2436-42de-ad69-90ebb72e5dba"
+        },
+        "295e1498-3670-4557-910e-06fbd27c80d0": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "5d4e6746-1fb7-40bd-b4da-1968cdc49672",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "b01324aa-8c9b-4f89-bd0b-016eb0c5edd1": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "597eacc7-2436-42de-ad69-90ebb72e5dba"
+        },
+        "f3277954-f01b-4bc7-8dbd-f4c77aa83c59": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "b01324aa-8c9b-4f89-bd0b-016eb0c5edd1"
+        },
+        "c16ee1d7-d9ad-477c-98c5-0bd9f1e8f4d2": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "597eacc7-2436-42de-ad69-90ebb72e5dba"
+        },
+        "1884311d-747b-4fd3-9352-4e75df5ecb21": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "c16ee1d7-d9ad-477c-98c5-0bd9f1e8f4d2"
+        },
+        "2ac7060d-5c3f-40b6-b2bc-00cbe1b752e2": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "597eacc7-2436-42de-ad69-90ebb72e5dba"
+        },
+        "31f723c3-40fd-475d-b26f-3997279a0ece": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "2ac7060d-5c3f-40b6-b2bc-00cbe1b752e2"
+        },
+        "9b72f3ae-ddde-480c-ae51-40d6943eef78": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "597eacc7-2436-42de-ad69-90ebb72e5dba",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "7b690393-b3ef-4ef1-9a26-a92e64f9c40a": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "9b72f3ae-ddde-480c-ae51-40d6943eef78"
+        },
+        "bd87bfaf-c3d2-425a-973b-eb4073f30740": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "597eacc7-2436-42de-ad69-90ebb72e5dba"
+        },
+        "c7f26749-e3ac-4831-b1dc-6719c41112e1": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "bd87bfaf-c3d2-425a-973b-eb4073f30740"
+        },
+        "39d02226-c919-4dcd-8ad0-c2f8f3658696": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "ec189c1f-0814-458a-afc2-b1c3d159f8fc": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "39d02226-c919-4dcd-8ad0-c2f8f3658696"
+        },
+        "3866b11b-09cd-474f-8bef-d29a68c6402c": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "ec189c1f-0814-458a-afc2-b1c3d159f8fc"
+        },
+        "078664f9-9fbf-4849-8d0b-a8dd7f56b891": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "3866b11b-09cd-474f-8bef-d29a68c6402c",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "84d7844b-692a-4590-9ea7-6ebcd724e633": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "ec189c1f-0814-458a-afc2-b1c3d159f8fc"
+        },
+        "fac32617-4af9-425a-9b33-2ea1eebc70d9": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "84d7844b-692a-4590-9ea7-6ebcd724e633"
+        },
+        "5939b34f-ba7b-4191-841b-d9b4e15fce89": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "ec189c1f-0814-458a-afc2-b1c3d159f8fc"
+        },
+        "83c9d47b-bd9e-4679-9f3f-6caf9f5cd008": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "5939b34f-ba7b-4191-841b-d9b4e15fce89"
+        },
+        "0b090722-a288-4684-8126-0b84299522bb": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "ec189c1f-0814-458a-afc2-b1c3d159f8fc"
+        },
+        "25283287-6790-4f7d-9ef6-13f6b114f9af": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "0b090722-a288-4684-8126-0b84299522bb"
+        },
+        "4e0d91eb-c6c3-4fa8-9ce6-43efcef5352e": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "ec189c1f-0814-458a-afc2-b1c3d159f8fc",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "00cc4e7d-8a24-4e1a-8ea2-1a7197cac115": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "4e0d91eb-c6c3-4fa8-9ce6-43efcef5352e"
+        },
+        "5af08b12-1a6f-4de9-b161-e46023b50312": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "ec189c1f-0814-458a-afc2-b1c3d159f8fc"
+        },
+        "7824db2b-26a6-4087-b898-62c30aee3212": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "5af08b12-1a6f-4de9-b161-e46023b50312"
+        },
+        "e7a996ad-0cb4-4efa-b12d-4ac4bb191ff3": {
+            "name": "BotRoot",
+            "scaling": [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "parent": "2969312b-c7d6-4a83-b334-93221741c723",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "components": [
+                {
+                    "type": "bot-controller"
+                }
+            ]
+        },
+        "1f5c99aa-a882-4674-b097-125fec133707": {
+            "link": {
+                "name": "Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0080285,
+                1.0
+            ],
+            "parent": "e7a996ad-0cb4-4efa-b12d-4ac4bb191ff3"
+        },
+        "6f2bdb2c-ceaf-475c-8f1a-e396d253f5fd": {
+            "link": {
+                "name": "Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "1f5c99aa-a882-4674-b097-125fec133707"
+        },
+        "28a95437-e043-4c7d-aef6-383da6fe5380": {
+            "link": {
+                "name": "BotBody<Body-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "6f2bdb2c-ceaf-475c-8f1a-e396d253f5fd",
+            "translation": [
+                0.0,
+                0.0092694,
+                0.2464963
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scaling": [
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "7168ef6f-077a-4ac6-b37e-b81d11dcb362": {
+            "link": {
+                "name": "L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "1f5c99aa-a882-4674-b097-125fec133707"
+        },
+        "9a7606b1-3331-4dc6-ae5f-cc90f413b70b": {
+            "link": {
+                "name": "L-Arm<L-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "7168ef6f-077a-4ac6-b37e-b81d11dcb362"
+        },
+        "cd9b67ca-9d2c-4317-88b7-799f09fccd5b": {
+            "link": {
+                "name": "L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "1f5c99aa-a882-4674-b097-125fec133707"
+        },
+        "c3ad5b2b-b972-4d6b-b129-a1f2ca09e6ba": {
+            "link": {
+                "name": "L-Leg<L-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "cd9b67ca-9d2c-4317-88b7-799f09fccd5b"
+        },
+        "fc5feb68-6d02-4c38-ab24-37677acf1a4d": {
+            "link": {
+                "name": "R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "1f5c99aa-a882-4674-b097-125fec133707"
+        },
+        "2355dbe3-62b6-4c37-b901-c9ef453313fa": {
+            "link": {
+                "name": "R-Arm<R-Arm-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "fc5feb68-6d02-4c38-ab24-37677acf1a4d"
+        },
+        "a950e656-8428-493d-9841-8b409a9ea773": {
+            "link": {
+                "name": "R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "1f5c99aa-a882-4674-b097-125fec133707",
+            "components": [
+                {
+                    "animation": {
+                        "preview": false,
+                        "retarget": false,
+                        "autoplay": false
+                    }
+                }
+            ]
+        },
+        "67118eab-a3b3-4de6-abd5-7f2796b5c23a": {
+            "link": {
+                "name": "R-Leg<R-Leg-Parent<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "a950e656-8428-493d-9841-8b409a9ea773"
+        },
+        "af539f6b-8fbc-48e3-86a1-d40a4af7e06a": {
+            "link": {
+                "name": "Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "1f5c99aa-a882-4674-b097-125fec133707"
+        },
+        "271a852c-43db-467b-864f-e16c058756b7": {
+            "link": {
+                "name": "Antenna.001<Antenna<Main-Parent",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "parent": "af539f6b-8fbc-48e3-86a1-d40a4af7e06a"
+        },
+        "27478e30-227a-453c-b3c2-fbc1434dc264": {
+            "name": "AmbientSFX",
+            "components": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "type": "howler-audio-source",
+                    "howler-audio-source": {
+                        "src": "music/space.mp3",
+                        "autoplay": true,
+                        "loop": true,
+                        "spatial": false
+                    }
+                }
+            ]
         }
     },
     "meshes": {
@@ -3228,6 +6209,48 @@
                 "name": "Cube",
                 "file": "models\\cube.glb"
             }
+        },
+        "f5dd9c49-8a9e-4f22-a2b6-a1417992586b": {
+            "link": {
+                "name": "Cube.007",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            }
+        },
+        "90c714a0-3209-4ff1-aa9b-2ab412e00202": {
+            "link": {
+                "name": "Cube.010",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            }
+        },
+        "df1bd699-b591-4a37-90e1-bf721b5cbcab": {
+            "link": {
+                "name": "Cube.014",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            }
+        },
+        "8830de31-ccf6-4d7b-aa9a-42c24f0a6c00": {
+            "link": {
+                "name": "Cube.009",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            }
+        },
+        "9091b247-54ff-4968-a9e2-76b864642d86": {
+            "link": {
+                "name": "Cube.013",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            }
+        },
+        "0132cb2c-69ce-491e-8e11-8ab182ca4ad8": {
+            "link": {
+                "name": "Cube.008",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            }
+        },
+        "ed63d936-e399-49a4-9473-bf019de9a5de": {
+            "link": {
+                "name": "ArrowCubeMesh",
+                "file": "models\\arrowCube.glb"
+            }
         }
     },
     "textures": {
@@ -3289,6 +6312,12 @@
             "link": {
                 "name": "texture_0",
                 "file": "models\\portal_test.glb"
+            }
+        },
+        "5e5e3ad0-0962-4b22-811e-9157c97fbd88": {
+            "link": {
+                "name": "texture_0",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
             }
         }
     },
@@ -3369,6 +6398,12 @@
                 "file": "models\\portal_test.glb"
             },
             "compression": "none"
+        },
+        "a85b8423-4209-4525-8d28-25c483094119": {
+            "link": {
+                "name": "Bot1-BAKE",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            }
         }
     },
     "materials": {
@@ -3429,7 +6464,7 @@
                     1.0
                 ]
             },
-            "pipeline": "34",
+            "pipeline": "37",
             "Flat": {
                 "color": [
                     0.0495484,
@@ -4074,6 +7109,33 @@
                 "name": "StingrayPBS2SG",
                 "file": "models\\cube.glb"
             }
+        },
+        "9cf94ad7-a187-4c4e-bb56-0439d6b45812": {
+            "link": {
+                "name": "Bot1_BAKE",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            },
+            "pipeline": "2EEFFF55-2D3D-4104-A086-3AD85FD7F6EE"
+        },
+        "be79f626-7ccf-4c19-aa0c-5a4171461cea": {
+            "link": {
+                "name": "ArrowCubeMat",
+                "file": "models\\arrowCube.glb"
+            },
+            "Phong": {
+                "ambientColor": [
+                    0.5874439,
+                    0.5874439,
+                    0.5874439,
+                    1.0
+                ],
+                "diffuseColor": [
+                    0.2331838,
+                    0.0418266,
+                    0.0959575,
+                    1.0
+                ]
+            }
         }
     },
     "shaders": {
@@ -4210,7 +7272,7 @@
             "version": [
                 1,
                 0,
-                0
+                1
             ],
             "customIndexHtml": true
         },
@@ -4232,11 +7294,11 @@
             "webxr": {
                 "optionalFeatures": {
                     "local-floor": true,
-                    "plane-detection": true,
+                    "plane-detection": false,
                     "anchors": true
                 },
                 "requiredFeatures": {
-                    "plane-detection": false
+                    "plane-detection": true
                 }
             }
         },
@@ -4255,7 +7317,14 @@
             "ids": "uuid"
         }
     },
-    "animations": {},
+    "animations": {
+        "468e03f9-2c37-47c0-bd31-e4d58819b9bd": {
+            "link": {
+                "name": "Walk",
+                "file": "models\\BOT-001_v005-WalkOnly.glb"
+            }
+        }
+    },
     "skins": {
         "133": {
             "link": {
@@ -4513,7 +7582,9 @@
         "fonts/DINPro Black.otf",
         "models/Text_when_win_V01.glb",
         "models/cube_No_Arrow_V2.obj",
-        "models/cube.glb"
+        "models/cube.glb",
+        "models/BOT-001_v005-WalkOnly.glb",
+        "models/arrowCube.glb"
     ],
     "fonts": {
         "230": {

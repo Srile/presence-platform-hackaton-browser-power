@@ -1,10 +1,21 @@
 import { Collider, CollisionComponent, Component, MeshComponent, Property } from '@wonderlandengine/api';
 import { vec3 } from 'gl-matrix';
+import { TILE_WIDTH, currentLevelPlacements } from './game-manager';
+import { HowlerAudioSource } from '@wonderlandengine/components';
+import { BLOCK_TYPES, blockDataContainer } from './block-data-container';
 
 let currentObjects = [];
 
-export let objectPlacers = {}
+let selectedBlockType = BLOCK_TYPES.normal;
 
+export function setSelectedBlockType(type) {
+    selectedBlockType = type;
+}
+
+export let objectPlacers = {}
+export let blockSpace;
+    
+export let MULTIPLIER = 1;
 /**
  * object-placer
  */
@@ -15,14 +26,13 @@ export class ObjectPlacer extends Component {
         gridIncrementSteps: Property.float(0.5),
         handedness: Property.string("left"),
         meshCube: Property.mesh(),
-        allowedMaterial: Property.material(),
         disallowedMaterial: Property.material(),
         blockSpace: Property.object()
     };
 
     _tempVec = new Float32Array(3);
+    _tempVecInt = new Int32Array(3);
     _zeros = 0;
-    _multiplier = 1;
     _boxExtents = [0.095, 0.095, 0.095];
 
     _onDeactivateCallbacks = [];
@@ -33,13 +43,14 @@ export class ObjectPlacer extends Component {
     static Dependencies = [];
 
     start() {
+        if(!blockSpace) blockSpace = this.blockSpace;
         objectPlacers[this.handedness] = this;
+
+        this.placeAudio = this.object.getComponent(HowlerAudioSource);
 
         let str = this.gridIncrementSteps.toFixed(20);  // Set the number of digits to a large value
 
         // Loop through the string representation of the number
-
-        this.positionDummy = this.engine.scene.addObject(this.blockSpace);
 
         this._onSessionStartCallback = this.setupVREvents.bind(this);
         // this.engine.onXRSessionStart.add(this._onSessionStartCallback);
@@ -53,9 +64,7 @@ export class ObjectPlacer extends Component {
             }
         }
 
-        this._multiplier = 10 * this._zeros;
-
-
+        MULTIPLIER = 10 * this._zeros;
     }
 
     setupVREvents(s) {
@@ -100,17 +109,9 @@ export class ObjectPlacer extends Component {
 
             this.currentCube.meshComponent = this.currentCube.addComponent(MeshComponent, {
                 material: this.disallowedMaterial,
-                mesh: this.meshCube,
+                mesh: blockDataContainer.getMesh(selectedBlockType),
             });
 
-            this.currentCube.collisionComponent = this.currentCube.addComponent(CollisionComponent, {
-                group: (1 << 2),
-                extents: this._boxExtents,
-                collider: Collider.Sphere
-            });
-
-
-            this.currentCube.name = "BOUNxCE"
             this._placementAllowed = false;
             this._isDown = true;
         }
@@ -123,42 +124,98 @@ export class ObjectPlacer extends Component {
 
             if (this._placementAllowed) {
                 currentObjects.push(this.currentCube);
-                this.currentCube.collisionComponent = this.currentCube.addComponent(CollisionComponent, {
-                    group: (1 << 3),
-                    extents: this._boxExtents,
-                    collider: Collider.Sphere
-                });
+                currentLevelPlacements.set(this._tempVecInt.toString(), 'block');
+                this.placeAudio.play();
             } 
             else this.currentCube.active = false;
-
-            console.log('SPAWN CUBE');
         }
     }
 
     update(dt) {
         if (this._isDown) {
-            this.object.getTranslationWorld(this._tempVec);
-            this.positionDummy.setTranslationWorld(this._tempVec);
-            this.positionDummy.getTranslationLocal(this._tempVec);
+            this.object.getPositionWorld(this._tempVec);
+            alignToGrid(this._tempVec, this._tempVecInt);
+            this.currentCube.setPositionLocal(this._tempVec);
 
-            // this.blockSpace.transformPointInverseWorld(this._tempVec, this._tempVec);
+            const overlaps = checkCollision(this._tempVecInt);
+            // const overlaps = this.currentCube.collisionComponent.queryOverlaps();
 
-            vec3.scale(this._tempVec, this._tempVec, this._multiplier);
-            vec3.round(this._tempVec, this._tempVec);
-            vec3.scale(this._tempVec, this._tempVec, 1.0 / this._multiplier);
-
-            this.currentCube.setTranslationLocal(this._tempVec);
-
-            const overlaps = this.currentCube.collisionComponent.queryOverlaps();
-
-            if (overlaps.length && this._placementAllowed) {
+            if (overlaps && this._placementAllowed) {
                 this.currentCube.meshComponent.material = this.disallowedMaterial;
                 this._placementAllowed = false;
-            } else if (!overlaps.length && !this._placementAllowed) {
-                this.currentCube.meshComponent.material = this.allowedMaterial;
+            } else if (!overlaps && !this._placementAllowed) {
+                this.currentCube.meshComponent.material = blockDataContainer.getMaterial(selectedBlockType);
                 this._placementAllowed = true;
             }
         }
         /* Called every frame. */
     }
+}
+
+let tempVecInt = new Int32Array(3);
+
+export function checkCollision(position) {
+    for (let x = -1; x < TILE_WIDTH; x++) {
+        for (let y = -1; y < TILE_WIDTH; y++) {
+            for (let z = -1; z < TILE_WIDTH; z++) {
+                tempVecInt.set(position);
+                tempVecInt[0] += x;
+                tempVecInt[1] += y;
+                tempVecInt[2] += z;
+                if(currentLevelPlacements.get(tempVecInt.toString())) return true;
+            } 
+        }               
+    }
+    return false;
+}
+
+export function checkCollisionZ(position, lookIsPositive) {
+    tempVecInt.set(position);
+    tempVecInt[2] += lookIsPositive ? 1 : -1;
+    if(currentLevelPlacements.get(tempVecInt.toString())) return true;
+    return false;
+}
+
+export function checkCollisionX(position, lookIsPositive) {
+    tempVecInt.set(position);
+    tempVecInt[0] += lookIsPositive ? 1 : -1;
+    if(currentLevelPlacements.get(tempVecInt.toString())) return true;
+    return false;
+}
+
+export function checkCollisionY(position, lookIsPositive) {
+    tempVecInt.set(position);
+    tempVecInt[1] += lookIsPositive ? 1 : -1;
+    if(currentLevelPlacements.get(tempVecInt.toString())) return true;
+    return false;
+}
+
+export function checkCollisionWalking(position) {
+    tempVecInt.set(position);
+
+    for (let z = 0; z < TILE_WIDTH + 1; z++) {
+        tempVecInt.set(position);
+        tempVecInt[1] -= 1;
+        tempVecInt[2] += z;
+        if(currentLevelPlacements.get(tempVecInt.toString()) === 'block') return true;
+    }
+    return false;
+}
+
+export function checkCollisionUFO(position) {
+    if(currentLevelPlacements.get(position.toString()) === 'ufo') return true;
+    return false;
+}
+
+export function alignToGrid(vector, vecInt) {
+    blockSpace.transformPointInverseWorld(vector);
+
+    vec3.scale(vector, vector, MULTIPLIER);
+    vec3.round(vector, vector);
+    if(vecInt) {
+        vecInt[0] = Math.round(vector[0])
+        vecInt[1] = Math.round(vector[1])
+        vecInt[2] = Math.round(vector[2])
+    }
+    vec3.scale(vector, vector, 1.0 / MULTIPLIER);
 }
