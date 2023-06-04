@@ -18,7 +18,6 @@ export let currentLevelPlacementsObjects = new Map();
 export const TILE_WIDTH = 2;
 
 let tempVecInt = new Int32Array(3);
-let tempVecInt2 = new Int32Array(3);
 
 /**
  * game-manager

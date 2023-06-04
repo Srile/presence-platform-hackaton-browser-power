@@ -25,6 +25,10 @@ export const BLOCK_FUNCTIONS = {
     },
 }
 
+export function isBlockRotatable(type) {
+    return type === BLOCK_TYPES.turnRight;
+}
+
 export function isBlockSpecial(type) {
     return type === BLOCK_TYPES.turnRight;
 }

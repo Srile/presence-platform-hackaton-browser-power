@@ -2,7 +2,8 @@ import { Collider, CollisionComponent, Component, MeshComponent, Property } from
 import { vec3 } from 'gl-matrix';
 import { TILE_WIDTH, currentLevelPlacements, currentLevelPlacementsObjects } from './game-manager';
 import { HowlerAudioSource } from '@wonderlandengine/components';
-import { BLOCK_TYPES, blockDataContainer } from './block-data-container';
+import { BLOCK_TYPES, blockDataContainer, isBlockRotatable } from './block-data-container';
+import { Vec3Utils } from 'wle-pp';
 
 let currentObjects = [];
 // let selectedBlockType = BLOCK_TYPES.normal;
@@ -35,16 +36,14 @@ export class ObjectPlacer extends Component {
     };
 
     _tempVec = new Float32Array(3);
+    _tempVec2 = new Float32Array(3);
     _tempVecInt = new Int32Array(3);
     _zeros = 0;
+    _up = [0.0, 1.0, 0.0];
     _boxExtents = [0.095, 0.095, 0.095];
 
     _onDeactivateCallbacks = [];
     _onActivateCallbacks = [];
-
-    /* Add other component types here that your component may
-     * create. They will be registered with this component */
-    static Dependencies = [];
 
     start() {
         if(!blockSpace) blockSpace = this.blockSpace;
@@ -142,10 +141,25 @@ export class ObjectPlacer extends Component {
             alignToGrid(this._tempVec, this._tempVecInt);
             this.currentCube.setPositionLocal(this._tempVec);
 
+            if(isBlockRotatable(selectedBlockType)) {
+                // this.object.getForwardWorld(this._tempVec2);
+                
+                this.blockSpace.getForwardWorld(this._tempVec);
+                this.object.getForwardWorld(this._tempVec2);
+                
+                // this._tempVec2 = this._tempVec2.vec3_removeComponentAlongAxis(this._up, this._tempVec2);
+                this._tempVec2[1] = 0.0;
+                let pitch = -Vec3Utils.angleSignedRadians(this._tempVec2, this._tempVec, this._up);
+                pitch = snapTo90Degrees(pitch);
+
+                this.currentCube.resetRotation();
+                this.currentCube.rotateAxisAngleRadObject(this._up, pitch);
+
+                alignToGrid(this._tempVec, this._tempVecInt);
+            }
+
             const overlaps = checkCollision(this._tempVecInt);
             // const overlaps = this.currentCube.collisionComponent.queryOverlaps();
-
-            // TODO: Do rotation of block based on controller rotation
 
             if (overlaps && this._placementAllowed) {
                 this.currentCube.meshComponent.material = this.disallowedMaterial;
@@ -237,3 +251,16 @@ export function alignToGrid(vector, vecInt) {
     }
     vec3.scale(vector, vector, 1.0 / MULTIPLIER);
 }
+
+function snapTo90Degrees(angle) {
+    // Convert the angle to degrees
+    const degrees = angle * (180 / Math.PI);
+  
+    // Find the nearest multiple of 90
+    const snappedDegrees = Math.round(degrees / 90) * 90;
+  
+    // Convert the degrees back to radians
+    const snappedAngle = snappedDegrees * (Math.PI / 180);
+  
+    return snappedAngle;
+  }

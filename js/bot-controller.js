@@ -102,6 +102,9 @@ export class BotController extends Component {
             return;
         }
 
+
+        // TODO: Set execution to only happen once per block per bot
+        // TODO: 
         const belowBlockType = getCurrentBelowBlockType(_tempVecInt);
         if(isBlockSpecial(belowBlockType)) {
             BLOCK_FUNCTIONS[belowBlockType](getCurrentBelowBlockObject(_tempVecInt), this.object);
