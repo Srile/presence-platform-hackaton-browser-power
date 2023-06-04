@@ -13,6 +13,7 @@ import { botSpawner } from './spawn-bot';
 export let gameManager;
 
 export let currentLevelPlacements = new Map();
+export let currentLevelPlacementsObjects = new Map();
 
 export const TILE_WIDTH = 2;
 

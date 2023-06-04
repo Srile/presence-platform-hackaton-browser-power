@@ -110,9 +110,9 @@ export class PlacePortal extends Component {
     portalObject,
     clickedObject
   ) {
-    portalObject.setTranslationWorld(this.cursor.cursorObject.getTranslationWorld(tempQuat2));
+    portalObject.setPositionWorld(this.cursor.cursorObject.getPositionWorld(tempQuat2));
     if(clickedObject) {
-      clickedObject.getTranslationWorld(this.tempVec);
+      clickedObject.getPositionWorld(this.tempVec);
       clickedObject.getUp(this.tempVec2);
       vec3.negate(this.tempVec2, this.tempVec2);
 

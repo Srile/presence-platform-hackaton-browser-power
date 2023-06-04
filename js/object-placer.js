@@ -1,15 +1,19 @@
 import { Collider, CollisionComponent, Component, MeshComponent, Property } from '@wonderlandengine/api';
 import { vec3 } from 'gl-matrix';
-import { TILE_WIDTH, currentLevelPlacements } from './game-manager';
+import { TILE_WIDTH, currentLevelPlacements, currentLevelPlacementsObjects } from './game-manager';
 import { HowlerAudioSource } from '@wonderlandengine/components';
 import { BLOCK_TYPES, blockDataContainer } from './block-data-container';
 
 let currentObjects = [];
-
-let selectedBlockType = BLOCK_TYPES.normal;
+// let selectedBlockType = BLOCK_TYPES.normal;
+let selectedBlockType = BLOCK_TYPES.turnRight;
 
 export function setSelectedBlockType(type) {
     selectedBlockType = type;
+}
+
+function isBlockTypeWalkable(type) {
+    return type === BLOCK_TYPES.normal || type === BLOCK_TYPES.turnRight;
 }
 
 export let objectPlacers = {}
@@ -124,7 +128,8 @@ export class ObjectPlacer extends Component {
 
             if (this._placementAllowed) {
                 currentObjects.push(this.currentCube);
-                currentLevelPlacements.set(this._tempVecInt.toString(), 'block');
+                currentLevelPlacements.set(this._tempVecInt.toString(), selectedBlockType);
+                currentLevelPlacementsObjects.set(this._tempVecInt.toString(), this.currentCube);
                 this.placeAudio.play();
             } 
             else this.currentCube.active = false;
@@ -140,6 +145,8 @@ export class ObjectPlacer extends Component {
             const overlaps = checkCollision(this._tempVecInt);
             // const overlaps = this.currentCube.collisionComponent.queryOverlaps();
 
+            // TODO: Do rotation of block based on controller rotation
+
             if (overlaps && this._placementAllowed) {
                 this.currentCube.meshComponent.material = this.disallowedMaterial;
                 this._placementAllowed = false;
@@ -148,7 +155,6 @@ export class ObjectPlacer extends Component {
                 this._placementAllowed = true;
             }
         }
-        /* Called every frame. */
     }
 }
 
@@ -197,9 +203,21 @@ export function checkCollisionWalking(position) {
         tempVecInt.set(position);
         tempVecInt[1] -= 1;
         tempVecInt[2] += z;
-        if(currentLevelPlacements.get(tempVecInt.toString()) === 'block') return true;
+        if(isBlockTypeWalkable(currentLevelPlacements.get(tempVecInt.toString()))) return true;
     }
     return false;
+}
+
+export function getCurrentBelowBlockType(position) {
+    tempVecInt.set(position);
+    tempVecInt[1] -= 1;
+    return currentLevelPlacements.get(tempVecInt.toString());
+}
+
+export function getCurrentBelowBlockObject(position) {
+    tempVecInt.set(position);
+    tempVecInt[1] -= 1;
+    return currentLevelPlacementsObjects.get(tempVecInt.toString());
 }
 
 export function checkCollisionUFO(position) {

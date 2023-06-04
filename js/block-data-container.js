@@ -1,10 +1,32 @@
 import {Component, Property} from '@wonderlandengine/api';
+import { Vec3Utils, lookAt } from 'wle-pp';
 
 export let blockDataContainer;
 
 export const BLOCK_TYPES = {
     normal: 'block',
     turnRight: 'turn',
+}
+
+let _tempVec = new Float32Array(3);
+let _tempVec2 = new Float32Array(3);
+const up = [0.0, 1.0, 0.0];
+
+export const BLOCK_FUNCTIONS = {
+    turn: (block, bot) => {
+        block.getPositionWorld(_tempVec);
+        block.getRightWorld(_tempVec2);
+
+        Vec3Utils.add(_tempVec, _tempVec2, _tempVec);
+
+        console.log('TURN');
+
+        lookAt(bot, _tempVec, up);
+    },
+}
+
+export function isBlockSpecial(type) {
+    return type === BLOCK_TYPES.turnRight;
 }
 
 /**
